@@ -35,6 +35,7 @@ func take_damage(damage: float) -> void:
 
 
 func _on_atack_signal() -> void:
+	print("ATACK")
 	random_atack()
 
 

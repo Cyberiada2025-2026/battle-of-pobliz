@@ -14,6 +14,11 @@ config/name="Battle Of Pobliz"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_physics/layer_9="PlayerAtacks"
+2d_physics/layer_10="BossAtacks"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

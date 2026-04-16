@@ -3,4 +3,7 @@
 [ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://character/boss/elements/boss_damage_point.gd" id="1_106xf"]
 
 [node name="BossDamagePoint" type="Area2D" unique_id=2060356289]
+collision_mask = 256
 script = ExtResource("1_106xf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
