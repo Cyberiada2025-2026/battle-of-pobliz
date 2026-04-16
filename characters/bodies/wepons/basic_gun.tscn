@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://m5esfrv6ybuk"]
+
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_sabrk"]
+[ext_resource type="Script" uid="uid://c34ayt7l83mx7" path="res://characters/bodies/wepons/basic_gun.gd" id="1_seknx"]
+
+[node name="BasicGun" type="Node2D" unique_id=1478855736]
+script = ExtResource("1_seknx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=436876841]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(31, 1)
+scale = Vector2(0.515625, 0.07812499)
+texture = ExtResource("1_sabrk")
