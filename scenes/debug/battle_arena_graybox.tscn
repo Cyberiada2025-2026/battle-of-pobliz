@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxi0iucx4etrm"]
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
-[ext_resource type="PackedScene" uid="uid://cpe3cgwyvepj8" path="res://characters/player/player_controller.tscn" id="2_neadt"]
+[ext_resource type="PackedScene" uid="uid://cpe3cgwyvepj8" path="res://characters/bodies/body_controller.tscn" id="2_neadt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(34, 666)
@@ -34,5 +34,5 @@ position = Vector2(936, 400)
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
 position = Vector2(576, 504)
 
-[node name="PlayerController" parent="." unique_id=1753823366 instance=ExtResource("2_neadt")]
+[node name="BodyController" parent="." unique_id=1753823366 instance=ExtResource("2_neadt")]
 position = Vector2(136, 592)
