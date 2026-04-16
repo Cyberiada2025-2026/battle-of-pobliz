@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
-size = Vector2(34, 666)
+size = Vector2(42, 733)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt32o"]
 size = Vector2(1151, 37)
@@ -16,15 +16,19 @@ size = Vector2(1151, 37)
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
 
 [node name="BoundaryLeft" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
-position = Vector2(0, 323)
+position = Vector2(-2, 303)
 shape = SubResource("RectangleShape2D_neadt")
 
 [node name="BoundaryRight" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
-position = Vector2(1152, 328)
+position = Vector2(1150, 314.5)
 shape = SubResource("RectangleShape2D_neadt")
 
 [node name="BoundaryCenter" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
 position = Vector2(575.5, 656)
+shape = SubResource("RectangleShape2D_lt32o")
+
+[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
+position = Vector2(573, -56)
 shape = SubResource("RectangleShape2D_lt32o")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
