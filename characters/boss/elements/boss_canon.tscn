@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0flpd3gh7rj8"]
 
-[ext_resource type="Script" uid="uid://crhr1qmrihchj" path="res://character/boss/elements/boss_canon.gd" id="1_ro2eh"]
+[ext_resource type="Script" uid="uid://crhr1qmrihchj" path="res://characters/boss/elements/boss_canon.gd" id="1_ro2eh"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tpc55"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwubs"]
