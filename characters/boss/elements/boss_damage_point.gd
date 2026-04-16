@@ -5,4 +5,4 @@ class_name BossDamagePoint
 
 
 func _on_area_entered(area: Area2D) -> void:
-	boss.take_damage(area.take_damage())
+	boss.take_damage(area.get_damage())
