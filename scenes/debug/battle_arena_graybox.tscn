@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxi0iucx4etrm"]
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
+[ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://character/boss/boss.tscn" id="2_neadt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(34, 666)
@@ -32,3 +33,5 @@ position = Vector2(936, 400)
 
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
 position = Vector2(576, 504)
+
+[node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]

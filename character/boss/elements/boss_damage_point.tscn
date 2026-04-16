@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5gkb0xtaxnfa"]
+
+[ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://character/boss/elements/boss_damage_point.gd" id="1_106xf"]
+
+[node name="BossDamagePoint" type="Area2D" unique_id=2060356289]
+script = ExtResource("1_106xf")
