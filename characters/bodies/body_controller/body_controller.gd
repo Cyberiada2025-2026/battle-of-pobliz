@@ -9,12 +9,10 @@ func _ready() -> void:
 		movement_comp.body = self
 
 func _physics_process(delta: float) -> void:
+	if not get_node("%PossessionManager").current_body == self:
+		return
+
 	for movement_comp in movement_components:
 		movement_comp.apply(delta)
 
 	move_and_slide()
-
-
-
-
-
