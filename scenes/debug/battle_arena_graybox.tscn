@@ -52,9 +52,12 @@ script = ExtResource("4_o0ro2")
 current_body = NodePath("../JumpingBody")
 player_camera = NodePath("Camera2D")
 ray_cast = NodePath("Camera2D/BodyPossessionRaycast")
+camera_transfer_time = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="PossessionManager" unique_id=836962515]
 position = Vector2(592, 416)
+offset = Vector2(0, -60)
+position_smoothing_speed = 10.0
 
 [node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
 position = Vector2(0, -24)
