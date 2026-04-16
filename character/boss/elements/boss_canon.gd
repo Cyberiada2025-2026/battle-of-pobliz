@@ -1,0 +1,2 @@
+extends BossDamagePoint
+class_name BossCanon
