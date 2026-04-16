@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
 [ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://characters/boss/boss.tscn" id="2_neadt"]
-[ext_resource type="PackedScene" uid="uid://m5esfrv6ybuk" path="res://characters/bodies/wepons/basic_gun.tscn" id="3_lq37g"]
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
@@ -44,9 +43,6 @@ position = Vector2(576, 504)
 position = Vector2(592, 416)
 
 [node name="Camera2D" type="Camera2D" parent="JumpingBody" unique_id=836962515]
-
-[node name="BasicGun" parent="JumpingBody" unique_id=1478855736 instance=ExtResource("3_lq37g")]
-position = Vector2(0, -23)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
