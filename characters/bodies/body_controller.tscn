@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller.gd" id="1_laeud"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_oj1ta"]
-[ext_resource type="Script" uid="uid://cai4lr5qdgs4l" path="res://characters/bodies/grounded_movement_component.gd" id="3_bhtu2"]
-[ext_resource type="Script" uid="uid://bmjqr5j3dytcc" path="res://characters/bodies/gravity_component.gd" id="3_em76j"]
-[ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/jump_component.gd" id="4_0bj7s"]
+[ext_resource type="Script" uid="uid://d4dsitxe5jlu5" path="res://characters/bodies/flight_movement_component.gd" id="6_7fqpg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
 radius = 16.0
@@ -12,7 +10,7 @@ height = 48.0
 
 [node name="BodyController" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
 script = ExtResource("1_laeud")
-movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent")]
+movement_components = [NodePath("FlightMovementComponent")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=246461862]
 position = Vector2(0, -23.999998)
@@ -23,14 +21,5 @@ texture = ExtResource("1_oj1ta")
 position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_laeud")
 
-[node name="GravityComponent" type="Node" parent="." unique_id=60538452]
-script = ExtResource("3_em76j")
-
-[node name="GroundedMovementComponent" type="Node" parent="." unique_id=917443187]
-script = ExtResource("3_bhtu2")
-speed = 200.0
-
-[node name="JumpComponent" type="Node" parent="." unique_id=2124581300]
-script = ExtResource("4_0bj7s")
-jump_velocity = 600.0
-max_jump_count = 2
+[node name="FlightMovementComponent" type="Node" parent="." unique_id=667283270]
+script = ExtResource("6_7fqpg")
