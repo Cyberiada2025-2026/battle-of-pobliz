@@ -28,7 +28,7 @@ func shot_serie(cannon: BossCanon):
 	for i in shot_count:
 		print("shot!")
 		var bullet: RigidBody2D = bullet_prefab.instantiate()
-		add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 		var player_pos = Vector2(592.0, 416.0)
 		var move_direction = (player_pos - cannon.position).normalized()
 
