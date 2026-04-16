@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dxi0iucx4etrm"]
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
+[ext_resource type="PackedScene" uid="uid://d0n8i5w3qg3ea" path="res://characters/bodies/prefabs/flying_body.tscn" id="2_lt32o"]
 [ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://characters/boss/boss.tscn" id="2_neadt"]
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
+[ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(34, 666)
@@ -38,7 +40,25 @@ position = Vector2(576, 504)
 [node name="JumpingBody" parent="." unique_id=1224676810 instance=ExtResource("3_o0ro2")]
 position = Vector2(592, 416)
 
-[node name="Camera2D" type="Camera2D" parent="JumpingBody" unique_id=836962515]
+[node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
+position = Vector2(208, 552)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
+
+[node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast")]
+unique_name_in_owner = true
+script = ExtResource("4_o0ro2")
+current_body = NodePath("../JumpingBody")
+player_camera = NodePath("Camera2D")
+ray_cast = NodePath("Camera2D/BodyPossessionRaycast")
+camera_transfer_time = 0.2
+
+[node name="Camera2D" type="Camera2D" parent="PossessionManager" unique_id=836962515]
+position = Vector2(592, 416)
+offset = Vector2(0, -60)
+position_smoothing_speed = 10.0
+
+[node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
+position = Vector2(0, -24)
+collision_mask = 128
