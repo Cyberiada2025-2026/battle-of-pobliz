@@ -5,16 +5,17 @@
 [ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://characters/boss/elements/boss_damage_point.gd" id="2_ia5xw"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
-
+[ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 80.0
 
-[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head")]
+[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "fase_1_atack_set")]
 script = ExtResource("1_kwubs")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
+fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack")]
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
@@ -57,5 +58,16 @@ position = Vector2(577.70074, 53.468937)
 rotation = -3.1415925
 scale = Vector2(8.982091, 1.8354521)
 texture = ExtResource("2_850g2")
+
+[node name="Attacks" type="Node2D" parent="." unique_id=2086179413]
+
+[node name="Phase1" type="Node2D" parent="Attacks" unique_id=1507015553]
+
+[node name="BasicCannonAttack" type="Node" parent="Attacks/Phase1" unique_id=585527226 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 3
+bullet_speed = 1000.0
+cannons = [NodePath("../../../hitbox/canons/Boss Canon"), NodePath("../../../hitbox/canons/Boss Canon2")]
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
 [connection signal="atack_signal" from="." to="." method="_on_atack_signal"]

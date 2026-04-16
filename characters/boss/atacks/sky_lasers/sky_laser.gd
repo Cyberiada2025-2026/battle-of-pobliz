@@ -9,8 +9,8 @@ extends Node
 @export var marker_show_time: float = 2.0
 @export var attack_duration: float = 2.0
 
-var laser_marker_prefab = preload("res://shared/boss_attacks/sky_lasers/laser_marker.tscn")
-var laser_prefab = preload("res://shared/boss_attacks/sky_lasers/laser.tscn")
+var laser_marker_prefab = preload("res://characters/boss/atacks/sky_lasers/laser_marker.tscn")
+var laser_prefab = preload("res://characters/boss/atacks/sky_lasers/laser.tscn")
 
 var markers
 var lasers

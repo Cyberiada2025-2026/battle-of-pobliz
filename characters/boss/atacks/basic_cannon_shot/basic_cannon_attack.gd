@@ -1,0 +1,40 @@
+class_name BasicCannonAttack
+extends Node
+
+@export var shot_count: int = 1
+@export var shot_cooldown: float = 0.2
+@export var shot_series: int = 2
+@export var shot_series_cooldown: float = 0.5
+
+@export var bullet_speed: float = 0.2
+
+#temp
+@export var player: BodyController
+
+@export var cannons: Array[BossCanon]
+
+var bullet_prefab = preload("res://shared/projectiles/boss/basic_bullet.tscn")
+
+
+func use():
+	for i in shot_series:
+		print("start serie!")
+		shot_serie(cannons[i % cannons.size()])
+
+		await get_tree().create_timer(shot_series_cooldown).timeout
+
+
+func shot_serie(cannon: BossCanon):
+	for i in shot_count:
+		print("shot!")
+		var bullet: RigidBody2D = bullet_prefab.instantiate()
+		add_child(bullet)
+		var player_pos = Vector2(592.0, 416.0)
+		var move_direction = (player_pos - cannon.position).normalized()
+
+		bullet.apply_central_impulse(move_direction * bullet_speed)
+		bullet.global_position = cannon.global_position
+		print(bullet.position)
+		print(bullet.linear_velocity)
+
+		await get_tree().create_timer(shot_cooldown).timeout
