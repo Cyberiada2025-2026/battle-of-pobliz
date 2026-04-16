@@ -33,3 +33,4 @@ speed = 200.0
 [node name="JumpComponent" type="Node" parent="." unique_id=2124581300]
 script = ExtResource("4_0bj7s")
 jump_velocity = 600.0
+max_jump_count = 2
