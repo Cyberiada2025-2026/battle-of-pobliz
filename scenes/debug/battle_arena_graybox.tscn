@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dxi0iucx4etrm"]
+
+[ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
+size = Vector2(34, 666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt32o"]
+size = Vector2(1151, 37)
+
+[node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
+position = Vector2(0, 323)
+shape = SubResource("RectangleShape2D_neadt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
+position = Vector2(1152, 328)
+shape = SubResource("RectangleShape2D_neadt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
+position = Vector2(568, 656)
+shape = SubResource("RectangleShape2D_lt32o")
+
+[node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
+position = Vector2(216, 400)
+
+[node name="Platform2" parent="." unique_id=820172900 instance=ExtResource("1_0b70h")]
+position = Vector2(936, 400)
+
+[node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
+position = Vector2(576, 504)
