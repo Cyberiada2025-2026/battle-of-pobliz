@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cdai4b5ndwfha"]
+
+[ext_resource type="Script" uid="uid://lqnrvfe0wmq5" path="res://character/boss/boss.gd" id="1_kwubs"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_850g2"]
+[ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://character/boss/elements/boss_damage_point.gd" id="2_ia5xw"]
+[ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://character/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
+[ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://character/boss/elements/boss_canon.tscn" id="3_qypww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
+radius = 80.0
+
+[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head")]
+script = ExtResource("1_kwubs")
+canon_left = NodePath("hitbox/canons/Boss Canon")
+canon_right = NodePath("hitbox/canons/Boss Canon2")
+head = NodePath("hitbox/head")
+
+[node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
+
+[node name="head" type="Area2D" parent="hitbox" unique_id=302636103 node_paths=PackedStringArray("boss")]
+position = Vector2(550, 50)
+script = ExtResource("2_ia5xw")
+boss = NodePath("../..")
+metadata/_custom_type_script = "uid://moi8ubohtdkb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
+shape = SubResource("CircleShape2D_vbcuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="hitbox/head" unique_id=1094805491]
+texture = ExtResource("2_850g2")
+
+[node name="canons" type="Node2D" parent="hitbox" unique_id=536864587]
+position = Vector2(0, 170)
+
+[node name="Boss Canon" parent="hitbox/canons" unique_id=836624194 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]
+position = Vector2(200, 0)
+boss = NodePath("../../..")
+
+[node name="Boss Canon2" parent="hitbox/canons" unique_id=245464660 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]
+position = Vector2(900, 0)
+boss = NodePath("../../..")
+
+[node name="Timers" type="Node2D" parent="." unique_id=18578748]
+
+[node name="Atack Timer" parent="Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
+boss = NodePath("../..")
+min_cooldown = 1.0
+max_cooldown = 2.0
+
+[node name="Others" type="Node2D" parent="." unique_id=1560501707]
+
+[node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+position = Vector2(577.70074, 53.468937)
+rotation = -3.1415925
+scale = Vector2(8.982091, 1.8354521)
+texture = ExtResource("2_850g2")
+
+[connection signal="atack_signal" from="." to="." method="_on_atack_signal"]

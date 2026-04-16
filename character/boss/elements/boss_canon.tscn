@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b0flpd3gh7rj8"]
+
+[ext_resource type="Script" uid="uid://crhr1qmrihchj" path="res://character/boss/elements/boss_canon.gd" id="1_ro2eh"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tpc55"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwubs"]
+radius = 30.0
+
+[node name="Boss Canon" type="Area2D" unique_id=836624194]
+script = ExtResource("1_ro2eh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16431274]
+shape = SubResource("CircleShape2D_kwubs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=17325724]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_tpc55")
