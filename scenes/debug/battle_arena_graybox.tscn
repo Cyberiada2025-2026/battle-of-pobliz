@@ -36,3 +36,5 @@ position = Vector2(576, 504)
 
 [node name="BodyController" parent="." unique_id=1753823366 instance=ExtResource("2_neadt")]
 position = Vector2(136, 592)
+
+[node name="Camera2D" type="Camera2D" parent="BodyController" unique_id=2013201219]
