@@ -8,8 +8,6 @@ extends Node
 
 @export var bullet_speed: float = 0.2
 
-#temp
-@export var player: BodyController
 
 @export var cannons: Array[BossCanon]
 
@@ -18,7 +16,6 @@ var bullet_prefab = preload("res://shared/projectiles/boss/basic_bullet.tscn")
 
 func use():
 	for i in shot_series:
-		print("start serie!")
 		shot_serie(cannons[i % cannons.size()])
 
 		await get_tree().create_timer(shot_series_cooldown).timeout
@@ -26,7 +23,6 @@ func use():
 
 func shot_serie(cannon: BossCanon):
 	for i in shot_count:
-		print("shot!")
 		var bullet: RigidBody2D = bullet_prefab.instantiate()
 		get_tree().current_scene.add_child(bullet)
 		var player_pos = Vector2(592.0, 416.0)

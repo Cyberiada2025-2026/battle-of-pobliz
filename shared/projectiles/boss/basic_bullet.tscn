@@ -7,10 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_spvli"]
 
 [node name="BasicBullet" type="RigidBody2D" unique_id=1546428308]
-collision_layer = 0
-collision_mask = 0
-mass = 0.001
+collision_layer = 513
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp_mode = 1
 script = ExtResource("1_q3asc")
 
@@ -25,4 +25,4 @@ shape = SubResource("CircleShape2D_spvli")
 script = ExtResource("2_spvli")
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
-[connection signal="body_entered" from="." to="." method="collision"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
