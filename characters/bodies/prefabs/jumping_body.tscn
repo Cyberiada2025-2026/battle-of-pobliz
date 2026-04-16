@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bd04here2r0gh"]
+
+[ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller/body_controller.gd" id="1_hgofc"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_6lqb0"]
+[ext_resource type="Script" uid="uid://bmjqr5j3dytcc" path="res://characters/bodies/movement_components/gravity_component.gd" id="3_eey7s"]
+[ext_resource type="Script" uid="uid://cai4lr5qdgs4l" path="res://characters/bodies/movement_components/grounded_movement_component.gd" id="4_7vlab"]
+[ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/movement_components/jump_component.gd" id="5_qtlex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
+radius = 16.0
+height = 48.0
+
+[node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
+script = ExtResource("1_hgofc")
+movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=246461862]
+position = Vector2(0, -23.999998)
+scale = Vector2(0.25, 0.375)
+texture = ExtResource("2_6lqb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632693015]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_laeud")
+
+[node name="GravityComponent" type="Node" parent="." unique_id=334611895]
+script = ExtResource("3_eey7s")
+metadata/_custom_type_script = "uid://bmjqr5j3dytcc"
+
+[node name="GroundedMovementComponent" type="Node" parent="." unique_id=2018060262]
+script = ExtResource("4_7vlab")
+metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
+
+[node name="JumpComponent" type="Node" parent="." unique_id=2080854299]
+script = ExtResource("5_qtlex")
+jump_velocity = 600.0
+max_jump_count = 2
+metadata/_custom_type_script = "uid://bv0a0uif4y5pk"

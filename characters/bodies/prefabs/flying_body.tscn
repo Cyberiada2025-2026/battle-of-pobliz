@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d0n8i5w3qg3ea"]
+
+[ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller/body_controller.gd" id="1_27qwu"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_782ak"]
+[ext_resource type="Script" uid="uid://d4dsitxe5jlu5" path="res://characters/bodies/movement_components/flight_movement_component.gd" id="3_l2bm4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
+radius = 16.0
+height = 48.0
+
+[node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
+script = ExtResource("1_27qwu")
+movement_components = [NodePath("FlightMovementComponent")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=246461862]
+position = Vector2(0, -23.999998)
+scale = Vector2(0.25, 0.375)
+texture = ExtResource("2_782ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632693015]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_laeud")
+
+[node name="FlightMovementComponent" type="Node" parent="." unique_id=1784985533]
+script = ExtResource("3_l2bm4")
+metadata/_custom_type_script = "uid://d4dsitxe5jlu5"
