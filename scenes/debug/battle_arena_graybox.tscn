@@ -15,16 +15,16 @@ size = Vector2(1151, 37)
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
+[node name="BoundaryLeft" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
 position = Vector2(0, 323)
 shape = SubResource("RectangleShape2D_neadt")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
+[node name="BoundaryRight" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
 position = Vector2(1152, 328)
 shape = SubResource("RectangleShape2D_neadt")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
-position = Vector2(568, 656)
+[node name="BoundaryCenter" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
+position = Vector2(575.5, 656)
 shape = SubResource("RectangleShape2D_lt32o")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
