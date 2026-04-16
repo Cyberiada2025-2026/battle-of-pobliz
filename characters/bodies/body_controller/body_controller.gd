@@ -9,7 +9,7 @@ func _ready() -> void:
 		movement_comp.body = self
 
 func _physics_process(delta: float) -> void:
-	if not get_node("%PossessionManager").current_body == self:
+	if not get_tree().get_first_node_in_group("possession_manager").current_body == self:
 		return
 
 	for movement_comp in movement_components:

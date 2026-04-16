@@ -2,6 +2,8 @@ class_name GroundedMovementComponent
 extends Node
 
 @export var speed: float = 300.0
+@export var acceleration: float = 100.0
+@export var deceleration: float = 200.0
 
 var body: BodyController
 

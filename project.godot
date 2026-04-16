@@ -14,6 +14,10 @@ config/name="Battle Of Pobliz"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+possession_manager=""
+
 [input]
 
 move_left={
