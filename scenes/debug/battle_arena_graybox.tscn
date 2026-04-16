@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dxi0iucx4etrm"]
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
-[ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://shared/boss_attacks/sky_lasers/sky_laser.gd" id="2_neadt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(34, 666)
@@ -33,14 +32,3 @@ position = Vector2(936, 400)
 
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
 position = Vector2(576, 504)
-
-[node name="SkyLaser" type="Node" parent="." unique_id=1067494373 node_paths=PackedStringArray("arena_bottom_collider", "arena_wall_collider")]
-script = ExtResource("2_neadt")
-arena_bottom_collider = NodePath("../Boundaries/BoundaryCenter")
-arena_wall_collider = NodePath("../Boundaries/BoundaryRight")
-laser_count = 5
-metadata/_custom_type_script = "uid://csfnbpo03kcl6"
-
-[node name="Markers" type="Node" parent="SkyLaser" unique_id=808635285]
-
-[node name="Lasers" type="Node" parent="SkyLaser" unique_id=1782446906]
