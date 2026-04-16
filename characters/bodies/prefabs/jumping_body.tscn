@@ -11,6 +11,7 @@ radius = 16.0
 height = 48.0
 
 [node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
+collision_layer = 129
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent")]
 
