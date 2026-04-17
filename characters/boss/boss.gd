@@ -9,6 +9,7 @@ signal atack_signal
 @export var canon_left: Node2D
 @export var canon_right: Node2D
 @export var head: Node2D
+@export var is_invincible: bool = false
 
 @export_category("Phases")
 @export var phases: Array[BossPhase]
@@ -23,6 +24,8 @@ func _ready() -> void:
 
 
 func take_damage(damage: float) -> void:
+	if is_invincible:
+		return
 	health -= damage
 	print(health)
 	if health <= 0:
@@ -55,7 +58,11 @@ func start_phase(phase: BossPhase) -> void:
 	if current_phase != null:
 		for timer in current_phase.atack_timers:
 			timer.stop()
+		if current_phase.invincibility_timer != null:
+			current_phase.invincibility_timer.start()
 	current_phase = phase
 	for timer in phase.atack_timers:
 		timer.start()
+	if phase.invincibility_timer != null:
+		phase.invincibility_timer.start()
 	health = phase.phase_health
