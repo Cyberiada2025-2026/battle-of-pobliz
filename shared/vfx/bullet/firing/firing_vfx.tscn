@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dffnwyxuwhqk5"]
+
+[ext_resource type="Texture2D" uid="uid://c5x5rw8elbu37" path="res://shared/vfx/bullet/firing/shot.png" id="1_o01u2"]
+
+[sub_resource type="Curve" id="Curve_cy4hv"]
+_data = [Vector2(0.5179153, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yxnx2"]
+curve = SubResource("Curve_cy4hv")
+
+[sub_resource type="Curve" id="Curve_1hds1"]
+_data = [Vector2(0, 0), 0.0, 2.9840791, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uujh1"]
+curve = SubResource("Curve_1hds1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o2pfx"]
+particle_flag_disable_z = true
+angle_min = -39.99999
+angle_max = 40.00001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_uujh1")
+color = Color(1.5720325, 1.5720325, 1.5720325, 1)
+alpha_curve = SubResource("CurveTexture_yxnx2")
+
+[node name="firing_vfx" type="GPUParticles2D" unique_id=171665131]
+emitting = false
+amount = 16
+texture = ExtResource("1_o01u2")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+trail_sections = 4
+trail_section_subdivisions = 3
+process_material = SubResource("ParticleProcessMaterial_o2pfx")

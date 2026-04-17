@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b3urajpvbn42b"]
+
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="1_uik4h"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_gaskw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udknm"]
+shader = ExtResource("1_uik4h")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="Curve" id="Curve_uik4h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.427832, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gaskw"]
+curve = SubResource("Curve_uik4h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uik4h"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.08
+alpha_curve = SubResource("CurveTexture_gaskw")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uik4h"]
+shader = ExtResource("1_uik4h")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.90000004275
+
+[sub_resource type="Curve" id="Curve_gaskw"]
+_data = [Vector2(0, 0), 0.0, 3.3709798, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ratj4"]
+curve = SubResource("Curve_gaskw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cy4hv"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ratj4")
+alpha_curve = SubResource("CurveTexture_gaskw")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gaskw"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+damping_min = 8.0
+damping_max = 10.0
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(5, 5, 0)
+
+[node name="hit" type="GPUParticles2D" unique_id=260240667]
+material = SubResource("ShaderMaterial_udknm")
+emitting = false
+amount = 1
+sub_emitter = NodePath("ring")
+texture = ExtResource("2_gaskw")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uik4h")
+
+[node name="ring" type="GPUParticles2D" parent="." unique_id=1030172599]
+material = SubResource("ShaderMaterial_uik4h")
+emitting = false
+amount = 1
+sub_emitter = NodePath("../sparks")
+texture = ExtResource("2_gaskw")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cy4hv")
+
+[node name="sparks" type="GPUParticles2D" parent="." unique_id=1552795081]
+emitting = false
+amount = 16
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gaskw")

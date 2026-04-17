@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dlyyfc4ixgt8"]
+
+[ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="1_ddolk"]
+[ext_resource type="PackedScene" uid="uid://hm7uxeu8c4w0" path="res://shared/world_environment.tscn" id="2_o2pfx"]
+[ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="3_75fpn"]
+[ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="4_cy4hv"]
+
+[node name="VfxTest" type="Node2D" unique_id=1946052051]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1891640826]
+
+[node name="WorldEnvironment" parent="." unique_id=1460515254 instance=ExtResource("2_o2pfx")]
+
+[node name="bullet_basic" parent="." unique_id=331279362 instance=ExtResource("1_ddolk")]
+
+[node name="firing_vfx" parent="." unique_id=171665131 instance=ExtResource("3_75fpn")]
+position = Vector2(60, 0)
+
+[node name="hit" parent="." unique_id=260240667 instance=ExtResource("4_cy4hv")]
+position = Vector2(105, 0)
