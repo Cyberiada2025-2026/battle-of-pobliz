@@ -216,7 +216,7 @@ immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("sh
 position = Vector2(2, -19)
 
 [node name="JumpingBody2" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
-position = Vector2(576, 832)
+position = Vector2(576, 890)
 immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("shotgun")]
 
 [node name="shotgun" parent="JumpingBody2" unique_id=64767452 instance=ExtResource("3_2nv5k")]
