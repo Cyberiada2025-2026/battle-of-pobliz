@@ -23,5 +23,3 @@ func _process(_delta: float) -> void:
 			if result and animated_sprite.animation != conditional_anim.animation_name:
 				animated_sprite.play(conditional_anim.animation_name)
 				return
-
-

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tti0o"]
 [ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="2_2h465"]
 [ext_resource type="PackedScene" uid="uid://dnc5o773demqp" path="res://characters/bodies/wepons/basic_shoting_component.tscn" id="3_2h465"]
+[ext_resource type="Texture2D" uid="uid://strmv4u22va0" path="res://characters/bodies/wepons/Gun2.png" id="4_ms2ki"]
+[ext_resource type="Script" uid="uid://4e8cy3ds06sp" path="res://characters/bodies/wepons/weapon_rotation.gd" id="5_ms2ki"]
 
 [node name="shotgun" type="Node2D" unique_id=508469511]
 
@@ -11,10 +13,18 @@ bullet = ExtResource("2_2h465")
 start = NodePath("start_position")
 
 [node name="Sprite2D" type="Sprite2D" parent="basic_shoting_component" unique_id=255761419]
+visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(12.000001, 1)
 scale = Vector2(0.21875, 0.07812499)
 texture = ExtResource("1_tti0o")
 
 [node name="start_position" type="Node2D" parent="basic_shoting_component" unique_id=175316203]
-position = Vector2(26, 0)
+position = Vector2(62, -4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="basic_shoting_component" unique_id=404052105]
+position = Vector2(15.000001, 3)
+rotation = -0.0017453292
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_ms2ki")
+script = ExtResource("5_ms2ki")
