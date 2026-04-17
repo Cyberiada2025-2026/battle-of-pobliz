@@ -30,12 +30,12 @@ func _ready() -> void:
 
 func take_damage(damage: float) -> void:
 	health -= damage
+	print(health)
 	if health <= 0:
 		pass # TO DO WIN!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 func _on_atack_signal() -> void:
-	print("ATACK")
 	random_atack()
 
 
