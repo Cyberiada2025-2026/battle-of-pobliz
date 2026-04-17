@@ -18,10 +18,10 @@ radius = 9.6
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2a7ei"]
 shader = ExtResource("6_nackx")
 shader_parameter/radius = 0.150000007125
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
-shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_main = Color(0.99112684, 0.5158842, 0.07044809, 1)
+shader_parameter/color_outline = Color(2.7781298, 0.77230203, 0.31049687, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(4.124446, 2.9222794, 4.268496, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
 shader_parameter/ring_thickness = 0.2750000130625

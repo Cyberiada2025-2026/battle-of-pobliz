@@ -48,16 +48,16 @@ void fragment() {
 	COLOR.a = step(0.0, dist);
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6xnr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1uxc"]
 shader = SubResource("Shader_s6rch")
-shader_parameter/radius = 0.390000018525
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
+shader_parameter/radius = 0.470000022325
+shader_parameter/color_main = Color(5.1018596e-06, 0.6562737, 0.64998573, 1)
 shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(0, 3.8432815, 5.337894, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
-shader_parameter/ring_thickness = 0.2750000130625
+shader_parameter/ring_thickness = 0.034000001615
 shader_parameter/ring_speed = 6.000001234999999
 shader_parameter/ring_amount = 1.0
 
@@ -93,7 +93,7 @@ bullet_hit = NodePath("hit")
 [node name="firing_vfx" parent="Bullet Graphic" unique_id=171665131 instance=ExtResource("4_alkoa")]
 
 [node name="bullet_basic" parent="Bullet Graphic" unique_id=331279362 instance=ExtResource("5_je2or")]
-material = SubResource("ShaderMaterial_d6xnr")
+material = SubResource("ShaderMaterial_v1uxc")
 
 [node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_d6xnr")]
 
