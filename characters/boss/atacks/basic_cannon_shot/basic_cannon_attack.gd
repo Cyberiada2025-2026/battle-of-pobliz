@@ -27,6 +27,7 @@ func shot_serie(cannon: BossCanon):
 	var player = get_tree().get_first_node_in_group("possession_manager").current_body
 	var move_direction: Vector2 = (player.global_position - cannon.global_position).normalized()
 	cannon.is_shooting = true
+
 	for i in shot_count:
 
 		var bullet: RigidBody2D = ammo_prefab.instantiate()

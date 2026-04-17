@@ -110,6 +110,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p1yh5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yh5")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjhe6")
@@ -182,13 +190,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 12.0
+"speed": 60.0
 }]
 
 [sub_resource type="Resource" id="Resource_6w10v"]
 script = ExtResource("4_77vmd")
 condition = "node.is_shooting"
 animation_name = "shoot"
+
+[sub_resource type="Resource" id="Resource_p1yh5"]
+script = ExtResource("4_77vmd")
+condition = "not node.is_shooting"
+animation_name = "idle"
 
 [node name="Boss Canon" type="Area2D" unique_id=836624194]
 collision_mask = 256
@@ -225,5 +238,5 @@ animation = &"shoot"
 script = ExtResource("3_77vmd")
 animated_sprite = NodePath("../AnimatedSprite2D")
 node = NodePath("..")
-animations = Array[ExtResource("4_77vmd")]([SubResource("Resource_6w10v")])
+animations = Array[ExtResource("4_77vmd")]([SubResource("Resource_6w10v"), SubResource("Resource_p1yh5")])
 metadata/_custom_type_script = "uid://b0a8px7pp8pvt"
