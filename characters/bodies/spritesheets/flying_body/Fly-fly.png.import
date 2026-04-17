@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ph7be15v1c6"
-path="res://.godot/imported/construction_beam.png-bfd760fc563d401e1f21e8a2ccb4542d.ctex"
+uid="uid://5ms6178v8iam"
+path="res://.godot/imported/Fly-fly.png-314066c1a0d49b8c6114192e41cf12c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shared/construction_beam.png"
-dest_files=["res://.godot/imported/construction_beam.png-bfd760fc563d401e1f21e8a2ccb4542d.ctex"]
+source_file="res://characters/bodies/spritesheets/flying_body/Fly-fly.png"
+dest_files=["res://.godot/imported/Fly-fly.png-314066c1a0d49b8c6114192e41cf12c7.ctex"]
 
 [params]
 
