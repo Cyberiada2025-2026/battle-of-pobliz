@@ -3,5 +3,6 @@ extends RigidBody2D
 
 @export var damageComponent: Node
 
-func collision(body: Node):
+
+func _on_body_entered(_body: Node) -> void:
 	self.queue_free()

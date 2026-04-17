@@ -27,4 +27,4 @@ shape = SubResource("CircleShape2D_spvli")
 script = ExtResource("2_spvli")
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
-[connection signal="body_entered" from="." to="." method="collision"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
