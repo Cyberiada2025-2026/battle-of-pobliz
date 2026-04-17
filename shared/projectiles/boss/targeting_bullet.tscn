@@ -14,10 +14,10 @@ radius = 9.6
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2a7ei"]
 shader = ExtResource("6_shiad")
 shader_parameter/radius = 0.150000007125
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
-shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_main = Color(0.86167616, 0.2753686, 0.9259522, 1)
+shader_parameter/color_outline = Color(1.8792106, 0.6992265, 1.9798304, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(5.207725, 2.0046067, 5.3187146, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
 shader_parameter/ring_thickness = 0.2750000130625
