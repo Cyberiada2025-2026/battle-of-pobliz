@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://giqw1gbknsfk"]
 
 [ext_resource type="Script" uid="uid://c88qqraiiwt7e" path="res://scenes/Menu/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="PackedScene" uid="uid://dxi0iucx4etrm" path="res://scenes/debug/battle_arena_graybox.tscn" id="2_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://cw173xm4aqt7t" path="res://scenes/rules/rule_screne.tscn" id="2_4q1m5"]
 [ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="3_8mcyk"]
 [ext_resource type="PackedScene" uid="uid://movw4wl1f5br" path="res://scenes/death_screan/death_screen.tscn" id="4_evs2v"]
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="5_4q1m5"]
@@ -17,7 +17,7 @@ font_size = 40
 [node name="MainMenu" type="CanvasLayer" unique_id=1682239054 node_paths=PackedStringArray("start", "resume", "settings", "return_to_main_menu", "exit")]
 process_mode = 3
 script = ExtResource("1_l6cm7")
-game_scene = ExtResource("2_ekxnf")
+game_scene = ExtResource("2_4q1m5")
 empty_scene = ExtResource("3_8mcyk")
 death_scene = ExtResource("4_evs2v")
 win_scene = ExtResource("5_4q1m5")
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13725491, 0.13725491, 0.13725491, 0.6666667)
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.74509805)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ColorRect" unique_id=1957958567]
 z_index = 2
