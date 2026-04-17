@@ -14,6 +14,8 @@ signal atack_signal
 @export_category("Phases")
 @export var phases: Array[BossPhase]
 
+@export var mat: ShaderMaterial
+
 var int_phase = 1
 
 var current_phase: BossPhase
@@ -23,6 +25,11 @@ func _ready() -> void:
 	int_phase = 1
 	start_phase(phases.pop_front())
 
+func _process(delta: float) -> void:
+	if is_invincible:
+		mat.set_shader_parameter("on", 1.0)
+	else:
+		mat.set_shader_parameter("on", 0.0)
 
 func take_damage(damage: float) -> void:
 	if is_invincible:

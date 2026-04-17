@@ -204,21 +204,26 @@ condition = "not node.is_shooting"
 animation_name = "idle"
 
 [node name="Boss Canon" type="Area2D" unique_id=836624194]
+use_parent_material = true
 collision_mask = 256
 script = ExtResource("1_ro2eh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16431274]
+use_parent_material = true
 shape = SubResource("CircleShape2D_kwubs")
 
 [node name="BossSide" type="Control" parent="." unique_id=485972996]
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = -64.0
 offset_top = -96.0
 offset_right = -24.0
 offset_bottom = -56.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="BossSide" unique_id=753745530]
+use_parent_material = true
 layout_mode = 0
 offset_left = -18.0
 offset_top = 14.0
@@ -226,8 +231,10 @@ offset_right = 4078.0
 offset_bottom = 4110.0
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_icjx0")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=131997359]
+use_parent_material = true
 position = Vector2(0, -21)
 rotation = -1.5707964
 scale = Vector2(0.2, 0.2)
