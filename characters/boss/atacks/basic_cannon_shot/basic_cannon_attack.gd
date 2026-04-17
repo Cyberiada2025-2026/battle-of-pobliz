@@ -25,15 +25,19 @@ func use():
 
 func shot_serie(cannon: BossCanon):
 	var player = get_tree().get_first_node_in_group("possession_manager").current_body
-	var move_direction = (player.global_position - cannon.global_position).normalized()
+	var move_direction: Vector2 = (player.global_position - cannon.global_position).normalized()
+	cannon.is_shooting = true
 	for i in shot_count:
+
 		var bullet: RigidBody2D = ammo_prefab.instantiate()
 		get_tree().current_scene.add_child(bullet)
 
 		if not lock_target_on_first_shot:
 			move_direction = (player.global_position - cannon.global_position).normalized()
+		cannon.rotation = Vector2.UP.angle_to(move_direction)
 
 		bullet.linear_velocity = (move_direction * bullet_speed)
 		bullet.global_position = cannon.global_position
 
 		await get_tree().create_timer(shot_cooldown).timeout
+	cannon.is_shooting = false

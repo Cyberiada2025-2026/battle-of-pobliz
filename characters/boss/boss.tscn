@@ -70,24 +70,6 @@ phase_health = 15.0
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase1" unique_id=384301582]
 
-[node name="BouncingAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1292855330 node_paths=PackedStringArray("cannons")]
-script = ExtResource("7_ka7n5")
-shot_count = 3
-shot_cooldown = 0.5
-shot_series_cooldown = 0.0
-bullet_speed = 500.0
-cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
-ammo_prefab = ExtResource("8_3fvqf")
-metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
-
-[node name="TargetingBullet" type="Node" parent="Phases/Phase1/Attacks" unique_id=1924551488 node_paths=PackedStringArray("cannons")]
-script = ExtResource("7_ka7n5")
-shot_series = 1
-bullet_speed = 700.0
-cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
-ammo_prefab = ExtResource("8_0ag5n")
-metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
-
 [node name="BasicCannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1302379653 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")
 shot_count = 8
@@ -99,17 +81,44 @@ cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../
 ammo_prefab = ExtResource("8_o1mjy")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
-[node name="SkyLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=696253690]
+[node name="Timers" type="Node2D" parent="Phases/Phase1" unique_id=663982006]
+
+[node name="Atack Timer" parent="Phases/Phase1/Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
+boss = NodePath("../../../..")
+min_cooldown = 8.0
+max_cooldown = 10.0
+
+[node name="Node" type="Node" parent="Phases/Phase1" unique_id=1812273795]
+
+[node name="BouncingAttack" type="Node" parent="Phases/Phase1/Node" unique_id=1292855330 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 3
+shot_cooldown = 0.5
+shot_series_cooldown = 0.0
+bullet_speed = 500.0
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("8_3fvqf")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="TargetingBullet" type="Node" parent="Phases/Phase1/Node" unique_id=1924551488 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_series = 1
+bullet_speed = 700.0
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("8_0ag5n")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="SkyLaser" type="Node" parent="Phases/Phase1/Node" unique_id=696253690]
 script = ExtResource("7_m373w")
 marker_show_time = 1.2
 attack_duration = 0.8
 metadata/_custom_type_script = "uid://csfnbpo03kcl6"
 
-[node name="TargetingLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=1829948880]
+[node name="TargetingLaser" type="Node" parent="Phases/Phase1/Node" unique_id=1829948880]
 script = ExtResource("9_2uq1t")
 metadata/_custom_type_script = "uid://ca1fh3l7as2uq"
 
-[node name="SpreadingCannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=497292069 node_paths=PackedStringArray("cannons")]
+[node name="SpreadingCannonAttack" type="Node" parent="Phases/Phase1/Node" unique_id=497292069 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")
 shot_series = 1
 bullet_speed = 250.0
@@ -117,13 +126,6 @@ lock_target_on_first_shot = true
 cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
 ammo_prefab = ExtResource("11_0rd18")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
-
-[node name="Timers" type="Node2D" parent="Phases/Phase1" unique_id=663982006]
-
-[node name="Atack Timer" parent="Phases/Phase1/Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
-boss = NodePath("../../../..")
-min_cooldown = 8.0
-max_cooldown = 10.0
 
 [node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers", "invincibility_timer") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
