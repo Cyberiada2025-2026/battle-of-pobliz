@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_yhra0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_spvli"]
+radius = 9.6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1pqb"]
 shader = ExtResource("6_4uxga")
