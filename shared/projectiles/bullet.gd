@@ -16,3 +16,7 @@ func _on_body_entered(_body: Node) -> void:
 	var t: Tween = create_tween()
 	t.tween_interval(tween_hit_animation_time)
 	t.tween_callback(self.queue_free)
+
+
+func destroy():
+	queue_free()

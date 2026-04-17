@@ -17,7 +17,6 @@ var arena_height
 var laser_width
 
 func _ready():
-
 	var arena_markers = get_tree().get_first_node_in_group("arena_area_markers")
 
 	floor_size = arena_markers.get_node("DownRight").global_position.x - arena_markers.get_node("TopLeft").global_position.x

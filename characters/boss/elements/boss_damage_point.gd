@@ -10,3 +10,5 @@ func _ready() -> void:
 
 func _damage_detection(node: Node) -> void:
 	boss.take_damage(node.damageComponent.get_damage() * damage_multiply)
+	if node is RigidBody2D:
+		node.destroy()

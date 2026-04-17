@@ -5,3 +5,5 @@ extends Area2D
 func collided(node: Node2D) -> void:
 	if get_tree().get_first_node_in_group("possession_manager").current_body == body:
 		body.take_damage(node.damageComponent.get_damage())
+		if node is RigidBody2D:
+			node.destroy()
