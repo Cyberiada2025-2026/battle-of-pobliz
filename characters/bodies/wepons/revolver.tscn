@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cxm6tq32sgj4c"]
+
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_6eidy"]
+[ext_resource type="PackedScene" uid="uid://dnc5o773demqp" path="res://characters/bodies/wepons/basic_shoting_component.tscn" id="2_n210b"]
+[ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="3_fx3i5"]
+
+[node name="Revolver" type="Node2D" unique_id=57487654]
+
+[node name="basic_shoting_component" parent="." unique_id=978954981 node_paths=PackedStringArray("start") instance=ExtResource("2_n210b")]
+bullet = ExtResource("3_fx3i5")
+start = NodePath("start_position")
+cooldown = 1.0
+max_magazine = 6
+bullet_count = 1
+spread_angle = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="basic_shoting_component" unique_id=285533832]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(11.5, 1.7881393e-07)
+scale = Vector2(0.2890625, 0.062499996)
+texture = ExtResource("2_6eidy")
+
+[node name="Sprite2D" type="Sprite2D" parent="basic_shoting_component/Sprite2D" unique_id=668498765]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-38.054054, 127.000015)
+scale = Vector2(0.13513514, 1.5156252)
+texture = ExtResource("2_6eidy")
+
+[node name="start_position" type="Node2D" parent="basic_shoting_component" unique_id=1461418170]
+position = Vector2(28, 0)
