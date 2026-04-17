@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
-[ext_resource type="Script" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
+[ext_resource type="Script" uid="uid://bdt2jftwfsde" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
 [ext_resource type="Texture2D" uid="uid://tl3kxjoamtuq" path="res://characters/boss/sprites/Boss.png" id="22_ccpgt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fnubm"]
