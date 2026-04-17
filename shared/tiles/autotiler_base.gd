@@ -1,4 +1,5 @@
 @tool
+class_name AutotilerBase
 extends TileMapLayer
 
 func _ready() -> void:

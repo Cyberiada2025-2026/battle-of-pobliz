@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
+[ext_resource type="PackedScene" uid="uid://dkjmkti50wt0h" path="res://characters/boss/sprites/boss_central.tscn" id="4_g3f0a"]
 [ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="PackedScene" uid="uid://61gf52swtd7i" path="res://shared/projectiles/boss/targeting_bullet.tscn" id="8_0ag5n"]
+[ext_resource type="PackedScene" uid="uid://qox4jpn7l32q" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
 [ext_resource type="PackedScene" uid="uid://cwtsc018qtc3l" path="res://shared/projectiles/boss/basic_bullet.tscn" id="8_o1mjy"]
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
@@ -17,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
-radius = 80.0
+radius = 98.02041
 
 [node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "phases")]
 script = ExtResource("1_kwubs")
@@ -30,18 +32,22 @@ phases = [NodePath("Phases/Phase1"), NodePath("Phases/Phase2")]
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
 [node name="head" type="Area2D" parent="hitbox" unique_id=302636103 node_paths=PackedStringArray("boss")]
-position = Vector2(550, 50)
+position = Vector2(550, 312)
 collision_mask = 256
 script = ExtResource("2_ia5xw")
 boss = NodePath("../..")
 damage_multiply = 2.0
 metadata/_custom_type_script = "uid://moi8ubohtdkb"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
-shape = SubResource("CircleShape2D_vbcuv")
+[node name="BossCentral" parent="hitbox/head" unique_id=1364872992 instance=ExtResource("4_g3f0a")]
+offset_left = -198.0
+offset_top = -314.0
+offset_right = -158.0
+offset_bottom = -274.0
 
-[node name="Sprite2D" type="Sprite2D" parent="hitbox/head" unique_id=1094805491]
-texture = ExtResource("2_850g2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
+position = Vector2(2, 6)
+shape = SubResource("CircleShape2D_vbcuv")
 
 [node name="canons" type="Node2D" parent="hitbox" unique_id=536864587]
 position = Vector2(0, 170)
@@ -62,12 +68,52 @@ phase_health = 5.0
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase1" unique_id=384301582]
 
-[node name="CannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1924551488 node_paths=PackedStringArray("cannons")]
+[node name="BouncingAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1292855330 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 3
+shot_cooldown = 0.5
+shot_series_cooldown = 0.0
+bullet_speed = 500.0
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("8_3fvqf")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="TargetingBullet" type="Node" parent="Phases/Phase1/Attacks" unique_id=1924551488 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")
 shot_series = 1
 bullet_speed = 700.0
 cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
 ammo_prefab = ExtResource("8_0ag5n")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="BasicCannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1302379653 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 8
+shot_cooldown = 0.1
+shot_series = 3
+shot_series_cooldown = 1.0
+bullet_speed = 700.0
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("8_o1mjy")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="SkyLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=696253690]
+script = ExtResource("7_m373w")
+marker_show_time = 1.2
+attack_duration = 0.8
+metadata/_custom_type_script = "uid://csfnbpo03kcl6"
+
+[node name="TargetingLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=1829948880]
+script = ExtResource("9_2uq1t")
+metadata/_custom_type_script = "uid://ca1fh3l7as2uq"
+
+[node name="SpreadingCannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=497292069 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_series = 1
+bullet_speed = 250.0
+lock_target_on_first_shot = true
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("11_0rd18")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
 [node name="Timers" type="Node2D" parent="Phases/Phase1" unique_id=663982006]
@@ -79,40 +125,11 @@ max_cooldown = 10.0
 
 [node name="trash" type="Node2D" parent="Phases/Phase1" unique_id=1385921991]
 
-[node name="BasicCannonAttack" type="Node" parent="Phases/Phase1/trash" unique_id=1302379653 node_paths=PackedStringArray("cannons")]
-script = ExtResource("7_ka7n5")
-shot_count = 8
-shot_cooldown = 0.1
-shot_series = 3
-shot_series_cooldown = 1.0
-bullet_speed = 700.0
-cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
-ammo_prefab = ExtResource("8_o1mjy")
-metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
-
-[node name="SkyLaser" type="Node" parent="Phases/Phase1/trash" unique_id=696253690]
-script = ExtResource("7_m373w")
-marker_show_time = 1.2
-attack_duration = 0.8
-metadata/_custom_type_script = "uid://csfnbpo03kcl6"
-
-[node name="TargetingLaser" type="Node" parent="Phases/Phase1/trash" unique_id=1829948880]
-script = ExtResource("9_2uq1t")
-metadata/_custom_type_script = "uid://ca1fh3l7as2uq"
-
-[node name="SpreadingCannonAttack" type="Node" parent="Phases/Phase1/trash" unique_id=497292069 node_paths=PackedStringArray("cannons")]
-script = ExtResource("7_ka7n5")
-shot_series = 1
-bullet_speed = 250.0
-lock_target_on_first_shot = true
-cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
-ammo_prefab = ExtResource("11_0rd18")
-metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
-
-[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
+[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers", "invincibility_timer") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 bar_color = Color(1, 0.44705883, 0, 1)
+invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase2" unique_id=364186670]
 
@@ -176,9 +193,14 @@ boss = NodePath("../../../..")
 min_cooldown = 4.0
 max_cooldown = 4.0
 
+[node name="InvincibilityTimer" type="Timer" parent="Phases/Phase2/Timers" unique_id=1553366832]
+wait_time = 20.0
+one_shot = true
+
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]
 
 [node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
+visible = false
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(577.70074, 53.468937)

@@ -28,6 +28,7 @@ SoundtrackController="*uid://xpswvm5vxw5g"
 
 possession_manager=""
 arena_area_markers=""
+statue_manager=""
 
 [input]
 

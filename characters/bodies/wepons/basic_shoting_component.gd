@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 					var x : Bullet = bullet.instantiate()
 					get_tree().current_scene.add_child(x)
 					x.global_position = start.global_position
+					x.global_rotation = global_rotation + PI/2
 					x.apply_central_impulse(
 						(Vector2.RIGHT.rotated(rotation) * bullet_speed).
 						rotated(
