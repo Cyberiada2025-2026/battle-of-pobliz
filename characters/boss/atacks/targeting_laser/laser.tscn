@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl6lul5j2w5vx"]
 
 [ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_iugvr"]
-[ext_resource type="Script" uid="uid://brd2yakhtv8si" path="res://characters/boss/atacks/laser.gd" id="1_wlrvi"]
+[ext_resource type="Script" path="res://characters/boss/atacks/laser.gd" id="1_wlrvi"]
 
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5120482, 0.9939759)

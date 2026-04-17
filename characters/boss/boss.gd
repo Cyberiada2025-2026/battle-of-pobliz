@@ -40,7 +40,7 @@ func _on_atack_signal() -> void:
 
 
 func random_atack() -> void:
-	var atack_set = current_phase.atacks
+	var atack_set = current_phase.attacks
 	var atack = atack_set.pick_random()
 	atack_set.erase(atack)
 	if atack == null:

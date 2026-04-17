@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cwtsc018qtc3l" path="res://shared/projectiles/boss/basic_bullet.tscn" id="8_o1mjy"]
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
+[ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 80.0
@@ -54,8 +55,7 @@ boss = NodePath("../../..")
 
 [node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
-[node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
-atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/TargetingLaser"), NodePath("Attacks/SpreadingCannonAttack")]
+[node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 
@@ -98,8 +98,7 @@ boss = NodePath("../../../..")
 min_cooldown = 8.0
 max_cooldown = 10.0
 
-[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
-atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/CombinedAtack"), NodePath("Attacks/SpreadingCannonAttack")]
+[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 bar_color = Color(1, 0.44705883, 0, 1)
@@ -148,6 +147,16 @@ bullet_speed = 350.0
 lock_target_on_first_shot = true
 cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
 ammo_prefab = ExtResource("11_0rd18")
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="PlatformDestructiveBullet" type="Node" parent="Phases/Phase2/Attacks" unique_id=1676454929 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_series = 1
+shot_series_cooldown = 1.0
+bullet_speed = 200.0
+lock_target_on_first_shot = true
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+ammo_prefab = ExtResource("14_wd5nw")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
 [node name="Timers" type="Node2D" parent="Phases/Phase2" unique_id=388189541]

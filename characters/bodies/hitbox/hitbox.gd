@@ -4,3 +4,5 @@ extends Area2D
 
 func collided(node: Node2D) -> void:
 	body.take_damage(node.damageComponent.get_damage())
+	if node is RigidBody2D:
+		node.destroy()
