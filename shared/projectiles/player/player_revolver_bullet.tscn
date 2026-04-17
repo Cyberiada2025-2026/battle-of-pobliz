@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_wemso")
 
 [node name="DamageComponent" type="Node" parent="." unique_id=774932785]
 script = ExtResource("2_o1kx8")
-damage_amount = 2.0
+damage_amount = 0.5
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
 [node name="Bullet Graphic" parent="." unique_id=1256230681 node_paths=PackedStringArray("bullet_basic", "bullet_shot", "bullet_hit") instance=ExtResource("3_e8jen")]
