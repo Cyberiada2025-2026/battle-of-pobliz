@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://d4c51w0fxw64a"]
 
+[ext_resource type="Shader" uid="uid://c76q8su8g2cv6" path="res://characters/boss/atacks/sky_lasers/marker.gdshader" id="1_8j184"]
 [ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="1_i6k4m"]
 [ext_resource type="AudioStream" uid="uid://ds44x8v0cgg4u" path="res://shared/sfx/laser-charge.wav" id="2_y5hdn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyiog"]
+shader = ExtResource("1_8j184")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/alp = 0.50000002375
+shader_parameter/border_width = 0.2
+shader_parameter/width = 0.2
+shader_parameter/amount = 10.0
+shader_parameter/speed = -10.0
 
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
@@ -16,6 +26,7 @@ height = 666
 process_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
+material = SubResource("ShaderMaterial_nyiog")
 texture = SubResource("GradientTexture2D_ufhy1")
 
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("1_i6k4m")]
