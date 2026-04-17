@@ -70,7 +70,7 @@ size_flags_vertical = 3
 [node name="Tiltle" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=540325930]
 z_index = 1
 layout_mode = 2
-text = "BATTLE 
+text = "BATTLE
 OF POBLIŻ"
 label_settings = SubResource("LabelSettings_4q1m5")
 horizontal_alignment = 1
