@@ -2,16 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dkh3xgsmx6p2h"
 path="res://.godot/imported/construction_beam.png-bfd760fc563d401e1f21e8a2ccb4542d.ctex"
 metadata={
 "vram_texture": false
 }
+=======
+uid="uid://c25vfdngaw1if"
+valid=false
+>>>>>>> f14a1a2 (wip)
 
 [deps]
 
 source_file="res://shared/construction_beam.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/construction_beam.png-bfd760fc563d401e1f21e8a2ccb4542d.ctex"]
+=======
+>>>>>>> f14a1a2 (wip)
 
 [params]
 
