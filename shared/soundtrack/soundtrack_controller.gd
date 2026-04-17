@@ -18,10 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !main_loop_player:
+	if !main_loop_player && current_scene == 2:
 		main_loop_player = get_child(0)
 		main_loop_playback = main_loop_player.get_stream_playback()
-	else:
+	elif main_loop_player:
 		# Mute/Unmute music if in pause:
 		if current_scene == 1:
 			main_loop_player.volume_db = -6
