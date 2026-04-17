@@ -15,7 +15,14 @@ extends CanvasLayer
 @export var return_to_main_menu: Node
 @export var exit: Node
 
+var is_timer_on = false
 var activable: bool = false
+var timer: float = 0
+
+func _process(delta: float) -> void:
+	if visible == false:
+		if is_timer_on:
+			timer += delta
 
 func _input(_event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("debug_die"):
@@ -37,6 +44,8 @@ func _on_start_button_pressed() -> void:
 	return_to_main_menu.visible = true
 	visible = false
 	activable = true
+	is_timer_on = true
+	timer = 0
 	get_tree().paused = false
 
 
@@ -58,6 +67,8 @@ func _on_main_menu_button_pressed() -> void:
 	resume.visible = false
 	return_to_main_menu.visible = false
 	activable = false
+	is_timer_on = false
+	timer = 0
 
 
 func _on_exit_button_pressed() -> void:
