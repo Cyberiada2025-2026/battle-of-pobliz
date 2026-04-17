@@ -6,13 +6,13 @@ extends Node
 @export var shot_series: int = 2
 @export var shot_series_cooldown: float = 0.5
 
-@export var bullet_speed: float = 0.2
+@export var bullet_speed: float = 200
 @export var lock_target_on_first_shot: bool = false
 
 
 @export var cannons: Array[BossCanon]
 
-@export var ammo_prefab: Resource
+@export var ammo_prefab: PackedScene
 #var bullet_prefab = preload("res://shared/projectiles/boss/basic_bullet.tscn")
 
 

@@ -5,7 +5,7 @@ extends RigidBody2D
 @export var bullet_graphic: BulletGraphic
 @export var tween_hit_animation_time: float = 0.4
 @export var spreaded_bullet_count: int = 5
-@export var spreaded_bullet: Resource
+@export var spreaded_bullet: PackedScene
 @export var spreaded_bullet_speed = 500
 @export var can_destroy_platforms: bool = false
 @export var random_angle_offset: bool = false
