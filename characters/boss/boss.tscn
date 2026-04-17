@@ -207,10 +207,12 @@ invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
 [node name="BulletWall2" type="Node" parent="Phases/Phase3/Attacks" unique_id=533192620]
 script = ExtResource("7_w2qq7")
-wall_thickness = 20
+wall_thickness = 1
 shot_cooldown = 0.15
-height_bullet_count = 30
+height_bullet_count = 40
 wall_count = 1
+walls_cooldown = 2.5
+hole_size = 7
 bullet_speed = 250
 ammo_prefab = ExtResource("8_dgtul")
 metadata/_custom_type_script = "uid://cscygqfx3271u"
