@@ -5,9 +5,10 @@ extends RigidBody2D
 @export var bullet_graphic: BulletGraphic
 @export var tween_hit_animation_time: float = 0.4
 @export var spreaded_bullet_count: int = 5
-@export var spreaded_bullet: Resource
+@export var spreaded_bullet: PackedScene
 @export var spreaded_bullet_speed = 500
 @export var can_destroy_platforms: bool = false
+@export var random_angle_offset: bool = false
 
 func _ready() -> void:
 	# rotate graphic
@@ -28,6 +29,8 @@ func _on_body_entered(body: Node) -> void:
 func spread():
 	#var offset = randf() * 360.0 / spreaded_bullet_count
 	var offset = 0
+	if random_angle_offset:
+		offset = randf() * 360.0 / spreaded_bullet_count
 	var scene = get_tree().current_scene
 	for i in spreaded_bullet_count:
 		var bullet = spreaded_bullet.instantiate()
