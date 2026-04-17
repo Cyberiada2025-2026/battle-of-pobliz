@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
+[ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
@@ -13,14 +14,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 80.0
 
-[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "fase_1_atack_set")]
+[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "phases")]
 script = ExtResource("1_kwubs")
 death_scene = ExtResource("2_rrty7")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
-health = 10.0
-fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), NodePath("Attacks/Phase1/SkyLaser"), NodePath("Attacks/Phase1/CombinedAtack")]
+phases = [NodePath("Phases/Phase1")]
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
@@ -49,13 +49,6 @@ boss = NodePath("../../..")
 position = Vector2(900, 0)
 boss = NodePath("../../..")
 
-[node name="Timers" type="Node2D" parent="." unique_id=18578748]
-
-[node name="Atack Timer" parent="Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
-boss = NodePath("../..")
-min_cooldown = 3.0
-max_cooldown = 4.0
-
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]
 
 [node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
@@ -66,34 +59,16 @@ rotation = -3.1415925
 scale = Vector2(8.982091, 1.8354521)
 texture = ExtResource("2_850g2")
 
-[node name="Attacks" type="Node2D" parent="." unique_id=2086179413]
+[node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
-[node name="Phase1" type="Node2D" parent="Attacks" unique_id=1507015553]
+[node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
+atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser")]
+atack_timers = [NodePath("Timers/Atack Timer")]
+phase_health = 5.0
 
-[node name="BasicCannonAttack" type="Node" parent="Attacks/Phase1" unique_id=585527226 node_paths=PackedStringArray("cannons")]
-script = ExtResource("7_ka7n5")
-shot_count = 8
-shot_cooldown = 0.1
-shot_series = 3
-shot_series_cooldown = 1.0
-bullet_speed = 700.0
-cannons = [NodePath("../../../hitbox/canons/Boss Canon"), NodePath("../../../hitbox/canons/Boss Canon2")]
-metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+[node name="Attacks" type="Node2D" parent="Phases/Phase1" unique_id=384301582]
 
-[node name="SkyLaser" type="Node" parent="Attacks/Phase1" unique_id=544685080]
-script = ExtResource("7_m373w")
-marker_show_time = 1.2
-attack_duration = 0.8
-metadata/_custom_type_script = "uid://csfnbpo03kcl6"
-
-[node name="CombinedAtack" parent="Attacks/Phase1" unique_id=47929703 node_paths=PackedStringArray("atacks") instance=ExtResource("8_m373w")]
-atacks = [NodePath("BasicCannonAttack2"), NodePath("SkyLaser")]
-
-[node name="SkyLaser" type="Node" parent="Attacks/Phase1/CombinedAtack" unique_id=650142526]
-script = ExtResource("7_m373w")
-metadata/_custom_type_script = "uid://csfnbpo03kcl6"
-
-[node name="BasicCannonAttack2" type="Node" parent="Attacks/Phase1/CombinedAtack" unique_id=753937521 node_paths=PackedStringArray("cannons")]
+[node name="BasicCannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1302379653 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")
 shot_count = 8
 shot_cooldown = 0.1
@@ -102,5 +77,65 @@ shot_series_cooldown = 1.0
 bullet_speed = 700.0
 cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="SkyLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=696253690]
+script = ExtResource("7_m373w")
+marker_show_time = 1.2
+attack_duration = 0.8
+metadata/_custom_type_script = "uid://csfnbpo03kcl6"
+
+[node name="Timers" type="Node2D" parent="Phases/Phase1" unique_id=663982006]
+
+[node name="Atack Timer" parent="Phases/Phase1/Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
+boss = NodePath("../../../..")
+min_cooldown = 6.0
+max_cooldown = 8.0
+
+[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
+atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/CombinedAtack")]
+atack_timers = [NodePath("Timers/Atack Timer")]
+phase_health = 5.0
+
+[node name="Attacks" type="Node2D" parent="Phases/Phase2" unique_id=364186670]
+
+[node name="BasicCannonAttack" type="Node" parent="Phases/Phase2/Attacks" unique_id=669200935 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 8
+shot_cooldown = 0.1
+shot_series = 3
+shot_series_cooldown = 1.0
+bullet_speed = 700.0
+cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="SkyLaser" type="Node" parent="Phases/Phase2/Attacks" unique_id=138813302]
+script = ExtResource("7_m373w")
+marker_show_time = 1.2
+attack_duration = 0.8
+metadata/_custom_type_script = "uid://csfnbpo03kcl6"
+
+[node name="CombinedAtack" parent="Phases/Phase2/Attacks" unique_id=47929703 node_paths=PackedStringArray("atacks") instance=ExtResource("8_m373w")]
+atacks = [NodePath("BasicCannonAttack2"), NodePath("SkyLaser")]
+
+[node name="SkyLaser" type="Node" parent="Phases/Phase2/Attacks/CombinedAtack" unique_id=2056303712]
+script = ExtResource("7_m373w")
+metadata/_custom_type_script = "uid://csfnbpo03kcl6"
+
+[node name="BasicCannonAttack2" type="Node" parent="Phases/Phase2/Attacks/CombinedAtack" unique_id=1780546221 node_paths=PackedStringArray("cannons")]
+script = ExtResource("7_ka7n5")
+shot_count = 8
+shot_cooldown = 0.1
+shot_series = 3
+shot_series_cooldown = 1.0
+bullet_speed = 700.0
+cannons = [NodePath("../../../../../hitbox/canons/Boss Canon"), NodePath("../../../../../hitbox/canons/Boss Canon2")]
+metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
+
+[node name="Timers" type="Node2D" parent="Phases/Phase2" unique_id=388189541]
+
+[node name="Atack Timer" parent="Phases/Phase2/Timers" unique_id=60518591 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
+boss = NodePath("../../../..")
+min_cooldown = 3.0
+max_cooldown = 4.0
 
 [connection signal="atack_signal" from="." to="." method="_on_atack_signal"]
