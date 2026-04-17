@@ -32,4 +32,3 @@ func shot_serie(cannon: BossCanon):
 		bullet.global_position = cannon.global_position
 
 		await get_tree().create_timer(shot_cooldown).timeout
-	print("last shot")
