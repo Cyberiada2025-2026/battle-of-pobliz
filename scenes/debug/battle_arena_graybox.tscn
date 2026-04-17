@@ -17,9 +17,6 @@
 [ext_resource type="Shader" uid="uid://gyhxefx7r3m" path="res://shared/vfx/body_switching/switch_line.gdshader" id="10_jxhnd"]
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
-normal = Vector2(0, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
 shader = ExtResource("8_kjbyf")
 shader_parameter/color = Color(0.958, 1, 0.82, 1)
