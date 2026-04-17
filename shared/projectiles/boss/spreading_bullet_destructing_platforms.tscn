@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="5_dwv83"]
 [ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="6_ualrr"]
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_n0npo"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="8_vwq4w"]
+[ext_resource type="AudioStream" uid="uid://dnqrw302r77hh" path="res://shared/sfx/pocisk-duzy.wav" id="9_o6jwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_spvli"]
 radius = 30.0
@@ -96,5 +98,10 @@ bullet_hit = NodePath("hit")
 material = SubResource("ShaderMaterial_q1pqb")
 
 [node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_n0npo")]
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("8_vwq4w")]
+stream = ExtResource("9_o6jwd")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

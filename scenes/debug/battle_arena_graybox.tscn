@@ -216,7 +216,7 @@ immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("sh
 position = Vector2(2, -19)
 
 [node name="JumpingBody2" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
-position = Vector2(576, 890)
+position = Vector2(576, 832)
 immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("shotgun")]
 
 [node name="shotgun" parent="JumpingBody2" unique_id=64767452 instance=ExtResource("3_2nv5k")]
@@ -456,7 +456,6 @@ offset_bottom = 2770.13
 grow_vertical = 0
 
 [node name="Column" parent="Decorations/Parallax2D2" unique_id=512156800 instance=ExtResource("20_ctedh")]
-z_index = -2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -467,7 +466,6 @@ offset_bottom = 1671.7573
 grow_vertical = 0
 
 [node name="Column2" parent="Decorations/Parallax2D2" unique_id=587929953 instance=ExtResource("20_ctedh")]
-z_index = -2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
