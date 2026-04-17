@@ -399,13 +399,11 @@ height = 40.0
 script = ExtResource("8_4n8h4")
 condition = "body.velocity.length() > 0.01"
 animation_name = "flying"
-metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
 [sub_resource type="Resource" id="Resource_ra1dk"]
 script = ExtResource("8_4n8h4")
 condition = "body.velocity.length() <=  0.01"
 animation_name = "idle"
-metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63a0b"]
 shader = ExtResource("9_x5q24")
@@ -469,10 +467,10 @@ turbulence_noise_speed = Vector3(5, 5, 0)
 collision_layer = 128
 script = ExtResource("1_27qwu")
 movement_components = [NodePath("FlightMovementComponent")]
-type = "flight"
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), null]
 explosion = NodePath("hit")
+type = "flight"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719674715]
 position = Vector2(0, -23.999998)

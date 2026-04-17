@@ -26,6 +26,7 @@ resume = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label")
 settings = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label")
 return_to_main_menu = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label")
 exit = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label")
+starrt_body_count = 4
 
 [node name="MainMenu" type="Control" parent="." unique_id=526384990]
 layout_mode = 3
