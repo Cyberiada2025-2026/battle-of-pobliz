@@ -416,6 +416,7 @@ grow_vertical = 2
 scroll_scale = Vector2(0.7, 0.7)
 
 [node name="Background" parent="Decorations/Parallax2D" unique_id=2000219965 instance=ExtResource("10_nj41v")]
+modulate = Color(0.5220315, 0.6329137, 0.67903215, 1)
 z_index = -3
 anchors_preset = 8
 anchor_left = 0.5
@@ -430,6 +431,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Parallax2D2" type="Parallax2D" parent="Decorations" unique_id=1134516236]
+modulate = Color(0.5911871, 0.7569381, 0.78000784, 1)
 
 [node name="Column3" parent="Decorations/Parallax2D2" unique_id=1225512703 instance=ExtResource("20_ctedh")]
 z_index = -2
