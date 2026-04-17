@@ -215,11 +215,25 @@ immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("sh
 [node name="shotgun" parent="JumpingBody" unique_id=508469511 instance=ExtResource("3_2nv5k")]
 position = Vector2(2, -19)
 
-[node name="FlyingBody" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
-position = Vector2(208, 552)
+[node name="JumpingBody2" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
+position = Vector2(576, 832)
+immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("shotgun")]
+
+[node name="shotgun" parent="JumpingBody2" unique_id=64767452 instance=ExtResource("3_2nv5k")]
+position = Vector2(2, -19)
+
+[node name="FlyingBody2" parent="." unique_id=376527720 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
+position = Vector2(1256, 912)
 immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Revolver")]
 
-[node name="Revolver" parent="FlyingBody" unique_id=57487654 instance=ExtResource("5_2nv5k")]
+[node name="Revolver" parent="FlyingBody2" unique_id=57487654 instance=ExtResource("5_2nv5k")]
+position = Vector2(8, -17)
+
+[node name="FlyingBody" parent="." unique_id=1717567141 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
+position = Vector2(-96, 912)
+immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Revolver")]
+
+[node name="Revolver" parent="FlyingBody" unique_id=1905622836 instance=ExtResource("5_2nv5k")]
 position = Vector2(8, -17)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
