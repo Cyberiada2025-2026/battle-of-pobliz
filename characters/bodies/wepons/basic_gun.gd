@@ -14,17 +14,18 @@ func _process(delta: float) -> void:
 		on_cooldown -= delta
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		var mouse_position = get_global_mouse_position()
-		rotation = Vector2.RIGHT.angle_to((mouse_position - global_position).normalized()) 
-		pass
-	if Input.is_action_just_pressed("shot"):
-		if on_cooldown <= 0:
-			var x : Bullet = bullet.instantiate()
-			get_tree().current_scene.add_child(x)
-			x.global_position = start.global_position
-			x.apply_central_impulse(
-				Vector2.RIGHT.rotated(rotation) *
-				bullet_speed
-			)
-			on_cooldown = cooldown
+	if get_tree().get_first_node_in_group("possession_manager").current_body == get_parent(): 
+		if event is InputEventMouseMotion:
+			var mouse_position = get_global_mouse_position()
+			rotation = Vector2.RIGHT.angle_to((mouse_position - global_position).normalized()) 
+			pass
+		if Input.is_action_just_pressed("shot"):
+			if on_cooldown <= 0:
+				var x : Bullet = bullet.instantiate()
+				get_tree().current_scene.add_child(x)
+				x.global_position = start.global_position
+				x.apply_central_impulse(
+					Vector2.RIGHT.rotated(rotation) *
+					bullet_speed
+				)
+				on_cooldown = cooldown

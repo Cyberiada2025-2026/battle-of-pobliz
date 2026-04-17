@@ -46,6 +46,7 @@ position = Vector2(576, 504)
 position = Vector2(592, 416)
 
 [node name="BasicGun" parent="JumpingBody" unique_id=1478855736 instance=ExtResource("3_lq37g")]
+position = Vector2(0, -22)
 
 [node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
 position = Vector2(208, 552)
