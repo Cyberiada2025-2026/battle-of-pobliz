@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cgfbudrrt0q5e"]
+
+[sub_resource type="Gradient" id="Gradient_haaee"]
+offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
+colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0.54901963, 0.54901963, 0.39215687, 0, 0, 0, 0.39215687)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufhy1"]
+gradient = SubResource("Gradient_haaee")
+width = 57
+height = 666
+
+[node name="LaserMarker" type="Node2D" unique_id=1303524816]
+process_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
+texture = SubResource("GradientTexture2D_ufhy1")
