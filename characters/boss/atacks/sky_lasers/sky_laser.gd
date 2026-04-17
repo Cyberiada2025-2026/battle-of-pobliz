@@ -30,7 +30,6 @@ func _ready():
 
 
 func use():
-	print("test")
 	var offset = randi_range(0, 1)
 
 	for i in laser_count:
