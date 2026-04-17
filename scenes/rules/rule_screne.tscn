@@ -58,17 +58,11 @@ size_flags_vertical = 3
 [node name="text" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=363066978]
 z_index = 1
 layout_mode = 2
-text = "Odkryłeś ostaniego osobnika 
-wrogiego gatunku homosapiens.
-Twoim zadaniem jest włamanie się
-na jego statek i pokonać go zanim 
-ucieknie i zbuduje więcej swojego gatunku.
-Wysłaliśmy ci na pomoc 
-szwadroz zastępczych ciał.
-Powodzenia, los gatunku robotów zależy od ciebie."
+text = "Odkryłeś ostaniego osobnika wrogiego gatunku homosapiens. Twoim zadaniem jest włamanie się na jego statek i pokonać go zanim ucieknie i zbuduje więcej swojego gatunku. Wysłaliśmy ci na pomoc szwadroz zastępczych ciał. Powodzenia, los gatunku robotów zależy od ciebie."
 label_settings = SubResource("LabelSettings_uj01v")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="container_start" type="Control" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=989015177]
 layout_mode = 2
