@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://6415hun4ef1b"]
 
-[ext_resource type="Script" uid="uid://6mjm4nip42ia" path="res://characters/bodies/wepons/shotgun.gd" id="1_gkxdk"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tti0o"]
 [ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="2_2h465"]
+[ext_resource type="PackedScene" uid="uid://dnc5o773demqp" path="res://characters/bodies/wepons/basic_shoting_component.tscn" id="3_2h465"]
 
-[node name="shotgun" type="Node2D" unique_id=508469511 node_paths=PackedStringArray("start")]
-script = ExtResource("1_gkxdk")
+[node name="shotgun" type="Node2D" unique_id=508469511]
+
+[node name="basic_shoting_component" parent="." unique_id=978954981 node_paths=PackedStringArray("start") instance=ExtResource("3_2h465")]
 bullet = ExtResource("2_2h465")
 start = NodePath("start_position")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=255761419]
+[node name="Sprite2D" type="Sprite2D" parent="basic_shoting_component" unique_id=255761419]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(12.000001, 1)
 scale = Vector2(0.21875, 0.07812499)
 texture = ExtResource("1_tti0o")
 
-[node name="start_position" type="Node2D" parent="." unique_id=175316203]
+[node name="start_position" type="Node2D" parent="basic_shoting_component" unique_id=175316203]
 position = Vector2(26, 0)

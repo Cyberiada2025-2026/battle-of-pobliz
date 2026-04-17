@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dnc5o773demqp"]
+
+[ext_resource type="Script" uid="uid://bhvssj4dv6mky" path="res://characters/bodies/wepons/basic_shoting_component.gd" id="1_887wi"]
+
+[node name="basic_shoting_component" type="Node2D" unique_id=978954981]
+script = ExtResource("1_887wi")

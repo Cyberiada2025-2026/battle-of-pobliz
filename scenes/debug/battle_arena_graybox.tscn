@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d0n8i5w3qg3ea" path="res://characters/bodies/prefabs/flying_body.tscn" id="2_lt32o"]
 [ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://characters/boss/boss.tscn" id="2_neadt"]
 [ext_resource type="PackedScene" uid="uid://6415hun4ef1b" path="res://characters/bodies/wepons/shotgun.tscn" id="3_2nv5k"]
-[ext_resource type="PackedScene" uid="uid://m5esfrv6ybuk" path="res://characters/bodies/wepons/basic_gun.tscn" id="3_lq37g"]
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
+[ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(42, 733)
@@ -54,7 +54,7 @@ position = Vector2(2, -19)
 [node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
 position = Vector2(208, 552)
 
-[node name="BasicGun" parent="FlyingBody" unique_id=2046280642 instance=ExtResource("3_lq37g")]
+[node name="Revolver" parent="FlyingBody" unique_id=57487654 instance=ExtResource("5_2nv5k")]
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)

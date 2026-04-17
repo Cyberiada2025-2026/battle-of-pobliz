@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Shotgun
+class_name BasicShotingComponent
 
 @export var bullet: PackedScene
 @export var start: Node2D
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			cur_magazine = max_magazine
 
 func _input(event: InputEvent) -> void:
-	if get_tree().get_first_node_in_group("possession_manager").current_body == get_parent(): 
+	if get_tree().get_first_node_in_group("possession_manager").current_body == get_parent().get_parent(): 
 		if event is InputEventMouseMotion:
 			var mouse_position = get_global_mouse_position()
 			rotation = Vector2.RIGHT.angle_to((mouse_position - global_position).normalized()) 

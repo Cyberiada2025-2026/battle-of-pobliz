@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dd7y35ocnk0r"]
+
+[ext_resource type="Script" uid="uid://rp5j3b7gre8u" path="res://shared/projectiles/bullet.gd" id="1_x0sso"]
+[ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="2_o1kx8"]
+[ext_resource type="PackedScene" uid="uid://s5nuptmxq4rd" path="res://shared/projectiles/bullet_graphic.tscn" id="3_e8jen"]
+[ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="4_irg2m"]
+[ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="5_11cee"]
+[ext_resource type="Shader" uid="uid://en5i1qanwoaf" path="res://shared/vfx/bullet/projectile/bullet.gdshader" id="6_0utmy"]
+[ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_ayirf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wemso"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfdvp"]
+shader = ExtResource("6_0utmy")
+shader_parameter/radius = 0.150000007125
+shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
+shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
+shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/outline_thickness = 0.10000000475
+shader_parameter/center_size = 0.2000000095
+shader_parameter/ring_thickness = 0.2750000130625
+shader_parameter/ring_speed = 6.000001234999999
+shader_parameter/ring_amount = 1.0
+
+[node name="Player Revolver Bullet" type="RigidBody2D" unique_id=1757667699 node_paths=PackedStringArray("damageComponent", "bullet_graphic")]
+collision_layer = 256
+collision_mask = 16
+mass = 0.001
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp_mode = 1
+script = ExtResource("1_x0sso")
+damageComponent = NodePath("DamageComponent")
+bullet_graphic = NodePath("Bullet Graphic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219238616]
+shape = SubResource("CircleShape2D_wemso")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=774932785]
+script = ExtResource("2_o1kx8")
+damage_amount = 2.0
+metadata/_custom_type_script = "uid://lvdktrosqc6q"
+
+[node name="Bullet Graphic" parent="." unique_id=1256230681 node_paths=PackedStringArray("bullet_basic", "bullet_shot", "bullet_hit") instance=ExtResource("3_e8jen")]
+bullet_basic = NodePath("bullet_basic")
+bullet_shot = NodePath("firing_vfx")
+bullet_hit = NodePath("hit")
+
+[node name="firing_vfx" parent="Bullet Graphic" unique_id=171665131 instance=ExtResource("4_irg2m")]
+
+[node name="bullet_basic" parent="Bullet Graphic" unique_id=331279362 instance=ExtResource("5_11cee")]
+material = SubResource("ShaderMaterial_hfdvp")
+
+[node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_ayirf")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
