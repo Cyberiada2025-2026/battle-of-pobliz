@@ -30,6 +30,9 @@ metadata/_custom_type_script = "uid://bmjqr5j3dytcc"
 
 [node name="GroundedMovementComponent" type="Node" parent="." unique_id=2018060262]
 script = ExtResource("4_7vlab")
+max_speed = 350.0
+acceleration = 50.0
+deceleration = 200.0
 metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 
 [node name="JumpComponent" type="Node" parent="." unique_id=2080854299]
