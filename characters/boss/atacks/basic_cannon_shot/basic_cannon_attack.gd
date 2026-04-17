@@ -6,13 +6,13 @@ extends Node
 @export var shot_series: int = 2
 @export var shot_series_cooldown: float = 0.5
 
-@export var bullet_speed: float = 0.2
+@export var bullet_speed: float = 200
 @export var lock_target_on_first_shot: bool = false
 
 
 @export var cannons: Array[BossCanon]
 
-@export var ammo_prefab: Resource
+@export var ammo_prefab: PackedScene
 #var bullet_prefab = preload("res://shared/projectiles/boss/basic_bullet.tscn")
 
 
@@ -33,7 +33,7 @@ func shot_serie(cannon: BossCanon):
 		if not lock_target_on_first_shot:
 			move_direction = (player.global_position - cannon.global_position).normalized()
 
-		bullet.apply_central_impulse(move_direction * bullet_speed)
+		bullet.linear_velocity = (move_direction * bullet_speed)
 		bullet.global_position = cannon.global_position
 
 		await get_tree().create_timer(shot_cooldown).timeout
