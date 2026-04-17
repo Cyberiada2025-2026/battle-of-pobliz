@@ -52,8 +52,9 @@ func random_atack() -> void:
 
 
 func start_phase(phase: BossPhase) -> void:
-	for timer in current_phase.atack_timers:
-		timer.stop()
+	if current_phase != null:
+		for timer in current_phase.atack_timers:
+			timer.stop()
 	current_phase = phase
 	for timer in phase.atack_timers:
 		timer.start()
