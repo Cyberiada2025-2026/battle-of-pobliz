@@ -4,6 +4,8 @@ extends Node
 @export var dash_speed: float = 1500.0
 @export var dash_duration: float = 0.15
 @export var dash_cooldown_duration: float = 1.0
+@export var vfx: GPUParticles2D
+
 var body: BodyController
 
 var is_dashing: bool = false
@@ -18,6 +20,8 @@ func apply(_delta: float) -> void:
 		is_dashing = true
 		var dash_timer = get_tree().create_timer(dash_duration)
 		dash_timer.timeout.connect(_on_dash_finished)
+		vfx.restart()
+		vfx.emitting = true
 
 	if is_dashing:
 		var dash_dir = sign(body.velocity.x)
@@ -28,4 +32,3 @@ func _on_dash_finished() -> void:
 	is_dashing = false
 	await get_tree().create_timer(dash_cooldown_duration).timeout
 	can_dash = true
-

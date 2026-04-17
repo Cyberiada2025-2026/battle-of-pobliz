@@ -15,12 +15,15 @@ extends Node
 @export var animator: AnimationPlayer
 
 func _ready() -> void:
-	posses_body(current_body)
+	posses_body(current_body, false)
 
-func posses_body(body: BodyController) -> void:
+func posses_body(body: BodyController, kill: bool = true) -> void:
+	var old_body = current_body
 	current_body = body
 	player_camera.reparent(current_body)
 	move_camera()
+	if old_body != null && kill:
+		old_body._on_zero_health()
 
 
 func _physics_process(delta: float) -> void:

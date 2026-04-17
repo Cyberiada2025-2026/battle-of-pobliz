@@ -192,16 +192,19 @@ position = Vector2(936, 400)
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
 position = Vector2(576, 504)
 
-[node name="JumpingBody" parent="." unique_id=1224676810 instance=ExtResource("3_o0ro2")]
+[node name="JumpingBody" parent="." unique_id=1224676810 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
 position = Vector2(592, 416)
+immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("shotgun")]
 
 [node name="shotgun" parent="JumpingBody" unique_id=508469511 instance=ExtResource("3_2nv5k")]
 position = Vector2(2, -19)
 
-[node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
+[node name="FlyingBody" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
 position = Vector2(208, 552)
+immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Revolver")]
 
 [node name="Revolver" parent="FlyingBody" unique_id=57487654 instance=ExtResource("5_2nv5k")]
+position = Vector2(8, -17)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
