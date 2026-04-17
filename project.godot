@@ -76,6 +76,7 @@ debug_die={
 [layer_names]
 
 2d_physics/layer_5="Bullet Destroyer"
+2d_physics/layer_6="platform"
 2d_physics/layer_8="Bodies"
 2d_physics/layer_9="PlayerAtacks"
 2d_physics/layer_10="BossAtacks"
