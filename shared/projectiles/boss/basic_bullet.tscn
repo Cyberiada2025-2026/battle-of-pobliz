@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_spvli"]
 
 [node name="BasicBullet" type="RigidBody2D" unique_id=1546428308]
-collision_layer = 513
+collision_layer = 512
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
