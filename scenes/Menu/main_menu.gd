@@ -18,10 +18,10 @@ extends CanvasLayer
 var activable: bool = false
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_die"):
-		get_tree().change_scene_to_packed(death_scene)
-	if Input.is_action_just_pressed("debug_win"):
-		get_tree().change_scene_to_packed(win_scene)
+	#if Input.is_action_just_pressed("debug_die"):
+		#get_tree().change_scene_to_packed(death_scene)
+	#if Input.is_action_just_pressed("debug_win"):
+		#get_tree().change_scene_to_packed(win_scene)
 	if activable:
 		if Input.is_action_just_pressed("ui_cancel"):
 			_on_resume_button_pressed()
