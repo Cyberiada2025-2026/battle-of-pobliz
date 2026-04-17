@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://giqw1gbknsfk"]
+
+[ext_resource type="Script" uid="uid://c88qqraiiwt7e" path="res://scenes/Menu/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://dxi0iucx4etrm" path="res://scenes/debug/battle_arena_graybox.tscn" id="2_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="3_8mcyk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+font_size = 40
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1682239054]
+process_mode = 3
+
+[node name="MainMenu" type="Control" parent="." unique_id=526384990 node_paths=PackedStringArray("start", "resume", "settings", "exit", "return_to_main_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+game_scene = ExtResource("2_ekxnf")
+empty_scene = ExtResource("3_8mcyk")
+start = NodePath("ColorRect/HBoxContainer/VBoxContainer/start label")
+resume = NodePath("ColorRect/HBoxContainer/VBoxContainer/resume label")
+settings = NodePath("ColorRect/HBoxContainer/VBoxContainer/setting label")
+exit = NodePath("ColorRect/HBoxContainer/VBoxContainer/exit label")
+return_to_main_menu = NodePath("ColorRect/HBoxContainer/VBoxContainer/main menu label")
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1318691085]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14044744, 0.14044744, 0.14044744, 0.41960785)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ColorRect" unique_id=1957958567]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1785080880]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ColorRect/HBoxContainer" unique_id=158191907]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1737924508]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="start label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1396118911]
+z_index = 1
+layout_mode = 2
+text = "START GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label" unique_id=862581661]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=324886433]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "RESUME GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label" unique_id=999925298]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="setting label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=336212726]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "SETTINGSa"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="setting button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label" unique_id=1179895800]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main menu label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1558629103]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "MAIN MENU"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main menu button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label" unique_id=90814729]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1903660576]
+z_index = 1
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label" unique_id=1337173974]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=2070318710]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1911145962]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label/start button" to="MainMenu" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label/resume button" to="MainMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label/setting button" to="MainMenu" method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="MainMenu" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label/exit button" to="MainMenu" method="_on_exit_button_pressed"]
