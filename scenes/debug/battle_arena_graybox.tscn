@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
 [ext_resource type="PackedScene" uid="uid://d0n8i5w3qg3ea" path="res://characters/bodies/prefabs/flying_body.tscn" id="2_lt32o"]
 [ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://characters/boss/boss.tscn" id="2_neadt"]
+[ext_resource type="PackedScene" uid="uid://6415hun4ef1b" path="res://characters/bodies/wepons/shotgun.tscn" id="3_2nv5k"]
 [ext_resource type="PackedScene" uid="uid://m5esfrv6ybuk" path="res://characters/bodies/wepons/basic_gun.tscn" id="3_lq37g"]
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
@@ -46,17 +47,16 @@ position = Vector2(576, 504)
 [node name="JumpingBody" parent="." unique_id=1224676810 instance=ExtResource("3_o0ro2")]
 position = Vector2(592, 416)
 
-[node name="BasicGun" parent="JumpingBody" unique_id=1478855736 instance=ExtResource("3_lq37g")]
-position = Vector2(0, -22)
+[node name="shotgun" parent="JumpingBody" unique_id=508469511 instance=ExtResource("3_2nv5k")]
+position = Vector2(2, -19)
 
 [node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
 position = Vector2(208, 552)
 
 [node name="BasicGun" parent="FlyingBody" unique_id=2046280642 instance=ExtResource("3_lq37g")]
 
-[node name="Boss" parent="." unique_id=113115272 node_paths=PackedStringArray("fase_1_atack_set") instance=ExtResource("2_neadt")]
+[node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
-fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), null]
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
