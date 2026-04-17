@@ -92,11 +92,16 @@ tile_set = ExtResource("8_70jce")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
 [node name="BossBar" parent="CanvasLayer" unique_id=859401329 node_paths=PackedStringArray("boss") instance=ExtResource("8_70jce")]
-offset_bottom = -617.0
+anchors_preset = -1
+anchor_bottom = 0.047839507
+offset_bottom = 0.0
 boss = NodePath("../../Boss")
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerBar" parent="CanvasLayer" unique_id=1448383073 instance=ExtResource("9_aud8f")]
-offset_left = 16.0
-offset_top = 624.0
-offset_right = -889.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_left = 0.013888889
+anchor_top = 0.962963
+anchor_right = 0.2282986
+anchor_bottom = 1.0478395
+metadata/_edit_use_anchors_ = true
