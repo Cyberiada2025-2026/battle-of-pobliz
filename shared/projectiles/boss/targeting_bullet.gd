@@ -23,20 +23,17 @@ func _on_body_entered(_body: Node) -> void:
 
 func _physics_process(delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("possession_manager").current_body
-	var move_direction: Vector2 = (player.global_position - global_position).normalized()
+	#var move_direction: Vector2 = (player.global_position - global_position).normalized()
 
-	print("s")
-	print(rad_to_deg(linear_velocity.angle()))
+	var angle_new = Vector2.RIGHT.angle_to(player.global_position - global_position)
+	var angle_diff = angle_new - linear_velocity.angle()
+	print(rad_to_deg(angle_diff))
 
+	#linear_velocity = linear_velocity.rotated(angle_diff)
 
-	print(rad_to_deg(Vector2.RIGHT.angle_to(player.global_position - global_position)))
-
-
-	#
-	#linear_velocity = linear_velocity.length() / max_velocity * linear_velocity
-	#print(linear_velocity)
-	#apply_central_impulse(move_direction * targetting_power * delta)
-	#print(linear_velocity)
+	var current_speed = linear_velocity.length()
+	var new_dir = Vector2.RIGHT.rotated(angle_new)
+	linear_velocity = new_dir * current_speed
 
 
 func destroy():
