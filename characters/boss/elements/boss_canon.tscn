@@ -7,6 +7,7 @@
 radius = 30.0
 
 [node name="Boss Canon" type="Area2D" unique_id=836624194]
+collision_mask = 256
 script = ExtResource("1_ro2eh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16431274]

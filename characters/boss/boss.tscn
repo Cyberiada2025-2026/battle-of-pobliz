@@ -23,8 +23,10 @@ fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), NodePath("Atta
 
 [node name="head" type="Area2D" parent="hitbox" unique_id=302636103 node_paths=PackedStringArray("boss")]
 position = Vector2(550, 50)
+collision_mask = 256
 script = ExtResource("2_ia5xw")
 boss = NodePath("../..")
+damage_multiply = 2.0
 metadata/_custom_type_script = "uid://moi8ubohtdkb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
