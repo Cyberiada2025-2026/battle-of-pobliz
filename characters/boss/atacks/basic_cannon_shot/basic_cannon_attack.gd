@@ -33,7 +33,7 @@ func shot_serie(cannon: BossCanon):
 		if not lock_target_on_first_shot:
 			move_direction = (player.global_position - cannon.global_position).normalized()
 
-		bullet.apply_central_impulse(move_direction * bullet_speed)
+		bullet.linear_velocity = (move_direction * bullet_speed)
 		bullet.global_position = cannon.global_position
 
 		await get_tree().create_timer(shot_cooldown).timeout

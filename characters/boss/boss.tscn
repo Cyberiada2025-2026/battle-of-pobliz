@@ -65,6 +65,7 @@ phase_health = 5.0
 [node name="CannonAttack" type="Node" parent="Phases/Phase1/Attacks" unique_id=1924551488 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")
 shot_series = 1
+bullet_speed = 700.0
 cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../../hitbox/canons/Boss Canon2")]
 ammo_prefab = ExtResource("8_0ag5n")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"

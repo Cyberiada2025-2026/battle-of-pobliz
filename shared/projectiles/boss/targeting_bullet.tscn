@@ -35,7 +35,7 @@ linear_damp_mode = 1
 script = ExtResource("1_5ferb")
 damageComponent = NodePath("DamageComponent")
 bullet_graphic = NodePath("Bullet Graphic")
-targetting_power = 0.5
+max_rotation_per_second = 145.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928752692]
 shape = SubResource("CircleShape2D_spvli")
