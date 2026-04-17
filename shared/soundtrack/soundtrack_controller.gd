@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 			main_loop_player.volume_db = 0
 			
 		# Advance music through phases
-		print(current_scene, " ", current_boss_phase, " ", main_loop_playback.get_current_clip_index())
 		if current_boss_phase < 2 && main_loop_playback.get_current_clip_index() != 0:
 			main_loop_playback.switch_to_clip(0)
 		elif current_boss_phase >= 2 && main_loop_playback.get_current_clip_index() != 1:
