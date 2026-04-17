@@ -523,6 +523,7 @@ turbulence_noise_speed = Vector3(5, 5, 0)
 collision_layer = 128
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
+type = "jump"
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), null]
 explosion = NodePath("VFX/hit")

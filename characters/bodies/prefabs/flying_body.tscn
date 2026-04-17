@@ -469,6 +469,7 @@ turbulence_noise_speed = Vector3(5, 5, 0)
 collision_layer = 128
 script = ExtResource("1_27qwu")
 movement_components = [NodePath("FlightMovementComponent")]
+type = "flight"
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), null]
 explosion = NodePath("hit")

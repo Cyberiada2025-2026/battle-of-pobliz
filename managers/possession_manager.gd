@@ -1,6 +1,8 @@
 class_name PossessionManager
 extends Node
 
+signal body_changed(body_type: String)
+
 @export var current_body: BodyController
 @export var player_camera: Camera2D
 @export var ray_cast: RayCast2D
@@ -21,6 +23,7 @@ func posses_body(body: BodyController, kill: bool = true) -> void:
 	var old_body = current_body
 	current_body = body
 	player_camera.reparent(current_body)
+	body_changed.emit(body.type)
 	move_camera()
 	if old_body != null && kill:
 		old_body._on_zero_health()

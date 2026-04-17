@@ -14,8 +14,19 @@ extends CanvasLayer
 @export var settings: Node
 @export var return_to_main_menu: Node
 @export var exit: Node
+@export var starrt_body_count = 2
 
+var is_timer_on = false
 var activable: bool = false
+var timer: float = 0
+
+var body_c: int = 2
+
+
+func _process(delta: float) -> void:
+	if visible == false:
+		if is_timer_on:
+			timer += delta
 
 func _input(_event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("debug_die"):
@@ -30,13 +41,16 @@ func _input(_event: InputEvent) -> void:
 
 func _on_start_button_pressed() -> void:
 	SoundtrackController.current_scene = 2
-	get_tree().change_scene_to_packed(game_scene)
+	await get_tree().change_scene_to_packed(game_scene)
 	start.visible = false
 	exit.visible = false
 	resume.visible = true
 	return_to_main_menu.visible = true
 	visible = false
 	activable = true
+	is_timer_on = true
+	timer = 0
+	body_c = starrt_body_count
 	get_tree().paused = false
 
 
@@ -58,6 +72,8 @@ func _on_main_menu_button_pressed() -> void:
 	resume.visible = false
 	return_to_main_menu.visible = false
 	activable = false
+	is_timer_on = false
+	timer = 0
 
 
 func _on_exit_button_pressed() -> void:
