@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bxg3cx0elor6a" path="res://characters/boss/atacks/atack_timer.gd" id="1_qym5l"]
 
-
 [node name="Atack Timer" type="Timer" unique_id=470246283]
 script = ExtResource("1_qym5l")
 
