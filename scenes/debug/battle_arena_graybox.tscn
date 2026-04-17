@@ -55,8 +55,9 @@ position = Vector2(208, 552)
 
 [node name="BasicGun" parent="FlyingBody" unique_id=2046280642 instance=ExtResource("3_lq37g")]
 
-[node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
+[node name="Boss" parent="." unique_id=113115272 node_paths=PackedStringArray("fase_1_atack_set") instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
+fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), null]
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
@@ -73,3 +74,11 @@ position_smoothing_speed = 10.0
 [node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
 position = Vector2(0, -24)
 collision_mask = 128
+
+[node name="ArenaAreaMarkers" type="Node" parent="." unique_id=1062189458 groups=["arena_area_markers"]]
+
+[node name="TopLeft" type="Node2D" parent="ArenaAreaMarkers" unique_id=1949251636]
+position = Vector2(17, 0)
+
+[node name="DownRight" type="Node2D" parent="ArenaAreaMarkers" unique_id=731100975]
+position = Vector2(1135, 638)
