@@ -28,4 +28,4 @@ shape = SubResource("CircleShape2D_wemso")
 script = ExtResource("3_dts0a")
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
-[connection signal="body_entered" from="." to="." method="collision"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
