@@ -1,11 +1,13 @@
 class_name JumpComponent
 extends Node
 
-@export var jump_velocity: float = 300.0
+@export var jump_height: float = 100.0
 @export var max_extra_jump_count: int = 1
 
 var body: BodyController
 var _extra_jump_count = 0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var jump_velocity = sqrt(2 * jump_height * gravity)
 
 func apply(_delta: float) -> void:
 	if body.is_on_floor():
