@@ -26,3 +26,10 @@ res://characters/boss/atacks/sky_lasers/sky_laser.gd
 res://shared/projectiles/bullet.gd
 res://shared/projectiles/boss/basic_bullet.tscn
 res://shared/projectiles/player/player_bullet.tscn
+res://characters/boss/boss.gd
+res://characters/boss/atacks/atack_timer.gd
+res://characters/boss/atacks/atack_timer.tscn
+res://characters/boss/elements/boss_canon.gd
+res://characters/boss/elements/boss_canon.tscn
+res://characters/boss/elements/boss_damage_point.gd
+res://shared/damage_component/damage_component.gd
