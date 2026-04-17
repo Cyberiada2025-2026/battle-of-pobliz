@@ -45,7 +45,7 @@ func use():
 		print(laser_marker.position)
 
 	# wait for marker_show_time
-	await get_tree().create_timer(marker_show_time).timeout
+	await get_tree().create_timer(marker_show_time, false).timeout
 
 	for marker in get_children():
 		marker.queue_free()
@@ -61,7 +61,7 @@ func use():
 		laser.get_child(1).shape.size = Vector2(laser_width, arena_height)
 
 	# wait for attack_duration
-	await get_tree().create_timer(attack_duration).timeout
+	await get_tree().create_timer(attack_duration, false).timeout
 
 	for laser in get_children():
 		laser.queue_free()

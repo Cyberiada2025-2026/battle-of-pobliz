@@ -15,6 +15,7 @@ size = Vector2(42, 733)
 size = Vector2(1151, 37)
 
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
+process_mode = 1
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
 collision_layer = 17

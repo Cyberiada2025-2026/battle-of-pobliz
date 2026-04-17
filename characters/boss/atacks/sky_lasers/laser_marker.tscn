@@ -10,6 +10,7 @@ width = 57
 height = 666
 
 [node name="LaserMarker" type="Node2D" unique_id=1303524816]
+process_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
 texture = SubResource("GradientTexture2D_ufhy1")
