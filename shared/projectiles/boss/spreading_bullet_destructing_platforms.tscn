@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="5_dwv83"]
 [ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="6_ualrr"]
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_n0npo"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="8_vwq4w"]
+[ext_resource type="AudioStream" uid="uid://dnqrw302r77hh" path="res://shared/sfx/pocisk-duzy.wav" id="9_o6jwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_spvli"]
 radius = 30.0
@@ -51,14 +53,14 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1pqb"]
 shader = SubResource("Shader_s6rch")
 shader_parameter/radius = 0.470000022325
-shader_parameter/color_main = Color(0.94509804, 0.23529412, 0.6666667, 1)
+shader_parameter/color_main = Color(0.20648059, 0.6782728, 0.27272245, 1)
 shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.464762, 0, 0.30774534, 1)
+shader_parameter/color_rings = Color(0.00017423743, 0.9674865, 0.06101915, 1)
 shader_parameter/outline_thickness = 0.10000000475
-shader_parameter/center_size = 0.2000000095
-shader_parameter/ring_thickness = 0.10000000475
-shader_parameter/ring_speed = 6.000001234999999
+shader_parameter/center_size = 0.1670000079325
+shader_parameter/ring_thickness = 0.122000005795
+shader_parameter/ring_speed = 3.3630011097424983
 shader_parameter/ring_amount = 1.0
 
 [node name="SpreadingBullet" type="RigidBody2D" unique_id=614731856 node_paths=PackedStringArray("damageComponent", "bullet_graphic")]
@@ -96,5 +98,10 @@ bullet_hit = NodePath("hit")
 material = SubResource("ShaderMaterial_q1pqb")
 
 [node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_n0npo")]
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("8_vwq4w")]
+stream = ExtResource("9_o6jwd")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

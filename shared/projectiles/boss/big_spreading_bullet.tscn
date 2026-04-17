@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="4_alkoa"]
 [ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="5_je2or"]
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_d6xnr"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="8_bcnjn"]
+[ext_resource type="AudioStream" uid="uid://dnqrw302r77hh" path="res://shared/sfx/pocisk-duzy.wav" id="9_alkoa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ouxp"]
 radius = 25.0
@@ -48,16 +50,16 @@ void fragment() {
 	COLOR.a = step(0.0, dist);
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6xnr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1uxc"]
 shader = SubResource("Shader_s6rch")
-shader_parameter/radius = 0.390000018525
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
+shader_parameter/radius = 0.470000022325
+shader_parameter/color_main = Color(5.1018596e-06, 0.6562737, 0.64998573, 1)
 shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(0, 3.8432815, 5.337894, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
-shader_parameter/ring_thickness = 0.2750000130625
+shader_parameter/ring_thickness = 0.034000001615
 shader_parameter/ring_speed = 6.000001234999999
 shader_parameter/ring_amount = 1.0
 
@@ -93,8 +95,13 @@ bullet_hit = NodePath("hit")
 [node name="firing_vfx" parent="Bullet Graphic" unique_id=171665131 instance=ExtResource("4_alkoa")]
 
 [node name="bullet_basic" parent="Bullet Graphic" unique_id=331279362 instance=ExtResource("5_je2or")]
-material = SubResource("ShaderMaterial_d6xnr")
+material = SubResource("ShaderMaterial_v1uxc")
 
 [node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_d6xnr")]
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("8_bcnjn")]
+stream = ExtResource("9_alkoa")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

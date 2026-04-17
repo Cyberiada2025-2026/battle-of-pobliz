@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cxmm5pldj70rw" path="res://shared/vfx/bullet/projectile/bullet_basic.tscn" id="5_i4dkd"]
 [ext_resource type="Shader" uid="uid://en5i1qanwoaf" path="res://shared/vfx/bullet/projectile/bullet.gdshader" id="6_nackx"]
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="7_tnq3d"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="8_tr21j"]
+[ext_resource type="AudioStream" uid="uid://c5kc8bo7v7h15" path="res://shared/sfx/strzal-szybki.wav" id="9_g2df5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p5n1y"]
 friction = 0.0
@@ -18,10 +20,10 @@ radius = 9.6
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2a7ei"]
 shader = ExtResource("6_nackx")
 shader_parameter/radius = 0.150000007125
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
-shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_main = Color(0.99112684, 0.5158842, 0.07044809, 1)
+shader_parameter/color_outline = Color(2.7781298, 0.77230203, 0.31049687, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(4.124446, 2.9222794, 4.268496, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
 shader_parameter/ring_thickness = 0.2750000130625
@@ -61,5 +63,10 @@ bullet_hit = NodePath("hit")
 material = SubResource("ShaderMaterial_2a7ei")
 
 [node name="hit" parent="Bullet Graphic" unique_id=260240667 instance=ExtResource("7_tnq3d")]
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("8_tr21j")]
+stream = ExtResource("9_g2df5")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
