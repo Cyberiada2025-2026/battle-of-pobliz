@@ -18,10 +18,10 @@ func apply(_delta: float) -> void:
 		is_jumping = false
 
 	if Input.is_action_just_pressed("jump"):
-		if _extra_jump_count < max_extra_jump_count:
-			_extra_jump_count += 1
+		if body.is_on_floor():
 			body.velocity.y = -jump_velocity
 			is_jumping = true
-		elif body.is_on_floor():
+		elif _extra_jump_count < max_extra_jump_count:
+			_extra_jump_count += 1
 			body.velocity.y = -jump_velocity
 			is_jumping = true
