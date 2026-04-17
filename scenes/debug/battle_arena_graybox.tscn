@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dxi0iucx4etrm"]
+[gd_scene format=4 uid="uid://dxi0iucx4etrm"]
 
 [ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
 [ext_resource type="PackedScene" uid="uid://d0n8i5w3qg3ea" path="res://characters/bodies/prefabs/flying_body.tscn" id="2_lt32o"]
@@ -7,12 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
+[ext_resource type="TileSet" uid="uid://8a1g282xi7ff" path="res://shared/tiles/tileset_base.tres" id="8_70jce"]
+[ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
-size = Vector2(42, 733)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
+normal = Vector2(0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt32o"]
-size = Vector2(1151, 37)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei0ig"]
+texture = ExtResource("8_aud8f")
+texture_region_size = Vector2i(64, 64)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_70jce"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 17
+sources/1 = SubResource("TileSetAtlasSource_ei0ig")
 
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
@@ -20,21 +31,9 @@ process_mode = 1
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
 collision_layer = 17
 
-[node name="BoundaryLeft" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
-position = Vector2(-2, 303)
-shape = SubResource("RectangleShape2D_neadt")
-
-[node name="BoundaryRight" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
-position = Vector2(1150, 314.5)
-shape = SubResource("RectangleShape2D_neadt")
-
-[node name="BoundaryCenter" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
-position = Vector2(575.5, 656)
-shape = SubResource("RectangleShape2D_lt32o")
-
 [node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
 position = Vector2(573, -56)
-shape = SubResource("RectangleShape2D_lt32o")
+shape = SubResource("WorldBoundaryShape2D_aud8f")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
 position = Vector2(216, 400)
@@ -82,3 +81,10 @@ position = Vector2(17, 0)
 
 [node name="DownRight" type="Node2D" parent="ArenaAreaMarkers" unique_id=731100975]
 position = Vector2(1135, 638)
+
+[node name="StaticTilesBase" type="TileMapLayer" parent="." unique_id=577662104]
+tile_map_data = PackedByteArray("AAAAAAoAAQACAAEAAAAAAAkAAQACAAEAAAAAAAgAAQACAAEAAAAAAAcAAQACAAEAAAAAAAYAAQACAAEAAAAAAAUAAQACAAEAAAAAAAQAAQACAAEAAAAAAAMAAQACAAEAAAAAAAIAAQACAAEAAAAAAAEAAQACAAEAAAAAAAAAAQACAAEAAAAAAP//AQACAAEAAAABAAgAAQACAAEAAAACAAgAAQACAAEAAAACAAkAAQACAAEAAAACAAoAAQACAAEAAAABAAoAAQACAAEAAAABAAkAAQACAAEAAAADAAoAAQACAAEAAAAEAAoAAQACAAEAAAAFAAoAAQACAAEAAAAGAAoAAQACAAEAAAAHAAoAAQACAAEAAAAIAAoAAQACAAEAAAAJAAoAAQACAAEAAAAKAAoAAQACAAEAAAALAAoAAQACAAEAAAAMAAoAAQACAAEAAAANAAoAAQACAAEAAAAOAAoAAQACAAEAAAAPAAoAAQACAAEAAAAQAAoAAQACAAEAAAARAAoAAQACAAEAAAASAAoAAQACAAEAAAASAAkAAQACAAEAAAASAAgAAQACAAEAAAASAAcAAQACAAEAAAASAAYAAQACAAEAAAASAAUAAQACAAEAAAASAAQAAQACAAEAAAASAAMAAQACAAEAAAASAAIAAQACAAEAAAASAAEAAQACAAEAAAASAAAAAQACAAEAAAASAP//AQACAAEAAAAMAAYAAQACAAEAAAAMAAcAAQACAAEAAAAMAAgAAQACAAEAAAAMAAkAAQACAAEAAAANAAYAAQACAAEAAAANAAcAAQACAAEAAAANAAgAAQACAAEAAAANAAkAAQACAAEAAAAGAAkAAQACAAEAAAAHAAkAAQACAAEAAAAIAAkAAQACAAEAAAA=")
+tile_set = SubResource("TileSet_70jce")
+
+[node name="StaticTilesVisual" type="TileMapLayer" parent="." unique_id=216615432]
+tile_set = ExtResource("8_70jce")
