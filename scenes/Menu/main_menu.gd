@@ -1,21 +1,30 @@
-extends Control
+extends CanvasLayer
+
 
 
 @export_category("scenes")
 @export var game_scene: PackedScene
 @export var empty_scene: PackedScene
+@export var death_scene: PackedScene
+@export var win_scene: PackedScene
 
 @export_category("nodes")
 @export var start: Node
 @export var resume: Node
 @export var settings: Node
-@export var exit: Node
 @export var return_to_main_menu: Node
+@export var exit: Node
 
+var activable: bool = false
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		_on_resume_button_pressed()
+	if Input.is_action_just_pressed("debug_die"):
+		get_tree().change_scene_to_packed(death_scene)
+	if Input.is_action_just_pressed("debug_win"):
+		get_tree().change_scene_to_packed(win_scene)
+	if activable:
+		if Input.is_action_just_pressed("ui_cancel"):
+			_on_resume_button_pressed()
 
 
 
@@ -26,6 +35,7 @@ func _on_start_button_pressed() -> void:
 	resume.visible = true
 	return_to_main_menu.visible = true
 	visible = false
+	activable = true
 	get_tree().paused = false
 
 
@@ -44,6 +54,7 @@ func _on_main_menu_button_pressed() -> void:
 	exit.visible = true
 	resume.visible = false
 	return_to_main_menu.visible = false
+	activable = false
 
 
 func _on_exit_button_pressed() -> void:
