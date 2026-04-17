@@ -35,5 +35,5 @@ metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("3_nnway")]
 stream = ExtResource("4_nnway")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true

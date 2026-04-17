@@ -20,6 +20,5 @@ texture = SubResource("GradientTexture2D_ufhy1")
 
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("1_xrxsx")]
 stream = ExtResource("2_xbwnl")
-volume_db = -10.0
 autoplay = true
 bus = &"SFX"
