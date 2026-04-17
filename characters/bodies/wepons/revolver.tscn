@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_6eidy"]
 [ext_resource type="PackedScene" uid="uid://dnc5o773demqp" path="res://characters/bodies/wepons/basic_shoting_component.tscn" id="2_n210b"]
-[ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="3_fx3i5"]
+[ext_resource type="PackedScene" uid="uid://dd7y35ocnk0r" path="res://shared/projectiles/player/player_revolver_bullet.tscn" id="2_tnq30"]
 [ext_resource type="Texture2D" uid="uid://cu6wklha6jdmk" path="res://characters/bodies/wepons/Gun1.png" id="4_fx3i5"]
-[ext_resource type="Script" uid="uid://4e8cy3ds06sp" path="res://characters/bodies/wepons/weapon_rotation.gd" id="5_tnq30"]
+[ext_resource type="Script" path="res://characters/bodies/wepons/weapon_rotation.gd" id="5_tnq30"]
 
 [node name="Revolver" type="Node2D" unique_id=57487654]
 
 [node name="basic_shoting_component" parent="." unique_id=978954981 node_paths=PackedStringArray("start") instance=ExtResource("2_n210b")]
-bullet = ExtResource("3_fx3i5")
+bullet = ExtResource("2_tnq30")
 start = NodePath("start_position")
 cooldown = 1.0
 max_magazine = 6

@@ -215,15 +215,29 @@ immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("sh
 [node name="shotgun" parent="JumpingBody" unique_id=508469511 instance=ExtResource("3_2nv5k")]
 position = Vector2(2, -19)
 
-[node name="FlyingBody" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
-position = Vector2(208, 552)
+[node name="JumpingBody2" parent="." unique_id=1753823366 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
+position = Vector2(576, 832)
+immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), NodePath("shotgun")]
+
+[node name="shotgun" parent="JumpingBody2" unique_id=64767452 instance=ExtResource("3_2nv5k")]
+position = Vector2(2, -19)
+
+[node name="FlyingBody2" parent="." unique_id=376527720 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
+position = Vector2(1256, 912)
 immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Revolver")]
 
-[node name="Revolver" parent="FlyingBody" unique_id=57487654 instance=ExtResource("5_2nv5k")]
+[node name="Revolver" parent="FlyingBody2" unique_id=57487654 instance=ExtResource("5_2nv5k")]
+position = Vector2(8, -17)
+
+[node name="FlyingBody" parent="." unique_id=1717567141 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("2_lt32o")]
+position = Vector2(-96, 912)
+immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Revolver")]
+
+[node name="Revolver" parent="FlyingBody" unique_id=1905622836 instance=ExtResource("5_2nv5k")]
 position = Vector2(8, -17)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
-position = Vector2(0, -72)
+position = Vector2(27, -72)
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast", "post", "pointer", "vfx_line", "animator") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
@@ -402,6 +416,7 @@ grow_vertical = 2
 scroll_scale = Vector2(0.7, 0.7)
 
 [node name="Background" parent="Decorations/Parallax2D" unique_id=2000219965 instance=ExtResource("10_nj41v")]
+modulate = Color(0.5220315, 0.6329137, 0.67903215, 1)
 z_index = -3
 anchors_preset = 8
 anchor_left = 0.5
@@ -416,6 +431,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Parallax2D2" type="Parallax2D" parent="Decorations" unique_id=1134516236]
+modulate = Color(0.5911871, 0.7569381, 0.78000784, 1)
 
 [node name="Column3" parent="Decorations/Parallax2D2" unique_id=1225512703 instance=ExtResource("20_ctedh")]
 z_index = -2
