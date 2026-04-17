@@ -62,5 +62,6 @@ material = SubResource("ShaderMaterial_xcced")
 stream = ExtResource("9_hd6jy")
 volume_db = -9.0
 autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -32,6 +32,7 @@ func take_damage(damage: float) -> void:
 	if dash_comp != null and dash_comp.is_dashing_invis:
 		return
 	health -= damage
+	DamageSfx.play()
 	if health <= 0:
 		zero_health.emit()
 

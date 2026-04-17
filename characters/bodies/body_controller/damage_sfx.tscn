@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d3xwarg5gbmc4"]
+
+[ext_resource type="AudioStream" uid="uid://sktdelmpsl8c" path="res://shared/sfx/damaged-player.wav" id="1_65xfh"]
+
+[sub_resource type="GDScript" id="GDScript_o2dwm"]
+script/source = "extends AudioStreamPlayer
+class_name DamageSFX
+"
+
+[node name="DamageSfx" type="AudioStreamPlayer" unique_id=1484084751]
+stream = ExtResource("1_65xfh")
+volume_db = -4.0
+bus = &"SFX"
+script = SubResource("GDScript_o2dwm")
