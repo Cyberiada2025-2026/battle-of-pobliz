@@ -383,7 +383,7 @@ metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 
 [node name="JumpComponent" type="Node" parent="." unique_id=2080854299]
 script = ExtResource("5_qtlex")
-jump_velocity = 600.0
+jump_velocity = 650.0
 metadata/_custom_type_script = "uid://bv0a0uif4y5pk"
 
 [node name="DashComponent" type="Node" parent="." unique_id=802304448]
