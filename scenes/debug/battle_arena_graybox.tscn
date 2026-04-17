@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
 [ext_resource type="TileSet" uid="uid://8a1g282xi7ff" path="res://shared/tiles/tileset_base.tres" id="8_70jce"]
 [ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
+[ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
+[ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
 normal = Vector2(0, 1)
@@ -87,3 +89,14 @@ tile_set = SubResource("TileSet_70jce")
 
 [node name="StaticTilesVisual" type="TileMapLayer" parent="." unique_id=216615432]
 tile_set = ExtResource("8_70jce")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
+
+[node name="BossBar" parent="CanvasLayer" unique_id=859401329 node_paths=PackedStringArray("boss") instance=ExtResource("8_70jce")]
+offset_bottom = -617.0
+boss = NodePath("../../Boss")
+
+[node name="PlayerBar" parent="CanvasLayer" unique_id=1448383073 instance=ExtResource("9_aud8f")]
+offset_left = 16.0
+offset_top = 624.0
+offset_right = -889.0
+offset_bottom = 31.0

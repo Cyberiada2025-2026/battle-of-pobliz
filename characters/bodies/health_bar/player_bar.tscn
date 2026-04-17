@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://chpqinb64dahi"]
+
+[ext_resource type="Script" uid="uid://c8wjdv1hjll4o" path="res://characters/bodies/health_bar/player_bar.gd" id="1_nbg3a"]
+
+[node name="PlayerBar" type="Control" unique_id=1448383073 node_paths=PackedStringArray("bar_base", "bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbg3a")
+bar_base = NodePath("back/Control")
+bar = NodePath("back/Control/bar")
+
+[node name="back" type="ColorRect" parent="." unique_id=443910640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="back" unique_id=1070708547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bar" type="ColorRect" parent="back/Control" unique_id=402725751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

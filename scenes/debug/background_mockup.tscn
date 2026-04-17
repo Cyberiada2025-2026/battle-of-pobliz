@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b0cju6tyime6b"]
+
+[ext_resource type="PackedScene" uid="uid://by5d0ytcmlxkf" path="res://shared/background/background.tscn" id="1_3y6pm"]
+[ext_resource type="PackedScene" uid="uid://qaqp5lib5fjf" path="res://shared/background/column.tscn" id="2_q33f7"]
+
+[node name="BackgroundMockup" type="Node2D" unique_id=1341388410]
+
+[node name="Background" parent="." unique_id=2000219965 instance=ExtResource("1_3y6pm")]
+
+[node name="Column" parent="." unique_id=1225512703 instance=ExtResource("2_q33f7")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 646.0
+offset_right = 251.0
+offset_bottom = 1446.0
+grow_vertical = 0
+
+[node name="Column2" parent="." unique_id=1757295001 instance=ExtResource("2_q33f7")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 292.0
+offset_top = 647.0
+offset_right = 472.0
+offset_bottom = 1047.0
+grow_vertical = 0
+
+[node name="Column3" parent="." unique_id=348455932 instance=ExtResource("2_q33f7")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1053.0
+offset_top = 647.0
+offset_right = 1233.0
+offset_bottom = 1847.0
+grow_vertical = 0

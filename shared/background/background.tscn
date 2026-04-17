@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://by5d0ytcmlxkf"]
+
+[ext_resource type="Texture2D" uid="uid://dyfj8y3aafnuv" path="res://shared/background/back_panel.png" id="1_271qa"]
+
+[node name="Background" type="TextureRect" unique_id=2000219965]
+offset_right = 6000.0
+offset_bottom = 6000.0
+rotation = 0.0013649298
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_271qa")
+stretch_mode = 1

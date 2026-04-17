@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hm7uxeu8c4w0" path="res://shared/world_environment.tscn" id="2_o2pfx"]
 [ext_resource type="PackedScene" uid="uid://dffnwyxuwhqk5" path="res://shared/vfx/bullet/firing/firing_vfx.tscn" id="3_75fpn"]
 [ext_resource type="PackedScene" uid="uid://b3urajpvbn42b" path="res://shared/vfx/bullet/hit/hit.tscn" id="4_cy4hv"]
+[ext_resource type="Script" path="res://shared/vfx/bullet/firing/rotation_fix.gd" id="4_yxnx2"]
 
 [node name="VfxTest" type="Node2D" unique_id=1946052051]
 
@@ -15,6 +16,7 @@
 
 [node name="firing_vfx" parent="." unique_id=171665131 instance=ExtResource("3_75fpn")]
 position = Vector2(60, 0)
+script = ExtResource("4_yxnx2")
 
 [node name="hit" parent="." unique_id=260240667 instance=ExtResource("4_cy4hv")]
 position = Vector2(105, 0)
