@@ -1,8 +1,11 @@
 class_name BodyController
 extends CharacterBody2D
 
+signal zero_health
+
 ## put controllers here in order of evaluation
 @export var movement_components: Array[Node] = []
+@export var health: float = 10
 
 func _ready() -> void:
 	for movement_comp in movement_components:
