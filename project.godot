@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Battle Of Pobliz"
+run/main_scene="uid://dfqkxqnn8e5q0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MainMenu="*uid://giqw1gbknsfk"
 
 [global_group]
 
