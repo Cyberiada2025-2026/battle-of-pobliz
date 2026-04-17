@@ -9,6 +9,7 @@ signal atack_signal
 @export var canon_left: Node2D
 @export var canon_right: Node2D
 @export var head: Node2D
+@export var is_invincible: bool = false
 
 
 @export_category("Phases")
@@ -24,6 +25,8 @@ func _ready() -> void:
 
 
 func take_damage(damage: float) -> void:
+	if is_invincible:
+		return
 	health -= damage
 	print(health)
 	if health <= 0:

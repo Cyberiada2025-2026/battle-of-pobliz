@@ -23,6 +23,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(damage: float) -> void:
+	if find_child("DashComponent").is_dashing:
+		return
 	health -= damage
 	if health <= 0:
 		zero_health.emit()
