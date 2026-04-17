@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cy7pko314flel"]
+
+[ext_resource type="Script" uid="uid://w4hl0p4lj2xk" path="res://characters/boss/boss_bar/boss_bar.gd" id="1_8hj6s"]
+
+[node name="BossBar" type="Control" unique_id=859401329 node_paths=PackedStringArray("bar_base")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -598.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hj6s")
+bar_base = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=719485517]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
