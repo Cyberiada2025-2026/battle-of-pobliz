@@ -15,3 +15,4 @@ shape = SubResource("RectangleShape2D_r0myr")
 self_modulate = Color(0.6099125, 0.9041138, 0.75278825, 1)
 tile_map_data = PackedByteArray("AAD+/wAAAQAAAAIAAAD//wAAAQABAAIAAAAAAAAAAQABAAIAAAABAAAAAQADAAMAAAD+////AQABAAMAAAABAP//AQAAAAAAAAD/////AQADAAAAAAAAAP//AQADAAAAAAA=")
 tile_set = ExtResource("3_it8b7")
+collision_enabled = false
