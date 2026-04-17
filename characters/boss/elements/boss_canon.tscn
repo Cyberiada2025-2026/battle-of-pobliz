@@ -6,6 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwubs"]
 radius = 64.49806
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywc0n"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
 [node name="Boss Canon" type="Area2D" unique_id=836624194]
 collision_mask = 256
 script = ExtResource("1_ro2eh")
@@ -29,3 +37,7 @@ offset_right = 4078.0
 offset_bottom = 4110.0
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_icjx0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=131997359]
+sprite_frames = SubResource("SpriteFrames_ywc0n")
+animation = &"attack"

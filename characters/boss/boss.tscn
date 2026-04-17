@@ -204,12 +204,23 @@ bar_color = Color(1, 0.84313726, 0, 1)
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase3" unique_id=697194476]
 
+[node name="BulletWall2" type="Node" parent="Phases/Phase3/Attacks" unique_id=533192620]
+script = ExtResource("7_w2qq7")
+wall_thickness = 20
+shot_cooldown = 0.15
+height_bullet_count = 30
+wall_count = 1
+bullet_speed = 250
+ammo_prefab = ExtResource("8_dgtul")
+metadata/_custom_type_script = "uid://cscygqfx3271u"
+
 [node name="BulletWall" type="Node" parent="Phases/Phase3/Attacks" unique_id=1929446890]
 script = ExtResource("7_w2qq7")
 wall_thickness = 4
 shot_cooldown = 0.125
 height_bullet_count = 30
 hole_size = 6
+bullet_speed = 250
 ammo_prefab = ExtResource("8_dgtul")
 metadata/_custom_type_script = "uid://cscygqfx3271u"
 
@@ -217,8 +228,8 @@ metadata/_custom_type_script = "uid://cscygqfx3271u"
 
 [node name="Atack Timer" parent="Phases/Phase3/Timers" unique_id=269602297 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
 boss = NodePath("../../../..")
-min_cooldown = 4.0
-max_cooldown = 4.0
+min_cooldown = 10.0
+max_cooldown = 10.0
 
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]
 
