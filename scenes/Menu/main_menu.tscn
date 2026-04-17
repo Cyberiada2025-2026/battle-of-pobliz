@@ -6,7 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://movw4wl1f5br" path="res://scenes/death_screan/death_screen.tscn" id="4_evs2v"]
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="5_4q1m5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4q1m5"]
+resource_local_to_scene = true
+font_size = 100
+
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+resource_local_to_scene = true
 font_size = 40
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1682239054 node_paths=PackedStringArray("start", "resume", "settings", "return_to_main_menu", "exit")]
@@ -56,6 +61,20 @@ size_flags_horizontal = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ColorRect/HBoxContainer" unique_id=158191907]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="container_start2" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1310076266]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tiltle" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=540325930]
+z_index = 1
+layout_mode = 2
+text = "BATTLE 
+OF POBLIŻ"
+label_settings = SubResource("LabelSettings_4q1m5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1737924508]
 layout_mode = 2
