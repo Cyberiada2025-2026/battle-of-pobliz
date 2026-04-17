@@ -6,6 +6,14 @@ extends Node
 @export var ray_cast: RayCast2D
 @export var camera_transfer_time: float = 0.5
 
+@export var slowdown: float = 0.1
+@export var post: ColorRect;
+@export var pointer: Sprite2D
+@export var offset: float = 25.0
+
+@export var vfx_line: Line2D
+@export var animator: AnimationPlayer
+
 func _ready() -> void:
 	posses_body(current_body)
 
@@ -19,13 +27,36 @@ func _physics_process(delta: float) -> void:
 	handle_possession()
 
 func handle_possession() -> void:
-	if Input.is_action_just_released("possess"):
+	if Input.is_action_just_pressed("possess"):
+		Engine.time_scale = slowdown
+		post.visible = true
+	elif Input.is_action_pressed("possess"):
 		ray_cast.target_position = player_camera.get_global_mouse_position() - ray_cast.global_position
+		ray_cast.target_position *= 100000;
+		ray_cast.force_raycast_update()
+
+		var collider = ray_cast.get_collider() as BodyController
+		if collider == null:
+			pointer.visible = false
+		else:
+			pointer.visible = true
+			pointer.global_position = collider.global_position + Vector2.UP * offset
+	elif Input.is_action_just_released("possess"):
+		Engine.time_scale = 1.0
+		post.visible = false
+		
+		pointer.visible = false
+		ray_cast.target_position = player_camera.get_global_mouse_position() - ray_cast.global_position
+		ray_cast.target_position *= 100000;
 		ray_cast.force_raycast_update()
 
 		var collider = ray_cast.get_collider() as BodyController
 		if collider == null:
 			return
+		
+		vfx_line.points[0] = ray_cast.global_position
+		vfx_line.points[1] = collider.global_position + Vector2.UP * offset;
+		animator.play("switch")
 
 		posses_body(collider)
 
