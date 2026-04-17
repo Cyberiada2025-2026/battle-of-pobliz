@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
 [ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
 [ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
+[ext_resource type="Script" uid="uid://bol4tk55w3fk3" path="res://shared/tiles/autotiler_base.gd" id="9_3p7ir"]
 [ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
+[ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
 normal = Vector2(0, 1)
@@ -24,6 +26,94 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 17
 sources/1 = SubResource("TileSetAtlasSource_ei0ig")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3p7ir"]
+texture = ExtResource("8_aud8f")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/top_right_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0/terrains_peering_bit/top_left_corner = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/bottom_right_corner = 0
+3:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/terrains_peering_bit/bottom_right_corner = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_right_corner = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 0
+3:1/0/terrains_peering_bit/top_left_corner = 0
+3:1/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/terrains_peering_bit/top_left_corner = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/bottom_right_corner = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_right_corner = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/terrains_peering_bit/bottom_left_corner = 0
+3:2/0/terrains_peering_bit/top_left_corner = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/terrains_peering_bit/bottom_right_corner = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/terrains_peering_bit/bottom_left_corner = 0
+2:3/0/terrains_peering_bit/top_right_corner = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/terrains_peering_bit/top_left_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_po04d"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 1
+terrain_set_0/terrain_0/name = "ground"
+terrain_set_0/terrain_0/color = Color(0.2637906, 0.41156307, 0.46176362, 1)
+sources/1 = SubResource("TileSetAtlasSource_3p7ir")
 
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
@@ -83,10 +173,17 @@ position = Vector2(17, 0)
 position = Vector2(1135, 638)
 
 [node name="StaticTilesBase" type="TileMapLayer" parent="." unique_id=577662104]
-tile_map_data = PackedByteArray("AAAAAAoAAQACAAEAAAAAAAkAAQACAAEAAAAAAAgAAQACAAEAAAAAAAcAAQACAAEAAAAAAAYAAQACAAEAAAAAAAUAAQACAAEAAAAAAAQAAQACAAEAAAAAAAMAAQACAAEAAAAAAAIAAQACAAEAAAAAAAEAAQACAAEAAAAAAAAAAQACAAEAAAAAAP//AQACAAEAAAABAAgAAQACAAEAAAACAAgAAQACAAEAAAACAAkAAQACAAEAAAACAAoAAQACAAEAAAABAAoAAQACAAEAAAABAAkAAQACAAEAAAADAAoAAQACAAEAAAAEAAoAAQACAAEAAAAFAAoAAQACAAEAAAAGAAoAAQACAAEAAAAHAAoAAQACAAEAAAAIAAoAAQACAAEAAAAJAAoAAQACAAEAAAAKAAoAAQACAAEAAAALAAoAAQACAAEAAAAMAAoAAQACAAEAAAANAAoAAQACAAEAAAAOAAoAAQACAAEAAAAPAAoAAQACAAEAAAAQAAoAAQACAAEAAAARAAoAAQACAAEAAAASAAoAAQACAAEAAAASAAkAAQACAAEAAAASAAgAAQACAAEAAAASAAcAAQACAAEAAAASAAYAAQACAAEAAAASAAUAAQACAAEAAAASAAQAAQACAAEAAAASAAMAAQACAAEAAAASAAIAAQACAAEAAAASAAEAAQACAAEAAAASAAAAAQACAAEAAAASAP//AQACAAEAAAAMAAYAAQACAAEAAAAMAAcAAQACAAEAAAAMAAgAAQACAAEAAAAMAAkAAQACAAEAAAANAAYAAQACAAEAAAANAAcAAQACAAEAAAANAAgAAQACAAEAAAANAAkAAQACAAEAAAAGAAkAAQACAAEAAAAHAAkAAQACAAEAAAAIAAkAAQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAoAAQACAAEAAAAAAAkAAQACAAEAAAAAAAgAAQACAAEAAAAAAAcAAQACAAEAAAAAAAYAAQACAAEAAAAAAAUAAQACAAEAAAAAAAQAAQACAAEAAAAAAAMAAQACAAEAAAAAAAIAAQACAAEAAAAAAAEAAQACAAEAAAAAAAAAAQACAAEAAAAAAP//AQACAAEAAAABAAgAAQACAAEAAAACAAgAAQACAAEAAAACAAkAAQACAAEAAAACAAoAAQACAAEAAAABAAoAAQACAAEAAAABAAkAAQACAAEAAAADAAoAAQACAAEAAAAEAAoAAQACAAEAAAAFAAoAAQACAAEAAAAGAAoAAQACAAEAAAAHAAoAAQACAAEAAAAIAAoAAQACAAEAAAAJAAoAAQACAAEAAAAKAAoAAQACAAEAAAALAAoAAQACAAEAAAAMAAoAAQACAAEAAAANAAoAAQACAAEAAAAOAAoAAQACAAEAAAAPAAoAAQACAAEAAAAQAAoAAQACAAEAAAARAAoAAQACAAEAAAASAAoAAQACAAEAAAASAAkAAQACAAEAAAASAAgAAQACAAEAAAASAAcAAQACAAEAAAASAAYAAQACAAEAAAASAAUAAQACAAEAAAASAAQAAQACAAEAAAASAAMAAQACAAEAAAASAAIAAQACAAEAAAASAAEAAQACAAEAAAASAAAAAQACAAEAAAASAP//AQACAAEAAAAMAAYAAQACAAEAAAAMAAcAAQACAAEAAAAMAAgAAQACAAEAAAAMAAkAAQACAAEAAAANAAYAAQACAAEAAAANAAcAAQACAAEAAAANAAgAAQACAAEAAAANAAkAAQACAAEAAAAGAAkAAQACAAEAAAAHAAkAAQACAAEAAAAIAAkAAQACAAEAAAAGAAYAAQACAAEAAAAGAAcAAQACAAEAAAAGAAgAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_70jce")
+script = ExtResource("9_3p7ir")
 
-[node name="StaticTilesVisual" type="TileMapLayer" parent="." unique_id=216615432]
+[node name="StaticTilesVisual" type="TileMapLayer" parent="." unique_id=216615432 node_paths=PackedStringArray("base_tilemap")]
+position = Vector2(-32, -32)
+tile_map_data = PackedByteArray("AAAHAAkAAQACAAAAAAAHAAgAAQADAAIAAAAGAAkAAQABAAAAAAAGAAgAAQABAAAAAAAHAAcAAQADAAIAAAAGAAcAAQABAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQABAAMAAAAJAAoAAQACAAAAAAAJAAkAAQAAAAAAAAAIAAoAAQACAAEAAAAIAAkAAQADAAAAAAAHAAoAAQACAAEAAAAGAAoAAQABAAEAAAAOAAoAAQACAAAAAAAOAAkAAQADAAIAAAANAAoAAQACAAEAAAANAAkAAQACAAEAAAAOAAgAAQADAAIAAAANAAgAAQACAAEAAAAOAAcAAQADAAIAAAANAAcAAQACAAEAAAAOAAYAAQAAAAAAAAANAAYAAQADAAAAAAAMAAoAAQABAAEAAAAMAAkAAQABAAAAAAAMAAgAAQABAAAAAAAMAAcAAQABAAAAAAAMAAYAAQABAAMAAAATAAAAAQADAAIAAAATAP//AQAAAAAAAAASAAAAAQABAAAAAAASAP//AQABAAMAAAATAAEAAQADAAIAAAASAAEAAQABAAAAAAATAAIAAQADAAIAAAASAAIAAQABAAAAAAATAAMAAQADAAIAAAASAAMAAQABAAAAAAATAAQAAQADAAIAAAASAAQAAQABAAAAAAATAAUAAQADAAIAAAASAAUAAQABAAAAAAATAAYAAQADAAIAAAASAAYAAQABAAAAAAATAAcAAQADAAIAAAASAAcAAQABAAAAAAATAAgAAQADAAIAAAASAAgAAQABAAAAAAATAAkAAQADAAIAAAASAAkAAQABAAAAAAATAAoAAQADAAIAAAASAAoAAQABAAEAAAATAAsAAQADAAMAAAASAAsAAQABAAIAAAARAAsAAQABAAIAAAARAAoAAQADAAAAAAAQAAsAAQABAAIAAAAQAAoAAQADAAAAAAAPAAsAAQABAAIAAAAPAAoAAQADAAAAAAAOAAsAAQABAAIAAAANAAsAAQABAAIAAAAMAAsAAQABAAIAAAALAAsAAQABAAIAAAALAAoAAQADAAAAAAAKAAsAAQABAAIAAAAKAAoAAQADAAAAAAAJAAsAAQABAAIAAAAIAAsAAQABAAIAAAAHAAsAAQABAAIAAAAGAAsAAQABAAIAAAAFAAsAAQABAAIAAAAFAAoAAQADAAAAAAAEAAsAAQABAAIAAAAEAAoAAQADAAAAAAADAAsAAQABAAIAAAADAAoAAQACAAAAAAACAAoAAQACAAEAAAACAAkAAQACAAEAAAABAAoAAQACAAEAAAABAAkAAQACAAEAAAACAAsAAQABAAIAAAABAAsAAQABAAIAAAADAAkAAQADAAIAAAADAAgAAQAAAAAAAAACAAgAAQADAAAAAAABAAgAAQACAAAAAAABAAAAAQADAAIAAAABAP//AQAAAAAAAAAAAAAAAQABAAAAAAAAAP//AQABAAMAAAABAAEAAQADAAIAAAAAAAEAAQABAAAAAAABAAIAAQADAAIAAAAAAAIAAQABAAAAAAABAAMAAQADAAIAAAAAAAMAAQABAAAAAAABAAQAAQADAAIAAAAAAAQAAQABAAAAAAABAAUAAQADAAIAAAAAAAUAAQABAAAAAAABAAYAAQADAAIAAAAAAAYAAQABAAAAAAABAAcAAQADAAIAAAAAAAcAAQABAAAAAAAAAAgAAQABAAAAAAAAAAkAAQABAAAAAAAAAAoAAQABAAAAAAAAAAsAAQAAAAIAAAA=")
+tile_set = SubResource("TileSet_po04d")
+collision_enabled = false
+script = ExtResource("9_vsb30")
+base_tilemap = NodePath("../StaticTilesBase")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
