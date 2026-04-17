@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dh88qdn7yo2xb"]
+
+[ext_resource type="Script" uid="uid://rp5j3b7gre8u" path="res://shared/projectiles/bullet.gd" id="1_2dq2q"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_v1xwm"]
+[ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="3_dts0a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wemso"]
+
+[node name="Player_bullet" type="RigidBody2D" unique_id=1757667699 node_paths=PackedStringArray("damageComponent")]
+collision_layer = 257
+collision_mask = 769
+mass = 0.001
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp_mode = 1
+script = ExtResource("1_2dq2q")
+damageComponent = NodePath("DamageComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1783691860]
+scale = Vector2(0.15625, 0.1640625)
+texture = ExtResource("2_v1xwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219238616]
+shape = SubResource("CircleShape2D_wemso")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=774932785]
+script = ExtResource("3_dts0a")
+metadata/_custom_type_script = "uid://lvdktrosqc6q"
+
+[connection signal="body_entered" from="." to="." method="collision"]
