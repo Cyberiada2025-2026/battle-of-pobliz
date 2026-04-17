@@ -3,13 +3,14 @@ extends Node
 
 @export var animated_sprite: AnimatedSprite2D
 @export var body: BodyController
+@export var node: Node
 ## key is an expression that evaluates to true when animation is supposed to be played
 ## value is the name of the animation
 ## earlier has precedence
 @export var animations: Array[ConditionalAnimation]
 
 func _process(_delta: float) -> void:
-	if not is_zero_approx(body.velocity.x):
+	if body and not is_zero_approx(body.velocity.x):
 		animated_sprite.flip_h = body.velocity.x < 0
 	for conditional_anim in animations:
 		var expression = Expression.new()
