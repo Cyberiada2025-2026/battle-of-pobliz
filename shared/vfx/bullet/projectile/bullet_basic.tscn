@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://cxmm5pldj70rw"]
 
-[ext_resource type="Material" uid="uid://l48485ngifpd" path="res://shared/vfx/bullet/projectile/bullet_basic.tres" id="1_m0ukc"]
+[ext_resource type="Shader" uid="uid://en5i1qanwoaf" path="res://shared/vfx/bullet/projectile/bullet.gdshader" id="1_umwed"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_odwdt"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ml26d"]
+shader = ExtResource("1_umwed")
+shader_parameter/radius = 0.150000007125
+shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
+shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
+shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/outline_thickness = 0.10000000475
+shader_parameter/center_size = 0.2000000095
+shader_parameter/ring_thickness = 0.2750000130625
+shader_parameter/ring_speed = 6.000001234999999
+shader_parameter/ring_amount = 1.0
+
 [node name="bullet_basic" type="Sprite2D" unique_id=331279362]
-material = ExtResource("1_m0ukc")
+material = SubResource("ShaderMaterial_ml26d")
 texture = ExtResource("2_odwdt")
