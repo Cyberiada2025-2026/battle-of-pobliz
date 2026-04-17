@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://lqnrvfe0wmq5" path="res://characters/boss/boss.gd" id="1_kwubs"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_850g2"]
 [ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://characters/boss/elements/boss_damage_point.gd" id="2_ia5xw"]
+[ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
@@ -14,9 +15,11 @@ radius = 80.0
 
 [node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "fase_1_atack_set")]
 script = ExtResource("1_kwubs")
+death_scene = ExtResource("2_rrty7")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
+health = 10.0
 fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), NodePath("Attacks/Phase1/SkyLaser"), NodePath("Attacks/Phase1/CombinedAtack")]
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
