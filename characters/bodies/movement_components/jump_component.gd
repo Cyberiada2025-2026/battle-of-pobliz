@@ -14,4 +14,3 @@ func apply(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and _jump_count < max_jump_count:
 		_jump_count += 1
 		body.velocity.y = -jump_velocity
-
