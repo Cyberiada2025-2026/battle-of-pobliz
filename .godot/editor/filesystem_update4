@@ -1,13 +1,2 @@
-res://shared/vfx/bullet_vfx.tscn
-res://shared/vfx/bullet.gdshader
-res://shared/vfx/basic bullet/bullet.gdshader
-res://scenes/debug/vfx-test.tscn
-res://shared/vfx/bullet/bullet.gdshader
-res://shared/vfx/bullet/bullet_basic.tres
-res://shared/environment.tscn
-res://shared/world_environment.tscn
-res://shared/vfx/bullet/firing_vfx.tscn
-res://shared/vfx/bullet/hit/circle.gdshader
-res://shared/vfx/bullet/hit/hit.tscn
-res://shared/vfx/bullet/hit/ring.gdshader
-res://shared/vfx/bullet/firing/firing_vfx.tscn
+res://shared/projectiles/bullet.gd
+res://shared/projectiles/player/player_bullet.tscn
