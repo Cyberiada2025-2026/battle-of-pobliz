@@ -22,7 +22,7 @@ buses/default_bus_layout="uid://ctvvd2d6mpixi"
 [autoload]
 
 MainMenu="*uid://giqw1gbknsfk"
-SoundtrackController="*uid://xpswvm5vxw5g"
+SoundtrackController="*uid://brmc2airsesqn"
 
 [global_group]
 
