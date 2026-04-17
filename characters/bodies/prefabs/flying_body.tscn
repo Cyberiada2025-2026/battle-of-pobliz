@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://5ms6178v8iam" path="res://characters/bodies/spritesheets/flying_body/Fly-fly.png" id="2_4eihk"]
 [ext_resource type="Script" uid="uid://d4dsitxe5jlu5" path="res://characters/bodies/movement_components/flight_movement_component.gd" id="3_l2bm4"]
 [ext_resource type="Texture2D" uid="uid://bollbdxh4uy0p" path="res://characters/bodies/spritesheets/flying_body/Fly-idle.png" id="3_vxi8v"]
+[ext_resource type="Script" uid="uid://cijxtrewmfaq0" path="res://characters/bodies/vfx/character_particle.gd" id="4_4eihk"]
 [ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="4_a2jxi"]
 [ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="7_x5q24"]
-[ext_resource type="Script" uid="uid://bawu1u45d1di1" path="res://characters/bodies/body_controller/conditional_animation.gd" id="8_4n8h4"]
+[ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="8_4n8h4"]
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="9_x5q24"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="10_4n8h4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63a0b"]
 atlas = ExtResource("2_4eihk")
@@ -357,6 +360,33 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_1q23a"]
+offsets = PackedFloat32Array(0.57012194, 1)
+colors = PackedColorArray(1, 1, 1, 0.49019608, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4eihk"]
+gradient = SubResource("Gradient_1q23a")
+
+[sub_resource type="Curve" id="Curve_1q23a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.4134436, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4eihk"]
+curve = SubResource("Curve_1q23a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1q23a"]
+particle_flag_disable_z = true
+direction = Vector3(-0.4, 1, 0)
+spread = 40.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_4eihk")
+color = Color(0.48193923, 1.219772, 0.41486362, 1)
+color_ramp = SubResource("GradientTexture1D_4eihk")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
 radius = 16.0
 height = 48.0
@@ -377,17 +407,91 @@ condition = "body.velocity.length() <=  0.01"
 animation_name = "idle"
 metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
-[node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63a0b"]
+shader = ExtResource("9_x5q24")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="Curve" id="Curve_as12g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.427832, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gaskw"]
+curve = SubResource("Curve_as12g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iirjb"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.39999998
+alpha_curve = SubResource("CurveTexture_gaskw")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vu0wj"]
+shader = ExtResource("9_x5q24")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.90000004275
+
+[sub_resource type="Curve" id="Curve_spbc5"]
+_data = [Vector2(0, 0), 0.0, 3.3709798, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ratj4"]
+curve = SubResource("Curve_spbc5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x1wgu"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ratj4")
+alpha_curve = SubResource("CurveTexture_gaskw")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_alxqj"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+damping_min = 8.0
+damping_max = 10.0
+scale_min = 2.0
+scale_max = 4.0
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(5, 5, 0)
+
+[node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion")]
 collision_layer = 128
 script = ExtResource("1_27qwu")
 movement_components = [NodePath("FlightMovementComponent")]
 type = "flight"
+sprite = NodePath("AnimatedSprite2D")
+immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), null]
+explosion = NodePath("hit")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719674715]
 position = Vector2(0, -23.999998)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_iacjs")
 animation = &"flying"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=661952637 node_paths=PackedStringArray("sprite")]
+z_index = -1
+position = Vector2(-19.999998, -10.000008)
+scale = Vector2(4.9999995, 4.9999995)
+amount = 128
+lifetime = 0.2
+trail_enabled = true
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_1q23a")
+script = ExtResource("4_4eihk")
+sprite = NodePath("..")
+mat = SubResource("ParticleProcessMaterial_1q23a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632693015]
 position = Vector2(0, -24)
@@ -413,3 +517,34 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 body = NodePath("..")
 animations = Array[ExtResource("8_4n8h4")]([SubResource("Resource_364pt"), SubResource("Resource_ra1dk")])
 metadata/_custom_type_script = "uid://b0a8px7pp8pvt"
+
+[node name="hit" type="GPUParticles2D" parent="." unique_id=2003638189]
+material = SubResource("ShaderMaterial_63a0b")
+position = Vector2(0, -23)
+emitting = false
+amount = 1
+sub_emitter = NodePath("ring")
+texture = ExtResource("10_4n8h4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_iirjb")
+
+[node name="ring" type="GPUParticles2D" parent="hit" unique_id=859987536]
+material = SubResource("ShaderMaterial_vu0wj")
+emitting = false
+amount = 1
+sub_emitter = NodePath("../sparks")
+texture = ExtResource("10_4n8h4")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_x1wgu")
+
+[node name="sparks" type="GPUParticles2D" parent="hit" unique_id=797694038]
+emitting = false
+amount = 24
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_alxqj")

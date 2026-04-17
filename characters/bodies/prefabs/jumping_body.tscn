@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="9_ac3ir"]
 [ext_resource type="Script" uid="uid://bawu1u45d1di1" path="res://characters/bodies/body_controller/conditional_animation.gd" id="10_uebjb"]
 [ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="11_rdsjl"]
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="12_4maix"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="13_1f6tn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijxkh"]
 atlas = ExtResource("2_ccsll")
@@ -354,11 +356,177 @@ metadata/_custom_type_script = "uid://bawu1u45d1di1"
 radius = 12.0
 height = 40.0
 
-[node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
+[sub_resource type="CurveTexture" id="CurveTexture_05mpl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rdsjl"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 80.0
+initial_velocity_min = 180.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_05mpl")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="Gradient" id="Gradient_rdsjl"]
+offsets = PackedFloat32Array(0.35276073, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ay8ti"]
+gradient = SubResource("Gradient_rdsjl")
+
+[sub_resource type="Curve" id="Curve_rdsjl"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 308.2262, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ay8ti"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4maix"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_1f6tn"]
+curve_x = SubResource("Curve_rdsjl")
+curve_y = SubResource("Curve_ay8ti")
+curve_z = SubResource("Curve_4maix")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4maix"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+damping_min = 7.0000005
+damping_max = 7.0000005
+scale_curve = SubResource("CurveXYZTexture_1f6tn")
+color_ramp = SubResource("GradientTexture1D_ay8ti")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay8ti"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_05mpl")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="Curve" id="Curve_1f6tn"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 53.035053, 0, 0, Vector2(1, 20), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_05mpl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7843387, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_nkorp"]
+_data = [Vector2(0.010204092, 1), 0.0, 0.17346409, 0, 0, Vector2(1, 0), -3.0892808, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_g51ap"]
+curve_x = SubResource("Curve_1f6tn")
+curve_y = SubResource("Curve_05mpl")
+curve_z = SubResource("Curve_nkorp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1f6tn"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 24, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 3.0
+scale_max = 4.0
+scale_curve = SubResource("CurveXYZTexture_g51ap")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udknm"]
+shader = ExtResource("12_4maix")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="Curve" id="Curve_uik4h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.427832, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4maix"]
+curve = SubResource("Curve_uik4h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_05mpl"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.39999998
+alpha_curve = SubResource("CurveTexture_4maix")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uik4h"]
+shader = ExtResource("12_4maix")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_radius = 0.90000004275
+
+[sub_resource type="Curve" id="Curve_gaskw"]
+_data = [Vector2(0, 0), 0.0, 3.3709798, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1f6tn"]
+curve = SubResource("Curve_gaskw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nkorp"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_1f6tn")
+alpha_curve = SubResource("CurveTexture_4maix")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g51ap"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+damping_min = 8.0
+damping_max = 10.0
+scale_min = 2.0
+scale_max = 4.0
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(5, 5, 0)
+
+[node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion")]
 collision_layer = 128
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
 type = "jump"
+sprite = NodePath("AnimatedSprite2D")
+immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), null]
+explosion = NodePath("VFX/hit")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052828906]
 position = Vector2(-1.1920929e-06, -27)
@@ -382,13 +550,18 @@ acceleration = 50.0
 deceleration = 200.0
 metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 
-[node name="JumpComponent" type="Node" parent="." unique_id=2080854299]
+[node name="JumpComponent" type="Node" parent="." unique_id=2080854299 node_paths=PackedStringArray("jump_vfx", "land_vfx")]
 script = ExtResource("5_qtlex")
+
 jump_velocity = 650.0
+jump_vfx = NodePath("../VFX/Jump")
+land_vfx = NodePath("../VFX/Landing")
+
 metadata/_custom_type_script = "uid://bv0a0uif4y5pk"
 
-[node name="DashComponent" type="Node" parent="." unique_id=802304448]
+[node name="DashComponent" type="Node" parent="." unique_id=802304448 node_paths=PackedStringArray("vfx")]
 script = ExtResource("6_7vlab")
+vfx = NodePath("../VFX/Dash")
 
 [node name="AnimationController" type="Node" parent="." unique_id=227096425 node_paths=PackedStringArray("animated_sprite", "body")]
 script = ExtResource("9_ac3ir")
@@ -402,3 +575,73 @@ body = NodePath("..")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1471769593]
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_ay8ti")
+
+[node name="VFX" type="Node2D" parent="." unique_id=390199827]
+
+[node name="Jump" type="GPUParticles2D" parent="VFX" unique_id=1363607342]
+z_index = 1
+emitting = false
+amount = 4
+sub_emitter = NodePath("Wave")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rdsjl")
+
+[node name="Wave" type="GPUParticles2D" parent="VFX/Jump" unique_id=1314783256]
+z_index = 1
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4maix")
+
+[node name="Landing" type="GPUParticles2D" parent="VFX" unique_id=1763107715]
+z_index = 1
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ay8ti")
+
+[node name="Dash" type="GPUParticles2D" parent="VFX" unique_id=1626549984]
+z_index = -1
+position = Vector2(0, -23)
+emitting = false
+amount = 16
+lifetime = 0.15000000000000002
+one_shot = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_1f6tn")
+
+[node name="hit" type="GPUParticles2D" parent="VFX" unique_id=260240667]
+material = SubResource("ShaderMaterial_udknm")
+position = Vector2(0, -23)
+emitting = false
+amount = 1
+sub_emitter = NodePath("ring")
+texture = ExtResource("13_1f6tn")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_05mpl")
+
+[node name="ring" type="GPUParticles2D" parent="VFX/hit" unique_id=1030172599]
+material = SubResource("ShaderMaterial_uik4h")
+emitting = false
+amount = 1
+sub_emitter = NodePath("../sparks")
+texture = ExtResource("13_1f6tn")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nkorp")
+
+[node name="sparks" type="GPUParticles2D" parent="VFX/hit" unique_id=1552795081]
+emitting = false
+amount = 24
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_g51ap")
