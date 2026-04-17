@@ -11,6 +11,8 @@
 [node name="basic_shoting_component" parent="." unique_id=978954981 node_paths=PackedStringArray("start") instance=ExtResource("3_2h465")]
 bullet = ExtResource("2_2h465")
 start = NodePath("start_position")
+cooldown = 1.5
+spread_angle = 25.0
 
 [node name="Sprite2D" type="Sprite2D" parent="basic_shoting_component" unique_id=255761419]
 visible = false
