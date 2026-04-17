@@ -176,13 +176,6 @@ shader_parameter/warp_y = 0.1130000053675
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
 
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
-collision_layer = 17
-
-[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
-position = Vector2(573, -56)
-shape = SubResource("WorldBoundaryShape2D_aud8f")
-
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
 position = Vector2(216, 400)
 
