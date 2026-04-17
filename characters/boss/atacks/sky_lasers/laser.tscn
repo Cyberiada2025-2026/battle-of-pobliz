@@ -8,13 +8,13 @@ colors = PackedColorArray(0.7607843, 0.8980392, 0.52156866, 1, 1, 1, 0, 1, 0.760
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ufhy1"]
 gradient = SubResource("Gradient_haaee")
-width = 115
-height = 666
+width = 111
+height = 638
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18v03"]
-size = Vector2(115.1, 666)
+size = Vector2(111.8, 638)
 
-[node name="Laser" type="StaticBody2D" unique_id=353677770]
+[node name="Laser" type="Area2D" unique_id=553561190]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
 texture = SubResource("GradientTexture2D_ufhy1")
