@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _on_body_entered(_body: Node) -> void:
 	bullet_graphic.bullet_hit.emitting = true
+	call_deferred("set_contact_monitor", false)
 	bullet_graphic.bullet_basic.queue_free()
 	var t: Tween = create_tween()
 	t.tween_interval(tween_hit_animation_time)

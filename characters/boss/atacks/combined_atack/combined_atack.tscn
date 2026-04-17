@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bl0iq7okwyc5m"]
+
+[ext_resource type="Script" uid="uid://bap0xh470p08f" path="res://characters/boss/atacks/combined_atack/combined_atack.gd" id="1_gb7nu"]
+
+[node name="CombinedAtack" type="Node" unique_id=47929703]
+script = ExtResource("1_gb7nu")
