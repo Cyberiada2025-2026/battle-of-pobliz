@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cdd8yg8khkyb2"]
+
+[ext_resource type="Shader" uid="uid://ce1wbv8h4proc" path="res://shared/vfx/gray.gdshader" id="1_gjxcg"]
+
+[resource]
+shader = ExtResource("1_gjxcg")
+shader_parameter/on = 0.0

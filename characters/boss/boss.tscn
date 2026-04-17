@@ -6,19 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
+[ext_resource type="Material" uid="uid://cdd8yg8khkyb2" path="res://shared/vfx/gray.tres" id="3_t67sm"]
 [ext_resource type="PackedScene" uid="uid://dkjmkti50wt0h" path="res://characters/boss/sprites/boss_central.tscn" id="4_g3f0a"]
 [ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="Script" uid="uid://cscygqfx3271u" path="res://characters/boss/atacks/bullet_wall/bullet_wall.gd" id="7_w2qq7"]
 [ext_resource type="PackedScene" uid="uid://61gf52swtd7i" path="res://shared/projectiles/boss/targeting_bullet.tscn" id="8_0ag5n"]
-[ext_resource type="PackedScene" uid="uid://qox4jpn7l32q" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
-[ext_resource type="PackedScene" uid="uid://dx83lfllm8t7m" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
+[ext_resource type="PackedScene" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
+[ext_resource type="PackedScene" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
 [ext_resource type="PackedScene" uid="uid://cwtsc018qtc3l" path="res://shared/projectiles/boss/basic_bullet.tscn" id="8_o1mjy"]
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
-[ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
+[ext_resource type="PackedScene" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 98.02041
@@ -30,10 +31,13 @@ canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
 phases = [NodePath("Phases/Phase1"), NodePath("Phases/Phase2"), NodePath("Phases/Phase3")]
+mat = ExtResource("3_t67sm")
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
+material = ExtResource("3_t67sm")
 
 [node name="head" type="Area2D" parent="hitbox" unique_id=302636103 node_paths=PackedStringArray("boss")]
+use_parent_material = true
 position = Vector2(550, 312)
 collision_mask = 256
 script = ExtResource("2_ia5xw")
@@ -42,16 +46,19 @@ damage_multiply = 2.0
 metadata/_custom_type_script = "uid://moi8ubohtdkb"
 
 [node name="BossCentral" parent="hitbox/head" unique_id=1364872992 instance=ExtResource("4_g3f0a")]
+use_parent_material = true
 offset_left = -198.0
 offset_top = -314.0
 offset_right = -158.0
 offset_bottom = -274.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
+use_parent_material = true
 position = Vector2(2, 6)
 shape = SubResource("CircleShape2D_vbcuv")
 
 [node name="canons" type="Node2D" parent="hitbox" unique_id=536864587]
+use_parent_material = true
 position = Vector2(0, 170)
 
 [node name="Boss Canon" parent="hitbox/canons" unique_id=836624194 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]

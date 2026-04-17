@@ -6,19 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://8duinvbed4p3" path="res://shared/background/cable_cap.tscn" id="4_2pdy5"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="5_ksu6t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_50lr6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pdy5"]
 resource_local_to_scene = true
 shader = ExtResource("5_ksu6t")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/inner_radius = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1tghb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksu6t"]
 resource_local_to_scene = true
 shader = ExtResource("5_ksu6t")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/inner_radius = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6fid"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whibn"]
 resource_local_to_scene = true
 shader = ExtResource("5_ksu6t")
 shader_parameter/color = Color(0, 0, 0, 1)
@@ -33,6 +33,7 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=820062166]
 z_index = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 100.0
 offset_top = 220.0
@@ -43,6 +44,7 @@ texture = ExtResource("1_aedsx")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2030898269]
 z_index = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 100.0
 offset_top = 220.0
@@ -53,6 +55,7 @@ texture = ExtResource("2_br3bc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=208553236]
 z_index = 2
+use_parent_material = true
 layout_mode = 0
 offset_right = 4096.0
 offset_bottom = 2600.0
@@ -64,12 +67,13 @@ patch_margin_bottom = 600
 axis_stretch_vertical = 2
 
 [node name="Cables" type="Control" parent="." unique_id=680163112]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D" parent="Cables" unique_id=222776981 instance=ExtResource("4_2pdy5")]
-material = SubResource("ShaderMaterial_50lr6")
+material = SubResource("ShaderMaterial_2pdy5")
 position = Vector2(0, 78.99999)
 scale = Vector2(0.175, 0.175)
 
@@ -83,7 +87,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D2" parent="Cables" unique_id=1088702953 instance=ExtResource("4_2pdy5")]
-material = SubResource("ShaderMaterial_1tghb")
+material = SubResource("ShaderMaterial_ksu6t")
 position = Vector2(86.99999, 79)
 scale = Vector2(0.175, 0.175)
 
@@ -96,7 +100,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D3" parent="Cables" unique_id=688363146 instance=ExtResource("4_2pdy5")]
-material = SubResource("ShaderMaterial_v6fid")
+material = SubResource("ShaderMaterial_whibn")
 position = Vector2(382.99997, 144.00002)
 scale = Vector2(0.175, 0.175)
 
