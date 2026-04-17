@@ -12,6 +12,7 @@ signal zero_health
 @export var explosion: GPUParticles2D
 
 @export var dash_comp: DashComponent
+@export var type: String = ""
 
 func _ready() -> void:
 	zero_health.connect(_on_zero_health)
