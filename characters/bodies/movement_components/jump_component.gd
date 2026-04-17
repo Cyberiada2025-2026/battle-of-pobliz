@@ -17,4 +17,3 @@ func apply(_delta: float) -> void:
 			body.velocity.y = -jump_velocity
 		elif body.is_on_floor():
 			body.velocity.y = -jump_velocity
-
