@@ -20,7 +20,7 @@ death_scene = ExtResource("2_rrty7")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
-phases = [NodePath("Phases/Phase1")]
+phases = [NodePath("Phases/Phase1"), NodePath("Phases/Phase2")]
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
@@ -48,16 +48,6 @@ boss = NodePath("../../..")
 [node name="Boss Canon2" parent="hitbox/canons" unique_id=245464660 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]
 position = Vector2(900, 0)
 boss = NodePath("../../..")
-
-[node name="Others" type="Node2D" parent="." unique_id=1560501707]
-
-[node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
-modulate = Color(1, 0, 0, 1)
-z_index = -1
-position = Vector2(577.70074, 53.468937)
-rotation = -3.1415925
-scale = Vector2(8.982091, 1.8354521)
-texture = ExtResource("2_850g2")
 
 [node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
@@ -137,5 +127,15 @@ metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 boss = NodePath("../../../..")
 min_cooldown = 3.0
 max_cooldown = 4.0
+
+[node name="Others" type="Node2D" parent="." unique_id=1560501707]
+
+[node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+position = Vector2(577.70074, 53.468937)
+rotation = -3.1415925
+scale = Vector2(8.982091, 1.8354521)
+texture = ExtResource("2_850g2")
 
 [connection signal="atack_signal" from="." to="." method="_on_atack_signal"]
