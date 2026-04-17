@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://cai4lr5qdgs4l" path="res://characters/bodies/movement_components/grounded_movement_component.gd" id="4_7vlab"]
 [ext_resource type="Texture2D" uid="uid://cnfsuo4o5l2lb" path="res://characters/bodies/spritesheets/jumping_body/Walk-spritesheet.png" id="4_ac3ir"]
 [ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/movement_components/jump_component.gd" id="5_qtlex"]
-[ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="6_7vlab"]
-[ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="9_ac3ir"]
-[ext_resource type="Script" uid="uid://bawu1u45d1di1" path="res://characters/bodies/body_controller/conditional_animation.gd" id="10_uebjb"]
+[ext_resource type="Script" path="res://characters/bodies/movement_components/dash_component.gd" id="6_7vlab"]
+[ext_resource type="Script" path="res://characters/bodies/body_controller/animation_controller.gd" id="9_ac3ir"]
+[ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="10_uebjb"]
+[ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="11_rdsjl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijxkh"]
 atlas = ExtResource("2_ccsll")
@@ -349,6 +350,10 @@ condition = "body.velocity.y > 0 and !body.is_on_floor()"
 animation_name = "fall"
 metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ay8ti"]
+radius = 12.0
+height = 40.0
+
 [node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
 collision_layer = 128
 script = ExtResource("1_hgofc")
@@ -389,3 +394,10 @@ script = ExtResource("9_ac3ir")
 animated_sprite = NodePath("../AnimatedSprite2D")
 body = NodePath("..")
 animations = Array[ExtResource("10_uebjb")]([SubResource("Resource_rdsjl"), SubResource("Resource_ay8ti"), SubResource("Resource_4maix"), SubResource("Resource_1f6tn")])
+
+[node name="Hitbox" parent="." unique_id=1511766063 node_paths=PackedStringArray("body") instance=ExtResource("11_rdsjl")]
+body = NodePath("..")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1471769593]
+position = Vector2(0, -23)
+shape = SubResource("CapsuleShape2D_ay8ti")
