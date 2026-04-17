@@ -58,7 +58,11 @@ func start_phase(phase: BossPhase) -> void:
 	if current_phase != null:
 		for timer in current_phase.atack_timers:
 			timer.stop()
+		if current_phase.invincibility_timer != null:
+			current_phase.invincibility_timer.start()
 	current_phase = phase
 	for timer in phase.atack_timers:
 		timer.start()
+	if phase.invincibility_timer != null:
+		phase.invincibility_timer.start()
 	health = phase.phase_health

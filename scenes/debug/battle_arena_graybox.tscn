@@ -15,12 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="9_jxhnd"]
 [ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
-[ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 [ext_resource type="Shader" uid="uid://gyhxefx7r3m" path="res://shared/vfx/body_switching/switch_line.gdshader" id="10_jxhnd"]
+[ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
-normal = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
 shader = ExtResource("8_kjbyf")
@@ -263,10 +260,10 @@ collision_enabled = false
 script = ExtResource("9_vsb30")
 base_tilemap = NodePath("../StaticTilesBase")
 
-[node name="StatueManager" type="Node2D" parent="." unique_id=1899721031 node_paths=PackedStringArray("boss", "statue_timer")]
+[node name="StatueManager" type="Node2D" parent="." unique_id=1899721031 node_paths=PackedStringArray("boss", "statue_timer") groups=["statue_manager"]]
 script = ExtResource("11_04x3g")
 boss = NodePath("../Boss")
-statue_timer = NodePath("Timer")
+statue_timer = NodePath("")
 
 [node name="InvincibilityStatue" parent="StatueManager" unique_id=1092350013 instance=ExtResource("6_po04d")]
 visible = false
@@ -275,10 +272,6 @@ position = Vector2(-232, 296)
 [node name="InvincibilityStatue2" parent="StatueManager" unique_id=1658153824 instance=ExtResource("6_po04d")]
 visible = false
 position = Vector2(1384, 296)
-
-[node name="Timer" type="Timer" parent="StatueManager" unique_id=236421767]
-wait_time = 20.0
-one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
