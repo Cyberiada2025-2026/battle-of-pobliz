@@ -8,7 +8,7 @@
 
 [node name="BasicBullet" type="RigidBody2D" unique_id=1546428308 node_paths=PackedStringArray("damageComponent")]
 collision_layer = 512
-collision_mask = 769
+collision_mask = 16
 mass = 0.001
 gravity_scale = 0.0
 contact_monitor = true
