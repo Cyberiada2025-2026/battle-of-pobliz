@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6mjm4nip42ia" path="res://characters/bodies/wepons/shotgun.gd" id="1_gkxdk"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tti0o"]
-[ext_resource type="PackedScene" uid="uid://dh88qdn7yo2xb" path="res://shared/projectiles/player/player_bullet.tscn" id="2_2h465"]
+[ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="2_2h465"]
 
 [node name="shotgun" type="Node2D" unique_id=508469511 node_paths=PackedStringArray("start")]
 script = ExtResource("1_gkxdk")

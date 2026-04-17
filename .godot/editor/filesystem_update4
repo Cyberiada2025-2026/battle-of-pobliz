@@ -6,3 +6,4 @@ res://characters/bodies/movement_components/flight_movement_component.gd
 res://characters/bodies/movement_components/grounded_movement_component.gd
 res://characters/bodies/wepons/shotgun.tscn
 res://characters/bodies/wepons/shotgun.gd
+res://shared/projectiles/player/player_shotgun_bullet.tscn
