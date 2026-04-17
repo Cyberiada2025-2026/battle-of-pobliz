@@ -85,6 +85,7 @@ max_cooldown = 10.0
 atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/CombinedAtack")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
+bar_color = Color(1, 0.44705883, 0, 1)
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase2" unique_id=364186670]
 

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
+[ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
 size = Vector2(42, 733)
@@ -82,3 +83,9 @@ position = Vector2(17, 0)
 
 [node name="DownRight" type="Node2D" parent="ArenaAreaMarkers" unique_id=731100975]
 position = Vector2(1135, 638)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
+
+[node name="BossBar" parent="CanvasLayer" unique_id=859401329 node_paths=PackedStringArray("boss") instance=ExtResource("8_70jce")]
+offset_bottom = -617.0
+boss = NodePath("../../Boss")
