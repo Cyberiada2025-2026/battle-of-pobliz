@@ -9,7 +9,7 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_64b1j"]
 font_size = 40
 
-[node name="Victory Screen" type="Control" unique_id=1291449249 node_paths=PackedStringArray("time_label")]
+[node name="Victory Screen" type="Control" unique_id=1291449249 node_paths=PackedStringArray("time_label", "body_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_64b1j")
 empty_scene = ExtResource("2_2ps0l")
 time_label = NodePath("ColorRect/HBoxContainer/VBoxContainer/score")
+body_label = NodePath("ColorRect/HBoxContainer/VBoxContainer/bodyCount")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=22729920]
 z_index = 1
@@ -62,6 +63,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="score" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1448968495]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_64b1j")
+
+[node name="bodyCount" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1599323934]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_64b1j")
 

@@ -37,6 +37,7 @@ func take_damage(damage: float) -> void:
 
 
 func _on_zero_health() -> void:
+	MainMenu.body_c -= 1
 	if get_tree().get_first_node_in_group("possession_manager").current_body == self:
 		get_tree().change_scene_to_packed(lose_scene)
 	else:
