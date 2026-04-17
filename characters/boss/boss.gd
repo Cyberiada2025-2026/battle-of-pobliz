@@ -4,6 +4,7 @@ class_name Boss
 signal atack_signal
 
 @export var death_scene: PackedScene
+@onready var sprite_changer: Node2D = $SpriteChanger
 
 @export_category("nodes")
 @export var canon_left: Node2D
@@ -64,7 +65,11 @@ func random_atack() -> void:
 
 
 func start_phase(phase: BossPhase) -> void:
+	if (int_phase == 3):
+		sprite_changer.change()
 	print(phase.name)
+	if (phase.name == "Phase3"):
+		sprite_changer.change()
 	if current_phase != null:
 		for timer in current_phase.atack_timers:
 			timer.stop()

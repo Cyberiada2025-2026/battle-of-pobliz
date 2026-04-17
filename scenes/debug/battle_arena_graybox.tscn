@@ -306,12 +306,10 @@ script = ExtResource("11_04x3g")
 boss = NodePath("../Boss")
 
 [node name="InvincibilityStatue" parent="StatueManager" unique_id=1092350013 instance=ExtResource("6_po04d")]
-visible = false
-position = Vector2(-232, 296)
+position = Vector2(-232, 325.35)
 
 [node name="InvincibilityStatue2" parent="StatueManager" unique_id=1658153824 instance=ExtResource("6_po04d")]
-visible = false
-position = Vector2(1384, 296)
+position = Vector2(1384, 325.35)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
