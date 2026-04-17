@@ -22,6 +22,7 @@ func apply(_delta: float) -> void:
 	if is_dashing:
 		var dash_dir = sign(body.velocity.x)
 		body.velocity.x = dash_dir * dash_speed
+		body.velocity.y = 0.0
 
 func _on_dash_finished() -> void:
 	is_dashing = false
