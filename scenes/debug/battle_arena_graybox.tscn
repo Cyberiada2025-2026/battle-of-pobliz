@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://by5d0ytcmlxkf" path="res://shared/background/background.tscn" id="10_nj41v"]
 [ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
+[ext_resource type="PackedScene" uid="uid://qaqp5lib5fjf" path="res://shared/background/column.tscn" id="20_ctedh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
 shader = ExtResource("8_kjbyf")
@@ -197,7 +198,7 @@ position = Vector2(208, 552)
 [node name="Revolver" parent="FlyingBody" unique_id=57487654 instance=ExtResource("5_2nv5k")]
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
-position = Vector2(0, -50)
+position = Vector2(0, -72)
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast", "post", "pointer", "vfx_line", "animator") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
@@ -300,10 +301,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=679776456]
+[node name="Decorations" type="Node2D" parent="." unique_id=1066877437]
+
+[node name="Parallax2D" type="Parallax2D" parent="Decorations" unique_id=679776456]
 scroll_scale = Vector2(0.7, 0.7)
 
-[node name="Background" parent="Parallax2D" unique_id=2000219965 instance=ExtResource("10_nj41v")]
+[node name="Background" parent="Decorations/Parallax2D" unique_id=2000219965 instance=ExtResource("10_nj41v")]
 z_index = -3
 anchors_preset = 8
 anchor_left = 0.5
@@ -316,3 +319,69 @@ offset_right = 27552.0
 offset_bottom = 28144.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="Decorations" unique_id=1134516236]
+
+[node name="Column3" parent="Decorations/Parallax2D2" unique_id=1225512703 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = 1024.0
+offset_right = -44.0
+offset_bottom = 2770.13
+grow_vertical = 0
+
+[node name="Column4" parent="Decorations/Parallax2D2" unique_id=580009577 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1319.9999
+offset_top = 1024.0
+offset_right = 1499.9999
+offset_bottom = 2770.13
+grow_vertical = 0
+
+[node name="Column" parent="Decorations/Parallax2D2" unique_id=512156800 instance=ExtResource("20_ctedh")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 456.00003
+offset_top = 896.00006
+offset_right = 625.6968
+offset_bottom = 1671.7573
+grow_vertical = 0
+
+[node name="Column2" parent="Decorations/Parallax2D2" unique_id=587929953 instance=ExtResource("20_ctedh")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 896.0
+offset_right = 809.6968
+offset_bottom = 1671.7573
+grow_vertical = 0
+
+[node name="Column5" parent="Decorations/Parallax2D2" unique_id=137047480 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 63.99997
+offset_top = 832.0
+offset_right = 243.99997
+offset_bottom = 3547.1514
+grow_vertical = 0
+
+[node name="Column6" parent="Decorations/Parallax2D2" unique_id=1865267102 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1023.9999
+offset_top = 832.0
+offset_right = 1203.9999
+offset_bottom = 3547.1514
+grow_vertical = 0
