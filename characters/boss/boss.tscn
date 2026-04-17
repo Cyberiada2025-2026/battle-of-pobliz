@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
 [ext_resource type="PackedScene" uid="uid://dkjmkti50wt0h" path="res://characters/boss/sprites/boss_central.tscn" id="4_g3f0a"]
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="5_hk2k4"]
 [ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
@@ -19,6 +20,26 @@
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
+[ext_resource type="Script" uid="uid://bdt2jftwfsde" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
+[ext_resource type="Texture2D" uid="uid://tl3kxjoamtuq" path="res://characters/boss/sprites/Boss.png" id="22_ccpgt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnubm"]
+resource_local_to_scene = true
+shader = ExtResource("5_hk2k4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkp53"]
+resource_local_to_scene = true
+shader = ExtResource("5_hk2k4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xc1n"]
+resource_local_to_scene = true
+shader = ExtResource("5_hk2k4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 98.02041
@@ -46,6 +67,15 @@ offset_left = -198.0
 offset_top = -314.0
 offset_right = -158.0
 offset_bottom = -274.0
+
+[node name="Sprite2D" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="0" unique_id=222776981]
+material = SubResource("ShaderMaterial_fnubm")
+
+[node name="Sprite2D2" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="1" unique_id=1088702953]
+material = SubResource("ShaderMaterial_nkp53")
+
+[node name="Sprite2D3" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="2" unique_id=688363146]
+material = SubResource("ShaderMaterial_5xc1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
 position = Vector2(2, 6)
@@ -249,4 +279,15 @@ rotation = -3.1415925
 scale = Vector2(8.982091, 1.8354521)
 texture = ExtResource("2_850g2")
 
+[node name="SpriteChanger" type="Node2D" parent="." unique_id=601123420]
+script = ExtResource("21_ccpgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteChanger" unique_id=714827781]
+visible = false
+position = Vector2(552, 568.00006)
+scale = Vector2(0.2375, 0.2375)
+texture = ExtResource("22_ccpgt")
+
 [connection signal="atack_signal" from="." to="." method="_on_atack_signal"]
+
+[editable path="hitbox/head/BossCentral"]
