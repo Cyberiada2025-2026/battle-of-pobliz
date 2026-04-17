@@ -66,7 +66,7 @@ boss = NodePath("../../..")
 
 [node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
-phase_health = 15.0
+phase_health = 75.0
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase1" unique_id=384301582]
 
@@ -127,7 +127,7 @@ max_cooldown = 10.0
 
 [node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers", "invincibility_timer") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
-phase_health = 15.0
+phase_health = 100.0
 bar_color = Color(1, 0.44705883, 0, 1)
 invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
@@ -204,6 +204,18 @@ bar_color = Color(1, 0.84313726, 0, 1)
 invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase3" unique_id=697194476]
+
+[node name="BulletWall2" type="Node" parent="Phases/Phase3/Attacks" unique_id=533192620]
+script = ExtResource("7_w2qq7")
+wall_thickness = 1
+shot_cooldown = 0.15
+height_bullet_count = 40
+wall_count = 1
+walls_cooldown = 2.5
+hole_size = 7
+bullet_speed = 250
+ammo_prefab = ExtResource("8_dgtul")
+metadata/_custom_type_script = "uid://cscygqfx3271u"
 
 [node name="BulletWall" type="Node" parent="Phases/Phase3/Attacks" unique_id=1929446890]
 script = ExtResource("7_w2qq7")

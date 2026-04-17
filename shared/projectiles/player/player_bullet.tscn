@@ -15,10 +15,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xcced"]
 shader = ExtResource("6_6p5iu")
 shader_parameter/radius = 0.150000007125
-shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
-shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
+shader_parameter/color_main = Color(0.97308034, 0.8731276, 0.07957093, 1)
+shader_parameter/color_outline = Color(2.9110003, 1.9761372, 1.8625857, 1)
 shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
+shader_parameter/color_rings = Color(4.8597627, 3.1938148, 0.54578376, 1)
 shader_parameter/outline_thickness = 0.10000000475
 shader_parameter/center_size = 0.2000000095
 shader_parameter/ring_thickness = 0.2750000130625
