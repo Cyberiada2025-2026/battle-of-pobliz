@@ -412,3 +412,5 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 body = NodePath("..")
 animations = Array[ExtResource("8_4n8h4")]([SubResource("Resource_364pt"), SubResource("Resource_ra1dk")])
 metadata/_custom_type_script = "uid://b0a8px7pp8pvt"
+
+[node name="InvincibilityComponent" type="Node" parent="." unique_id=2012029109]
