@@ -223,7 +223,7 @@ immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Re
 position = Vector2(8, -17)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
-position = Vector2(0, -72)
+position = Vector2(27, -72)
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast", "post", "pointer", "vfx_line", "animator") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
