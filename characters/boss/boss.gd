@@ -14,7 +14,7 @@ signal atack_signal
 @export_category("Phases")
 @export var phases: Array[BossPhase]
 
-var phase = 1
+var int_phase = 1
 
 var current_phase: BossPhase
 var health: float = 0
@@ -32,7 +32,8 @@ func take_damage(damage: float) -> void:
 		if phases.is_empty():
 			win()
 		else:
-			phase += 1
+			int_phase += 1
+			SoundtrackController.current_boss_phase = int_phase
 			start_phase(phases.pop_front())
 
 func win() -> void:

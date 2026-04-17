@@ -29,6 +29,7 @@ func _input(_event: InputEvent) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	SoundtrackController.current_scene = 2
 	get_tree().change_scene_to_packed(game_scene)
 	start.visible = false
 	exit.visible = false
@@ -40,6 +41,7 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_resume_button_pressed() -> void:
+	SoundtrackController.current_scene = 2
 	visible = not visible
 	get_tree().paused = visible
 
@@ -49,6 +51,7 @@ func _on_setting_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	SoundtrackController.current_scene = 0
 	get_tree().change_scene_to_packed(empty_scene)
 	start.visible = true
 	exit.visible = true
