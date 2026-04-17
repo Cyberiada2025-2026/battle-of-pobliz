@@ -524,13 +524,14 @@ scale_max = 4.0
 turbulence_noise_scale = 10.0
 turbulence_noise_speed = Vector3(5, 5, 0)
 
-[node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion")]
+[node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion", "dash_comp")]
 collision_layer = 128
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), null]
 explosion = NodePath("VFX/hit")
+dash_comp = NodePath("DashComponent")
 type = "jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052828906]

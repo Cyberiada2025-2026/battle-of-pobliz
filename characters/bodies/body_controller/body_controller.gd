@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(damage: float) -> void:
-	if dash_comp != null and dash_comp.is_dashing:
+	if dash_comp != null and dash_comp.is_dashing_invis:
 		return
 	health -= damage
 	if health <= 0:
