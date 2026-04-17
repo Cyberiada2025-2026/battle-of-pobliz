@@ -78,8 +78,8 @@ metadata/_custom_type_script = "uid://csfnbpo03kcl6"
 
 [node name="Atack Timer" parent="Phases/Phase1/Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
 boss = NodePath("../../../..")
-min_cooldown = 6.0
-max_cooldown = 8.0
+min_cooldown = 8.0
+max_cooldown = 10.0
 
 [node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
 atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/CombinedAtack")]
@@ -125,7 +125,7 @@ metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
 [node name="Atack Timer" parent="Phases/Phase2/Timers" unique_id=60518591 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
 boss = NodePath("../../../..")
-min_cooldown = 3.0
+min_cooldown = 4.0
 max_cooldown = 4.0
 
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]

@@ -19,7 +19,6 @@ signal atack_signal
 var current_phase: BossPhase
 var health: float = 0
 
-
 func _ready() -> void:
 	start_phase(phases.pop_front())
 
@@ -52,6 +51,7 @@ func random_atack() -> void:
 
 
 func start_phase(phase: BossPhase) -> void:
+	print(phase.name)
 	if current_phase != null:
 		for timer in current_phase.atack_timers:
 			timer.stop()
