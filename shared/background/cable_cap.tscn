@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://8duinvbed4p3"]
+
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="1_b8yr8"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_byya5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfapl"]
+resource_local_to_scene = true
+shader = ExtResource("1_b8yr8")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.58000002755
+
+[node name="Sprite2D" type="Sprite2D" unique_id=222776981]
+material = SubResource("ShaderMaterial_wfapl")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_byya5")
