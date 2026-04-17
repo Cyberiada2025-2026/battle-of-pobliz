@@ -2,8 +2,8 @@ extends Timer
 
 
 @export var boss: Boss
-@export var min_cooldown: float
-@export var max_cooldown: float
+@export var min_cooldown: float = 1
+@export var max_cooldown: float = 1
 
 func _ready() -> void:
 	start()

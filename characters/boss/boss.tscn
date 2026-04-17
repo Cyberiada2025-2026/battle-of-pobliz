@@ -47,8 +47,8 @@ boss = NodePath("../../..")
 
 [node name="Atack Timer" parent="Timers" unique_id=470246283 node_paths=PackedStringArray("boss") instance=ExtResource("3_4n3m3")]
 boss = NodePath("../..")
-min_cooldown = 4.0
-max_cooldown = 5.0
+min_cooldown = 0.1
+max_cooldown = 0.1
 
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]
 

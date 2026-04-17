@@ -40,8 +40,11 @@ func _on_atack_signal() -> void:
 
 
 func random_atack() -> void:
-	var atack = current_atack_set.pick_random()
+	var atack_set = current_atack_set
+	var atack = atack_set.pick_random()
+	atack_set.erase(atack)
 	if atack == null:
 		print("NO ATACK IN SET")
 	else:
-		atack.use()
+		await atack.use()
+	atack_set.append(atack)
