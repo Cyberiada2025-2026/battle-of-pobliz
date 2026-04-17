@@ -55,8 +55,7 @@ boss = NodePath("../../..")
 
 [node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
-[node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
-atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser"), NodePath("Attacks/TargetingLaser"), NodePath("Attacks/SpreadingCannonAttack")]
+[node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 
@@ -99,8 +98,7 @@ boss = NodePath("../../../..")
 min_cooldown = 8.0
 max_cooldown = 10.0
 
-[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
-atacks = [NodePath("Attacks/PlatformDestructiveBullet")]
+[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 bar_color = Color(1, 0.44705883, 0, 1)

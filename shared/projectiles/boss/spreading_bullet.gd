@@ -37,3 +37,7 @@ func spread():
 		var move_direction = Vector2.UP.rotated(deg_to_rad(360.0 / spreaded_bullet_count * i + offset))
 		bullet.apply_central_impulse(move_direction * spreaded_bullet_speed)
 		bullet.global_position = global_position
+
+
+func destroy():
+	queue_free()
