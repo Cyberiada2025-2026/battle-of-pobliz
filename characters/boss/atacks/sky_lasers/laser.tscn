@@ -1,16 +1,9 @@
 [gd_scene format=3 uid="uid://di06efe461iqf"]
 
 [ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_tnqba"]
-[ext_resource type="Script" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
-[ext_resource type="Shader" uid="uid://jhapmlm703xn" path="res://characters/boss/atacks/sky_lasers/laser.gdshader" id="2_dmfpt"]
+[ext_resource type="Script" uid="uid://brd2yakhtv8si" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="3_nnway"]
 [ext_resource type="AudioStream" uid="uid://dm7jrc3frqylm" path="res://shared/sfx/laser-strzał.wav" id="4_nnway"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmfpt"]
-shader = ExtResource("2_dmfpt")
-shader_parameter/main_col = Color(0.34559998, 0.36522666, 0.64, 1)
-shader_parameter/sec_col = Color(0.84000003, 0.97066665, 1, 1)
-shader_parameter/core = 0.3
-shader_parameter/alp = 0.800000038
 
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
@@ -31,7 +24,6 @@ script = ExtResource("1_wd6lo")
 damageComponent = NodePath("DamageComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
-material = SubResource("ShaderMaterial_dmfpt")
 texture = SubResource("GradientTexture2D_ufhy1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=29583583]

@@ -356,12 +356,7 @@ metadata/_custom_type_script = "uid://bawu1u45d1di1"
 radius = 12.0
 height = 40.0
 
-[sub_resource type="Curve" id="Curve_g51ap"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveTexture" id="CurveTexture_05mpl"]
-curve = SubResource("Curve_g51ap")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rdsjl"]
 lifetime_randomness = 0.2
@@ -528,10 +523,10 @@ turbulence_noise_speed = Vector3(5, 5, 0)
 collision_layer = 128
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
+type = "jump"
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("CollisionShape2D"), NodePath("Hitbox"), null]
 explosion = NodePath("VFX/hit")
-type = "jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052828906]
 position = Vector2(-1.1920929e-06, -27)
@@ -557,9 +552,11 @@ metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 
 [node name="JumpComponent" type="Node" parent="." unique_id=2080854299 node_paths=PackedStringArray("jump_vfx", "land_vfx")]
 script = ExtResource("5_qtlex")
-jump_velocity = 750.0
+
+jump_velocity = 650.0
 jump_vfx = NodePath("../VFX/Jump")
 land_vfx = NodePath("../VFX/Landing")
+
 metadata/_custom_type_script = "uid://bv0a0uif4y5pk"
 
 [node name="DashComponent" type="Node" parent="." unique_id=802304448 node_paths=PackedStringArray("vfx")]
@@ -615,7 +612,7 @@ emitting = false
 amount = 16
 lifetime = 0.15000000000000002
 one_shot = true
-trail_lifetime = 0.1
+trail_lifetime = 0.09999999999999999
 process_material = SubResource("ParticleProcessMaterial_1f6tn")
 
 [node name="hit" type="GPUParticles2D" parent="VFX" unique_id=260240667]
