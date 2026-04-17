@@ -10,13 +10,65 @@
 [ext_resource type="PackedScene" uid="uid://c6xudprc7sx4d" path="res://characters/boss/invincibility/invincibility_statue.tscn" id="6_po04d"]
 [ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
 [ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
+[ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="8_kjbyf"]
 [ext_resource type="Script" uid="uid://bol4tk55w3fk3" path="res://shared/tiles/autotiler_base.gd" id="9_3p7ir"]
 [ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
+[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="9_jxhnd"]
 [ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
 [ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
+[ext_resource type="Shader" uid="uid://gyhxefx7r3m" path="res://shared/vfx/body_switching/switch_line.gdshader" id="10_jxhnd"]
+[ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
 normal = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
+shader = ExtResource("8_kjbyf")
+shader_parameter/color = Color(0.958, 1, 0.82, 1)
+shader_parameter/inner_radius = 0.850000040375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3pcn"]
+shader = ExtResource("10_jxhnd")
+shader_parameter/width = 0.3330000158175
+shader_parameter/wiggles = 0.4510000214225
+shader_parameter/animation = 0.0
+
+[sub_resource type="Animation" id="Animation_nj41v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:material:shader_parameter/animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ctedh"]
+resource_name = "switch"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:material:shader_parameter/animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyq3p"]
+_data = {
+&"RESET": SubResource("Animation_nj41v"),
+&"switch": SubResource("Animation_ctedh")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei0ig"]
 texture = ExtResource("8_aud8f")
@@ -117,15 +169,14 @@ terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.2637906, 0.41156307, 0.46176362, 1)
 sources/1 = SubResource("TileSetAtlasSource_3p7ir")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04x3g"]
+shader = ExtResource("13_po04d")
+shader_parameter/tint = Color(0.7, 0.6825, 0.63, 1)
+shader_parameter/warp_x = 0.05200000247
+shader_parameter/warp_y = 0.1130000053675
+
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
-
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
-collision_layer = 17
-
-[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
-position = Vector2(573, -56)
-shape = SubResource("WorldBoundaryShape2D_aud8f")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
 position = Vector2(216, 400)
@@ -150,12 +201,16 @@ position = Vector2(208, 552)
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
 position = Vector2(0, -50)
 
-[node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast") groups=["possession_manager"]]
+[node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast", "post", "pointer", "vfx_line", "animator") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
 current_body = NodePath("../JumpingBody")
 player_camera = NodePath("Camera2D")
 ray_cast = NodePath("Camera2D/BodyPossessionRaycast")
 camera_transfer_time = 0.2
+post = NodePath("../CanvasLayer/ColorRect")
+pointer = NodePath("Camera2D/PossesionPointer")
+vfx_line = NodePath("VFX/Line2D")
+animator = NodePath("VFX/AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="PossessionManager" unique_id=836962515]
 position = Vector2(592, 416)
@@ -165,6 +220,24 @@ position_smoothing_speed = 10.0
 [node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
 position = Vector2(0, -24)
 collision_mask = 128
+
+[node name="PossesionPointer" type="Sprite2D" parent="PossessionManager/Camera2D" unique_id=1244584895]
+visible = false
+material = SubResource("ShaderMaterial_ke0cn")
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("9_jxhnd")
+
+[node name="VFX" type="Node2D" parent="PossessionManager" unique_id=446259102]
+
+[node name="Line2D" type="Line2D" parent="PossessionManager/VFX" unique_id=608699910]
+material = SubResource("ShaderMaterial_r3pcn")
+points = PackedVector2Array(0, 0, -50, -300)
+width = 30.0
+default_color = Color(4.415934, 3.9314063, 0.24662541, 1)
+texture_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PossessionManager/VFX" unique_id=455578065]
+libraries/ = SubResource("AnimationLibrary_eyq3p")
 
 [node name="ArenaAreaMarkers" type="Node" parent="." unique_id=1062189458 groups=["arena_area_markers"]]
 
@@ -223,3 +296,13 @@ anchor_top = 0.962963
 anchor_right = 0.2282986
 anchor_bottom = 1.0478395
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=538147593]
+visible = false
+material = SubResource("ShaderMaterial_04x3g")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

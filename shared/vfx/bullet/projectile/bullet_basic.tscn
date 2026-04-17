@@ -7,13 +7,13 @@
 shader = ExtResource("1_umwed")
 shader_parameter/radius = 0.150000007125
 shader_parameter/color_main = Color(1, 0.120000005, 0.120000005, 1)
-shader_parameter/color_outline = Color(2.910947, 0.7546615, 0.7181143, 1)
-shader_parameter/color_center = Color(2.342991, 0.94700414, 0.82009625, 1)
-shader_parameter/color_rings = Color(6.4832726, 0.46728078, 0.46728078, 1)
-shader_parameter/outline_thickness = 0.10000000475
-shader_parameter/center_size = 0.2000000095
-shader_parameter/ring_thickness = 0.2750000130625
-shader_parameter/ring_speed = 6.000001234999999
+shader_parameter/color_outline = Color(2.910947, 0.130456, 0, 1)
+shader_parameter/color_center = Color(2.7356017, 1.1110572, 0.9633713, 1)
+shader_parameter/color_rings = Color(4.087714, 0.6714475, 0.6714475, 1)
+shader_parameter/outline_thickness = 0.0
+shader_parameter/center_size = 0.400000019
+shader_parameter/ring_thickness = 0.400000019
+shader_parameter/ring_speed = 8.00000133
 shader_parameter/ring_amount = 1.0
 
 [node name="bullet_basic" type="Sprite2D" unique_id=331279362]

@@ -11,11 +11,10 @@ signal atack_signal
 @export var head: Node2D
 @export var is_invincible: bool = false
 
-
 @export_category("Phases")
 @export var phases: Array[BossPhase]
 
-
+var phase = 1
 
 var current_phase: BossPhase
 var health: float = 0
@@ -33,6 +32,7 @@ func take_damage(damage: float) -> void:
 		if phases.is_empty():
 			win()
 		else:
+			phase += 1
 			start_phase(phases.pop_front())
 
 func win() -> void:
