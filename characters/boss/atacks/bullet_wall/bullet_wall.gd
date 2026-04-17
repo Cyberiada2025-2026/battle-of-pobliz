@@ -42,7 +42,7 @@ func use():
 
 
 func spawn_wall():
-	var hole_position = randi_range(1, height_bullet_count - hole_size - 1)
+	var hole_position = randi_range(0, height_bullet_count - hole_size - 1)
 	for i in wall_thickness:
 		spawn_wall_segment(hole_position)
 		await get_tree().create_timer(shot_cooldown).timeout
