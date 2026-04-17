@@ -6,6 +6,7 @@ extends Node
 @export var laser_count: int = 5
 @export var marker_show_time: float = 2.0
 @export var attack_duration: float = 2.0
+@export_range(0.05, 1, 0.05) var fill_percentage: float = 0.35
 
 var laser_marker_prefab = preload("res://characters/boss/atacks/sky_lasers/laser_marker.tscn")
 var laser_prefab = preload("res://characters/boss/atacks/sky_lasers/laser.tscn")
@@ -26,7 +27,7 @@ func _ready():
 		arena_markers.get_node("DownRight").global_position.y
 	)
 	arena_height = wall_bounds.y - wall_bounds.x
-	laser_width = floor_size / laser_count / 2
+	laser_width = floor_size / laser_count * fill_percentage
 
 
 func use():
