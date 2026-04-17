@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [global_group]
 
 possession_manager=""
+arena_area_markers=""
 
 [input]
 

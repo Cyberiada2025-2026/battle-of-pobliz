@@ -3,8 +3,6 @@ class_name SkyLaser
 extends Node
 
 @export_tool_button("test") var test = use
-@export var arena_bottom_collider: CollisionShape2D
-@export var arena_wall_collider: CollisionShape2D
 @export var laser_count: int
 @export var marker_show_time: float = 2.0
 @export var attack_duration: float = 2.0
@@ -15,7 +13,6 @@ var laser_prefab = preload("res://characters/boss/atacks/sky_lasers/laser.tscn")
 var markers
 var lasers
 
-var floor_bounds: Vector2
 var floor_size
 var wall_bounds: Vector2
 var arena_height
@@ -24,17 +21,16 @@ var laser_width
 func _ready():
 	markers = $Markers
 	lasers = $Lasers
-	# x - left, y - right
-	floor_bounds = Vector2(
-		arena_bottom_collider.position.x - arena_bottom_collider.shape.size.x / 2,
-		arena_bottom_collider.position.x + arena_bottom_collider.shape.size.x / 2
-	)
-	floor_size = floor_bounds.y - floor_bounds.x
+
+	var arena_markers = get_tree().get_first_node_in_group("arena_area_markers")
+
+	floor_size = arena_markers.get_node("DownRight").global_position.x - arena_markers.get_node("TopLeft").global_position.x
 	# x - up, y - down
 	wall_bounds = Vector2(
-		arena_wall_collider.position.y - arena_wall_collider.shape.size.y / 2,
-		arena_wall_collider.position.y + arena_wall_collider.shape.size.y / 2
+		arena_markers.get_node("TopLeft").global_position.y,
+		arena_markers.get_node("DownRight").global_position.y
 	)
+	print(wall_bounds)
 	arena_height = wall_bounds.y - wall_bounds.x
 	laser_width = floor_size / laser_count / 2
 
@@ -59,7 +55,6 @@ func _ready():
 
 
 func use():
-	print(floor_bounds)
 
 	var offset = randi_range(0, 1)
 

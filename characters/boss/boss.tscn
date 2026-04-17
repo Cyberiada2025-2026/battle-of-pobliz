@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://characters/boss/elements/boss_damage_point.gd" id="2_ia5xw"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
+[ext_resource type="PackedScene" uid="uid://bjdnpyo5wq7x8" path="res://characters/boss/atacks/sky_lasers/sky_laser.tscn" id="6_ka7n5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
@@ -15,7 +16,7 @@ script = ExtResource("1_kwubs")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
-fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack")]
+fase_1_atack_set = [NodePath("Attacks/Phase1/BasicCannonAttack"), NodePath("Attacks/Phase1/SkyLaser")]
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
@@ -62,6 +63,8 @@ texture = ExtResource("2_850g2")
 [node name="Attacks" type="Node2D" parent="." unique_id=2086179413]
 
 [node name="Phase1" type="Node2D" parent="Attacks" unique_id=1507015553]
+
+[node name="SkyLaser" parent="Attacks/Phase1" unique_id=1966593991 instance=ExtResource("6_ka7n5")]
 
 [node name="BasicCannonAttack" type="Node" parent="Attacks/Phase1" unique_id=585527226 node_paths=PackedStringArray("cannons")]
 script = ExtResource("7_ka7n5")

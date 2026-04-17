@@ -61,3 +61,11 @@ position_smoothing_speed = 10.0
 [node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
 position = Vector2(0, -24)
 collision_mask = 128
+
+[node name="ArenaAreaMarkers" type="Node" parent="." unique_id=1062189458 groups=["arena_area_markers"]]
+
+[node name="TopLeft" type="Node2D" parent="ArenaAreaMarkers" unique_id=1949251636]
+position = Vector2(17, 0)
+
+[node name="DownRight" type="Node2D" parent="ArenaAreaMarkers" unique_id=731100975]
+position = Vector2(1135, 638)
