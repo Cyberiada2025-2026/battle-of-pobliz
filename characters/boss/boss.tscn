@@ -14,15 +14,14 @@
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="Script" uid="uid://cscygqfx3271u" path="res://characters/boss/atacks/bullet_wall/bullet_wall.gd" id="7_w2qq7"]
 [ext_resource type="PackedScene" uid="uid://61gf52swtd7i" path="res://shared/projectiles/boss/targeting_bullet.tscn" id="8_0ag5n"]
-[ext_resource type="PackedScene" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
-[ext_resource type="PackedScene" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
+[ext_resource type="PackedScene" uid="uid://qox4jpn7l32q" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
+[ext_resource type="PackedScene" uid="uid://dx83lfllm8t7m" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
 [ext_resource type="PackedScene" uid="uid://cwtsc018qtc3l" path="res://shared/projectiles/boss/basic_bullet.tscn" id="8_o1mjy"]
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
-[ext_resource type="PackedScene" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
-[ext_resource type="Script" uid="uid://bdt2jftwfsde" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
+[ext_resource type="Script" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
 [ext_resource type="Texture2D" uid="uid://tl3kxjoamtuq" path="res://characters/boss/sprites/Boss.png" id="22_ccpgt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fnubm"]
@@ -226,7 +225,7 @@ one_shot = true
 
 [node name="Phase3" parent="Phases" unique_id=458538011 node_paths=PackedStringArray("atack_timers", "invincibility_timer") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
-phase_health = 30.0
+phase_health = 150.0
 bar_color = Color(1, 0.84313726, 0, 1)
 invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
