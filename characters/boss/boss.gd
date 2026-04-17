@@ -11,30 +11,27 @@ signal atack_signal
 @export var head: Node2D
 
 
-@export_category("Single Atacks")
-@export var health: float = 1000
-@export var fase_health_points: Array[float] = [
-	0
-]
-
-@export_category("Atack Sets")
-@export var fase_1_atack_set: Array[Node]
+@export_category("Phases")
+@export var phases: Array[BossPhase]
 
 
 
-var current_atack_set: Array[Node]
-
+var current_phase: BossPhase
+var health: float = 0
 
 
 func _ready() -> void:
-	current_atack_set = fase_1_atack_set
+	start_phase(phases.pop_front())
 
 
 func take_damage(damage: float) -> void:
 	health -= damage
 	print(health)
 	if health <= 0:
-		win()
+		if phases.is_empty():
+			win()
+		else:
+			start_phase(phases.pop_front())
 
 func win() -> void:
 	get_tree().change_scene_to_packed(death_scene)
@@ -44,7 +41,7 @@ func _on_atack_signal() -> void:
 
 
 func random_atack() -> void:
-	var atack_set = current_atack_set
+	var atack_set = current_phase.atacks
 	var atack = atack_set.pick_random()
 	atack_set.erase(atack)
 	if atack == null:
@@ -52,3 +49,12 @@ func random_atack() -> void:
 	else:
 		await atack.use()
 	atack_set.append(atack)
+
+
+func start_phase(phase: BossPhase) -> void:
+	for timer in current_phase.atack_timers:
+		timer.stop()
+	current_phase = phase
+	for timer in phase.atack_timers:
+		timer.start()
+	health = phase.phase_health
