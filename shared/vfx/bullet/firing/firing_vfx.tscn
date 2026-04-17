@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dffnwyxuwhqk5"]
 
 [ext_resource type="Texture2D" uid="uid://c5x5rw8elbu37" path="res://shared/vfx/bullet/firing/shot.png" id="1_o01u2"]
+[ext_resource type="Script" uid="uid://bc5ccjvevmysc" path="res://shared/vfx/bullet/firing/rotation_fix.gd" id="2_cscle"]
 
 [sub_resource type="Curve" id="Curve_cy4hv"]
 _data = [Vector2(0.5179153, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -37,3 +38,4 @@ explosiveness = 1.0
 trail_sections = 4
 trail_section_subdivisions = 3
 process_material = SubResource("ParticleProcessMaterial_o2pfx")
+script = ExtResource("2_cscle")
