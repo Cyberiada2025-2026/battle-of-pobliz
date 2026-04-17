@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6xudprc7sx4d"]
 
 [ext_resource type="Script" uid="uid://bu8hy02lwgubb" path="res://characters/boss/invincibility/invincibility_statue.gd" id="1_b8ckm"]
-[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_o26po"]
+[ext_resource type="Texture2D" uid="uid://di8jsyi4q7rea" path="res://characters/boss/sprites/BossStatue.png" id="2_b8ckm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p7ir"]
 size = Vector2(128, 128)
@@ -18,6 +18,8 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_3p7ir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1489658701]
-texture = ExtResource("1_o26po")
+position = Vector2(0, 3)
+scale = Vector2(0.29375, 0.29375)
+texture = ExtResource("2_b8ckm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
