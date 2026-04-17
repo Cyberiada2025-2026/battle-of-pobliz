@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://b3mr0amu1jyxu"]
 
-[ext_resource type="Shader" path="res://characters/boss/atacks/sky_lasers/marker.gdshader" id="1_bpbkv"]
+[ext_resource type="Shader" uid="uid://c76q8su8g2cv6" path="res://characters/boss/atacks/sky_lasers/marker.gdshader" id="1_bpbkv"]
 
 [resource]
 shader = ExtResource("1_bpbkv")

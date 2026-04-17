@@ -40,6 +40,7 @@ shape = SubResource("RectangleShape2D_18v03")
 
 [node name="DamageComponent" type="Node" parent="." unique_id=441198829]
 script = ExtResource("1_iugvr")
+damage_amount = 4.0
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
 
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("3_7pg1y")]

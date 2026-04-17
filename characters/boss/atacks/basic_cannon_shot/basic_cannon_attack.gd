@@ -33,7 +33,7 @@ func shot_serie(cannon: BossCanon):
 		var bullet: RigidBody2D = ammo_prefab.instantiate()
 		get_tree().current_scene.add_child(bullet)
 
-		if not lock_target_on_first_shot:
+		if not lock_target_on_first_shot and player:
 			move_direction = (player.global_position - cannon.global_position).normalized()
 		cannon.rotation = Vector2.UP.angle_to(move_direction)
 
