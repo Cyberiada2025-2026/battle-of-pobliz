@@ -456,7 +456,6 @@ offset_bottom = 2770.13
 grow_vertical = 0
 
 [node name="Column" parent="Decorations/Parallax2D2" unique_id=512156800 instance=ExtResource("20_ctedh")]
-z_index = -2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -467,7 +466,6 @@ offset_bottom = 1671.7573
 grow_vertical = 0
 
 [node name="Column2" parent="Decorations/Parallax2D2" unique_id=587929953 instance=ExtResource("20_ctedh")]
-z_index = -2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

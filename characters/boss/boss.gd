@@ -23,6 +23,7 @@ var health: float = 0
 
 func _ready() -> void:
 	int_phase = 1
+	SoundtrackController.current_boss_phase = int_phase
 	start_phase(phases.pop_front())
 
 func _process(delta: float) -> void:
