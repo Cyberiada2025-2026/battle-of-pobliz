@@ -3,6 +3,8 @@ class_name Boss
 
 signal atack_signal
 
+@export var death_scene: PackedScene
+
 @export_category("nodes")
 @export var canon_left: Node2D
 @export var canon_right: Node2D
@@ -32,8 +34,10 @@ func take_damage(damage: float) -> void:
 	health -= damage
 	print(health)
 	if health <= 0:
-		pass # TO DO WIN!!!!!!!!!!!!!!!!!!!!!!!!!!
+		win()
 
+func win() -> void:
+	get_tree().change_scene_to_packed(death_scene)
 
 func _on_atack_signal() -> void:
 	random_atack()
