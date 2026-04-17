@@ -3,28 +3,32 @@
 [ext_resource type="Script" uid="uid://c88qqraiiwt7e" path="res://scenes/Menu/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://dxi0iucx4etrm" path="res://scenes/debug/battle_arena_graybox.tscn" id="2_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="3_8mcyk"]
+[ext_resource type="PackedScene" uid="uid://movw4wl1f5br" path="res://scenes/death_screan/death_screen.tscn" id="4_evs2v"]
+[ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="5_4q1m5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font_size = 40
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1682239054]
+[node name="MainMenu" type="CanvasLayer" unique_id=1682239054 node_paths=PackedStringArray("start", "resume", "settings", "return_to_main_menu", "exit")]
 process_mode = 3
+script = ExtResource("1_l6cm7")
+game_scene = ExtResource("2_ekxnf")
+empty_scene = ExtResource("3_8mcyk")
+death_scene = ExtResource("4_evs2v")
+win_scene = ExtResource("5_4q1m5")
+start = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label")
+resume = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label")
+settings = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label")
+return_to_main_menu = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label")
+exit = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label")
 
-[node name="MainMenu" type="Control" parent="." unique_id=526384990 node_paths=PackedStringArray("start", "resume", "settings", "exit", "return_to_main_menu")]
+[node name="MainMenu" type="Control" parent="." unique_id=526384990]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l6cm7")
-game_scene = ExtResource("2_ekxnf")
-empty_scene = ExtResource("3_8mcyk")
-start = NodePath("ColorRect/HBoxContainer/VBoxContainer/start label")
-resume = NodePath("ColorRect/HBoxContainer/VBoxContainer/resume label")
-settings = NodePath("ColorRect/HBoxContainer/VBoxContainer/setting label")
-exit = NodePath("ColorRect/HBoxContainer/VBoxContainer/exit label")
-return_to_main_menu = NodePath("ColorRect/HBoxContainer/VBoxContainer/main menu label")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1318691085]
 z_index = 1
@@ -34,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.14044744, 0.14044744, 0.14044744, 0.41960785)
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.6666667)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ColorRect" unique_id=1957958567]
 z_index = 2
@@ -155,8 +159,8 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label/start button" to="MainMenu" method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label/resume button" to="MainMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label/setting button" to="MainMenu" method="_on_setting_button_pressed"]
-[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="MainMenu" method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label/exit button" to="MainMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label/start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label/resume button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label/setting button" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label/exit button" to="." method="_on_exit_button_pressed"]

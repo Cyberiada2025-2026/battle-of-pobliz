@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://movw4wl1f5br"]
+
+[ext_resource type="Script" uid="uid://baof01cuxbdwo" path="res://scenes/death_screan/death_screen.gd" id="1_ylahr"]
+[ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="2_o8c6b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lw1mh"]
+font_size = 40
+
+[node name="Death Screen" type="Control" unique_id=565495014]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ylahr")
+empty_scene = ExtResource("2_o8c6b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1135827446]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.6666667)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=420275254]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_start" type="Control" parent="ColorRect/HBoxContainer" unique_id=1446973508]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=2001832016]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="container_start" type="Control" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1651245087]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="lose message" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=734842847]
+z_index = 1
+layout_mode = 2
+text = "YOU LOSE!
+"
+label_settings = SubResource("LabelSettings_lw1mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main menu label" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1641052211]
+z_index = 1
+layout_mode = 2
+text = " RETURN TO MAIN MENU "
+label_settings = SubResource("LabelSettings_lw1mh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main menu button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/main menu label" unique_id=11215717]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_end" type="Control" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=2121860537]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="container_end" type="Control" parent="ColorRect/HBoxContainer" unique_id=136842523]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="." method="_on_main_menu_button_pressed"]
