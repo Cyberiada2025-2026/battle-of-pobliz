@@ -60,5 +60,6 @@ material = SubResource("ShaderMaterial_hfdvp")
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("8_e8jen")]
 stream = ExtResource("9_irg2m")
 autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

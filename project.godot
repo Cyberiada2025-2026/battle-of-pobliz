@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://ctvvd2d6mpixi"
 
 MainMenu="*uid://giqw1gbknsfk"
 SoundtrackController="*uid://xpswvm5vxw5g"
+DamageSfx="*uid://d3xwarg5gbmc4"
 
 [global_group]
 
