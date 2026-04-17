@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
 [ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
+[ext_resource type="PackedScene" uid="uid://dkjmkti50wt0h" path="res://characters/boss/sprites/boss_central.tscn" id="4_g3f0a"]
 [ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
@@ -20,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
-radius = 80.0
+radius = 98.02041
 
 [node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "phases")]
 script = ExtResource("1_kwubs")
@@ -33,18 +34,22 @@ phases = [NodePath("Phases/Phase1"), NodePath("Phases/Phase2"), NodePath("Phases
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 
 [node name="head" type="Area2D" parent="hitbox" unique_id=302636103 node_paths=PackedStringArray("boss")]
-position = Vector2(550, 50)
+position = Vector2(550, 312)
 collision_mask = 256
 script = ExtResource("2_ia5xw")
 boss = NodePath("../..")
 damage_multiply = 2.0
 metadata/_custom_type_script = "uid://moi8ubohtdkb"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
-shape = SubResource("CircleShape2D_vbcuv")
+[node name="BossCentral" parent="hitbox/head" unique_id=1364872992 instance=ExtResource("4_g3f0a")]
+offset_left = -198.0
+offset_top = -314.0
+offset_right = -158.0
+offset_bottom = -274.0
 
-[node name="Sprite2D" type="Sprite2D" parent="hitbox/head" unique_id=1094805491]
-texture = ExtResource("2_850g2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
+position = Vector2(2, 6)
+shape = SubResource("CircleShape2D_vbcuv")
 
 [node name="canons" type="Node2D" parent="hitbox" unique_id=536864587]
 position = Vector2(0, 170)
@@ -120,10 +125,11 @@ boss = NodePath("../../../..")
 min_cooldown = 8.0
 max_cooldown = 10.0
 
-[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers") instance=ExtResource("6_0i2t5")]
+[node name="Phase2" parent="Phases" unique_id=1033658014 node_paths=PackedStringArray("atack_timers", "invincibility_timer") instance=ExtResource("6_0i2t5")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 15.0
 bar_color = Color(1, 0.44705883, 0, 1)
+invincibility_timer = NodePath("Timers/InvincibilityTimer")
 
 [node name="Attacks" type="Node2D" parent="Phases/Phase2" unique_id=364186670]
 
@@ -209,10 +215,14 @@ metadata/_custom_type_script = "uid://cscygqfx3271u"
 boss = NodePath("../../../..")
 min_cooldown = 4.0
 max_cooldown = 4.0
+[node name="InvincibilityTimer" type="Timer" parent="Phases/Phase2/Timers" unique_id=1553366832]
+wait_time = 20.0
+one_shot = true
 
 [node name="Others" type="Node2D" parent="." unique_id=1560501707]
 
 [node name="Sprite2D" type="Sprite2D" parent="Others" unique_id=10783315]
+visible = false
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(577.70074, 53.468937)
