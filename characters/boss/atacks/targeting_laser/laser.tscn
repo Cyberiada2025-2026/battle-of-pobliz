@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bl6lul5j2w5vx"]
+
+[ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_iugvr"]
+
+[sub_resource type="Gradient" id="Gradient_haaee"]
+offsets = PackedFloat32Array(0, 0.5120482, 0.9939759)
+colors = PackedColorArray(0.92156863, 0, 0.3372549, 0.78039217, 1, 0, 0.12941177, 1, 0.92156863, 0, 0.3372549, 0.78039217)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufhy1"]
+gradient = SubResource("Gradient_haaee")
+width = 111
+height = 638
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18v03"]
+size = Vector2(111.8, 638)
+
+[node name="Laser" type="Area2D" unique_id=553561190]
+process_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
+texture = SubResource("GradientTexture2D_ufhy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=29583583]
+shape = SubResource("RectangleShape2D_18v03")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=441198829]
+script = ExtResource("1_iugvr")
+metadata/_custom_type_script = "uid://lvdktrosqc6q"

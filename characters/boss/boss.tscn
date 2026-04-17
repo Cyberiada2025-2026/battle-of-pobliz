@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
+[ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 80.0
@@ -52,7 +53,7 @@ boss = NodePath("../../..")
 [node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
 [node name="Phase1" parent="Phases" unique_id=914982328 node_paths=PackedStringArray("atacks", "atack_timers") instance=ExtResource("6_0i2t5")]
-atacks = [NodePath("Attacks/BasicCannonAttack"), NodePath("Attacks/SkyLaser")]
+atacks = [NodePath("Attacks/TargetingLaser")]
 atack_timers = [NodePath("Timers/Atack Timer")]
 phase_health = 5.0
 
@@ -73,6 +74,10 @@ script = ExtResource("7_m373w")
 marker_show_time = 1.2
 attack_duration = 0.8
 metadata/_custom_type_script = "uid://csfnbpo03kcl6"
+
+[node name="TargetingLaser" type="Node" parent="Phases/Phase1/Attacks" unique_id=1829948880]
+script = ExtResource("9_2uq1t")
+metadata/_custom_type_script = "uid://ca1fh3l7as2uq"
 
 [node name="Timers" type="Node2D" parent="Phases/Phase1" unique_id=663982006]
 
