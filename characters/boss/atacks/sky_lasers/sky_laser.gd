@@ -42,8 +42,6 @@ func use():
 		laser_marker.get_child(0).texture.width = laser_width
 		laser_marker.get_child(0).texture.height = arena_height
 
-		print(laser_marker.position)
-
 	# wait for marker_show_time
 	await get_tree().create_timer(marker_show_time, false).timeout
 
