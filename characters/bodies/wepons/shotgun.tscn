@@ -1,19 +1,166 @@
 [gd_scene format=3 uid="uid://6415hun4ef1b"]
 
-[ext_resource type="Script" uid="uid://6mjm4nip42ia" path="res://characters/bodies/wepons/shotgun.gd" id="1_gkxdk"]
-[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_tti0o"]
-[ext_resource type="PackedScene" uid="uid://dra65sxe1ryhc" path="res://shared/projectiles/player/player_shotgun_bullet.tscn" id="2_2h465"]
+[ext_resource type="Script" uid="uid://c88qqraiiwt7e" path="res://scenes/Menu/main_menu.gd" id="1_ms2ki"]
+[ext_resource type="PackedScene" uid="uid://dxi0iucx4etrm" path="res://scenes/debug/battle_arena_graybox.tscn" id="2_qhdta"]
+[ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="3_gr3or"]
+[ext_resource type="PackedScene" uid="uid://movw4wl1f5br" path="res://scenes/death_screan/death_screen.tscn" id="4_epmw0"]
+[ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="5_hjnus"]
 
-[node name="shotgun" type="Node2D" unique_id=508469511 node_paths=PackedStringArray("start")]
-script = ExtResource("1_gkxdk")
-bullet = ExtResource("2_2h465")
-start = NodePath("start_position")
+[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+font_size = 40
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=255761419]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(12.000001, 1)
-scale = Vector2(0.21875, 0.07812499)
-texture = ExtResource("1_tti0o")
+[node name="MainMenu" type="CanvasLayer" unique_id=1682239054 node_paths=PackedStringArray("start", "resume", "settings", "return_to_main_menu", "exit")]
+process_mode = 3
+script = ExtResource("1_ms2ki")
+game_scene = ExtResource("2_qhdta")
+empty_scene = ExtResource("3_gr3or")
+death_scene = ExtResource("4_epmw0")
+win_scene = ExtResource("5_hjnus")
+start = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label")
+resume = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label")
+settings = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label")
+return_to_main_menu = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label")
+exit = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label")
 
-[node name="start_position" type="Node2D" parent="." unique_id=175316203]
-position = Vector2(26, 0)
+[node name="MainMenu" type="Control" parent="." unique_id=526384990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1318691085]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.6666667)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ColorRect" unique_id=1957958567]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1785080880]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ColorRect/HBoxContainer" unique_id=158191907]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1737924508]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="start label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1396118911]
+z_index = 1
+layout_mode = 2
+text = "START GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label" unique_id=862581661]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=324886433]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "RESUME GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label" unique_id=999925298]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="setting label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=336212726]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "SETTINGSa"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="setting button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label" unique_id=1179895800]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main menu label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1558629103]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "MAIN MENU"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main menu button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label" unique_id=90814729]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1903660576]
+z_index = 1
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label" unique_id=1337173974]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=2070318710]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1911145962]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label/start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label/resume button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label/setting button" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label/exit button" to="." method="_on_exit_button_pressed"]

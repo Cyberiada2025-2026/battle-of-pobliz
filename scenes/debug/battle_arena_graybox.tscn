@@ -1,96 +1,165 @@
 [gd_scene format=3 uid="uid://dxi0iucx4etrm"]
 
-[ext_resource type="PackedScene" uid="uid://067ws6ottosm" path="res://shared/platform/platform.tscn" id="1_0b70h"]
-[ext_resource type="PackedScene" uid="uid://d0n8i5w3qg3ea" path="res://characters/bodies/prefabs/flying_body.tscn" id="2_lt32o"]
-[ext_resource type="PackedScene" uid="uid://cdai4b5ndwfha" path="res://characters/boss/boss.tscn" id="2_neadt"]
-[ext_resource type="PackedScene" uid="uid://6415hun4ef1b" path="res://characters/bodies/wepons/shotgun.tscn" id="3_2nv5k"]
-[ext_resource type="PackedScene" uid="uid://m5esfrv6ybuk" path="res://characters/bodies/wepons/basic_gun.tscn" id="3_lq37g"]
-[ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
-[ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
-[ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
->>>>>>> Stashed changes
+[ext_resource type="Script" uid="uid://c88qqraiiwt7e" path="res://scenes/Menu/main_menu.gd" id="1_o0ro2"]
+[ext_resource type="PackedScene" uid="uid://dfqkxqnn8e5q0" path="res://scenes/empty_scene.tscn" id="2_lq37g"]
+[ext_resource type="PackedScene" uid="uid://movw4wl1f5br" path="res://scenes/death_screan/death_screen.tscn" id="3_u3oxj"]
+[ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="4_2nv5k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_neadt"]
-size = Vector2(42, 733)
+[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+font_size = 40
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt32o"]
-size = Vector2(1151, 37)
+[node name="MainMenu" type="CanvasLayer" unique_id=1682239054 node_paths=PackedStringArray("start", "resume", "settings", "return_to_main_menu", "exit")]
+process_mode = 3
+script = ExtResource("1_o0ro2")
+game_scene = null
+empty_scene = ExtResource("2_lq37g")
+death_scene = ExtResource("3_u3oxj")
+win_scene = ExtResource("4_2nv5k")
+start = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label")
+resume = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label")
+settings = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label")
+return_to_main_menu = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label")
+exit = NodePath("MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label")
 
-[node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
-process_mode = 1
+[node name="MainMenu" type="Control" parent="." unique_id=526384990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
-collision_layer = 17
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1318691085]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.6666667)
 
-[node name="BoundaryLeft" type="CollisionShape2D" parent="Boundaries" unique_id=1572797802]
-position = Vector2(-2, 303)
-shape = SubResource("RectangleShape2D_neadt")
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ColorRect" unique_id=1957958567]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BoundaryRight" type="CollisionShape2D" parent="Boundaries" unique_id=599507280]
-position = Vector2(1150, 314.5)
-shape = SubResource("RectangleShape2D_neadt")
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1785080880]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="BoundaryCenter" type="CollisionShape2D" parent="Boundaries" unique_id=2092196119]
-position = Vector2(575.5, 656)
-shape = SubResource("RectangleShape2D_lt32o")
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ColorRect/HBoxContainer" unique_id=158191907]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
-position = Vector2(573, -56)
-shape = SubResource("RectangleShape2D_lt32o")
+[node name="container_start" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1737924508]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
-position = Vector2(216, 400)
+[node name="start label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1396118911]
+z_index = 1
+layout_mode = 2
+text = "START GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Platform2" parent="." unique_id=820172900 instance=ExtResource("1_0b70h")]
-position = Vector2(936, 400)
+[node name="start button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label" unique_id=862581661]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
-position = Vector2(576, 504)
+[node name="resume label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=324886433]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "RESUME GAME"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="JumpingBody" parent="." unique_id=1224676810 instance=ExtResource("3_o0ro2")]
-position = Vector2(592, 416)
+[node name="resume button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label" unique_id=999925298]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="shotgun" parent="JumpingBody" unique_id=508469511 instance=ExtResource("3_2nv5k")]
-position = Vector2(2, -19)
+[node name="setting label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=336212726]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "SETTINGSa"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="FlyingBody" parent="." unique_id=1753823366 instance=ExtResource("2_lt32o")]
-position = Vector2(208, 552)
+[node name="setting button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label" unique_id=1179895800]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BasicGun" parent="FlyingBody" unique_id=2046280642 instance=ExtResource("3_lq37g")]
+[node name="main menu label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1558629103]
+visible = false
+z_index = 1
+layout_mode = 2
+text = "MAIN MENU"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
-position = Vector2(0, -50)
+[node name="main menu button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label" unique_id=90814729]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast") groups=["possession_manager"]]
-script = ExtResource("4_o0ro2")
-current_body = NodePath("../JumpingBody")
-player_camera = NodePath("Camera2D")
-ray_cast = NodePath("Camera2D/BodyPossessionRaycast")
-camera_transfer_time = 0.2
+[node name="exit label" type="Label" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=1903660576]
+z_index = 1
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_vue75")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="PossessionManager" unique_id=836962515]
-position = Vector2(592, 416)
-offset = Vector2(0, -60)
-position_smoothing_speed = 10.0
+[node name="exit button" type="Button" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label" unique_id=1337173974]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BodyPossessionRaycast" type="RayCast2D" parent="PossessionManager/Camera2D" unique_id=982725930]
-position = Vector2(0, -24)
-collision_mask = 128
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer/VBoxContainer" unique_id=2070318710]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="ArenaAreaMarkers" type="Node" parent="." unique_id=1062189458 groups=["arena_area_markers"]]
+[node name="container_end" type="Control" parent="MainMenu/ColorRect/HBoxContainer" unique_id=1911145962]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="TopLeft" type="Node2D" parent="ArenaAreaMarkers" unique_id=1949251636]
-position = Vector2(17, 0)
-
-[node name="DownRight" type="Node2D" parent="ArenaAreaMarkers" unique_id=731100975]
-position = Vector2(1135, 638)
-
-[node name="BossBar" parent="." unique_id=859401329 node_paths=PackedStringArray("boss") instance=ExtResource("8_70jce")]
-offset_left = 31.0
-offset_top = 18.0
-offset_right = 1121.0
-offset_bottom = 55.0
-boss = NodePath("../Boss")
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/start label/start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/resume label/resume button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/setting label/setting button" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/main menu label/main menu button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainMenu/ColorRect/HBoxContainer/VBoxContainer/exit label/exit button" to="." method="_on_exit_button_pressed"]
