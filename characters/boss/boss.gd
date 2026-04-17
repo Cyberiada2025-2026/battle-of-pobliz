@@ -20,6 +20,7 @@ var current_phase: BossPhase
 var health: float = 0
 
 func _ready() -> void:
+	int_phase = 1
 	start_phase(phases.pop_front())
 
 

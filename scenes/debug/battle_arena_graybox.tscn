@@ -21,6 +21,13 @@
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
 [ext_resource type="PackedScene" uid="uid://qaqp5lib5fjf" path="res://shared/background/column.tscn" id="20_ctedh"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jxhnd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ke0cn"]
+normal = Vector2(-1, 0)
+
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
 shader = ExtResource("8_kjbyf")
 shader_parameter/color = Color(0.958, 1, 0.82, 1)
@@ -176,6 +183,18 @@ shader_parameter/warp_y = 0.1130000053675
 
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
+
+[node name="SafetyBorders" type="StaticBody2D" parent="." unique_id=52918965]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafetyBorders" unique_id=1080501250]
+position = Vector2(-1016, 5)
+shape = SubResource("WorldBoundaryShape2D_jxhnd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafetyBorders" unique_id=1196155848]
+position = Vector2(2171, 22)
+shape = SubResource("WorldBoundaryShape2D_ke0cn")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
 position = Vector2(-56, 640)
