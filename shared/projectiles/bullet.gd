@@ -28,7 +28,6 @@ func _on_body_entered(body: Node) -> void:
 	destroy_with_animation()
 
 
-
 func destroy_with_animation():
 	bullet_graphic.bullet_hit.emitting = true
 	call_deferred("set_contact_monitor", false)
