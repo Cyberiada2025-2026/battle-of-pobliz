@@ -1,2 +1,4 @@
 res://shared/projectiles/bullet.gd
 res://shared/projectiles/player/player_bullet.tscn
+res://shared/projectiles/boss/basic_bullet.tscn
+res://scenes/debug/battle_arena_graybox.tscn
