@@ -9,6 +9,7 @@ signal zero_health
 @export var lose_scene: PackedScene = load("res://scenes/death_screan/death_screen.tscn")
 
 @export var dash_comp: DashComponent
+@export var type: String = ""
 
 func _ready() -> void:
 	zero_health.connect(_on_zero_health)

@@ -381,6 +381,7 @@ metadata/_custom_type_script = "uid://bawu1u45d1di1"
 collision_layer = 128
 script = ExtResource("1_27qwu")
 movement_components = [NodePath("FlightMovementComponent")]
+type = "flight"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719674715]
 position = Vector2(0, -23.999998)

@@ -358,6 +358,7 @@ height = 40.0
 collision_layer = 128
 script = ExtResource("1_hgofc")
 movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
+type = "jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052828906]
 position = Vector2(-1.1920929e-06, -27)
