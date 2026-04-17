@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://di06efe461iqf"]
 
 [ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_tnqba"]
-[ext_resource type="Script" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
+[ext_resource type="Script" uid="uid://brd2yakhtv8si" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="3_nnway"]
+[ext_resource type="AudioStream" uid="uid://dm7jrc3frqylm" path="res://shared/sfx/laser-strzał.wav" id="4_nnway"]
 
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
@@ -30,3 +32,8 @@ shape = SubResource("RectangleShape2D_18v03")
 [node name="DamageComponent" type="Node" parent="." unique_id=441198829]
 script = ExtResource("1_tnqba")
 metadata/_custom_type_script = "uid://lvdktrosqc6q"
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("3_nnway")]
+stream = ExtResource("4_nnway")
+volume_db = -20.0
+autoplay = true

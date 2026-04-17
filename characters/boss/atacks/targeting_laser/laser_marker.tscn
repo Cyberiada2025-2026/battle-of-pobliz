@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://cgfbudrrt0q5e"]
 
+[ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="1_xrxsx"]
+[ext_resource type="AudioStream" uid="uid://ds44x8v0cgg4u" path="res://shared/sfx/laser-charge.wav" id="2_xbwnl"]
+
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
 colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0.54901963, 0.54901963, 0.39215687, 0, 0, 0, 0.39215687)
@@ -14,3 +17,9 @@ process_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
 texture = SubResource("GradientTexture2D_ufhy1")
+
+[node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("1_xrxsx")]
+stream = ExtResource("2_xbwnl")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
