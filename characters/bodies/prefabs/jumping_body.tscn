@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bmjqr5j3dytcc" path="res://characters/bodies/movement_components/gravity_component.gd" id="3_eey7s"]
 [ext_resource type="Script" uid="uid://cai4lr5qdgs4l" path="res://characters/bodies/movement_components/grounded_movement_component.gd" id="4_7vlab"]
 [ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/movement_components/jump_component.gd" id="5_qtlex"]
+[ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="6_7vlab"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
 radius = 16.0
@@ -13,7 +14,7 @@ height = 48.0
 [node name="JumpingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
 collision_layer = 128
 script = ExtResource("1_hgofc")
-movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent")]
+movement_components = [NodePath("GravityComponent"), NodePath("GroundedMovementComponent"), NodePath("JumpComponent"), NodePath("DashComponent")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=246461862]
 position = Vector2(0, -23.999998)
@@ -38,5 +39,7 @@ metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 [node name="JumpComponent" type="Node" parent="." unique_id=2080854299]
 script = ExtResource("5_qtlex")
 jump_velocity = 600.0
-max_jump_count = 2
 metadata/_custom_type_script = "uid://bv0a0uif4y5pk"
+
+[node name="DashComponent" type="Node" parent="." unique_id=802304448]
+script = ExtResource("6_7vlab")

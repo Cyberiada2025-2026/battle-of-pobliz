@@ -33,3 +33,4 @@ res://characters/boss/elements/boss_canon.gd
 res://characters/boss/elements/boss_canon.tscn
 res://characters/boss/elements/boss_damage_point.gd
 res://shared/damage_component/damage_component.gd
+res://characters/bodies/movement_components/dash_component.gd
