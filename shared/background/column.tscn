@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://qaqp5lib5fjf"]
+
+[ext_resource type="Texture2D" uid="uid://b1gdj3qoamw1" path="res://shared/background/construction_beam.png" id="1_6y4al"]
+
+[node name="Column" type="NinePatchRect" unique_id=1225512703]
+offset_right = 180.0
+offset_bottom = 400.0
+scale = Vector2(0.33, -0.33)
+texture = ExtResource("1_6y4al")
+region_rect = Rect2(22.40001, 0, 203.19998, 256)
+patch_margin_left = 60
+patch_margin_top = 20
+patch_margin_right = 60
+patch_margin_bottom = 20
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

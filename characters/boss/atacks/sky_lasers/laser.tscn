@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://di06efe461iqf"]
 
 [ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_tnqba"]
+[ext_resource type="Script" uid="uid://brd2yakhtv8si" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
 
 [sub_resource type="Gradient" id="Gradient_haaee"]
 offsets = PackedFloat32Array(0, 0.5060241, 0.9939759)
@@ -14,8 +15,11 @@ height = 638
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18v03"]
 size = Vector2(111.8, 638)
 
-[node name="Laser" type="Area2D" unique_id=553561190]
+[node name="Laser" type="Area2D" unique_id=553561190 node_paths=PackedStringArray("damageComponent")]
 process_mode = 1
+collision_layer = 512
+script = ExtResource("1_wd6lo")
+damageComponent = NodePath("DamageComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
 texture = SubResource("GradientTexture2D_ufhy1")

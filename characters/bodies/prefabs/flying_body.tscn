@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller/body_controller.gd" id="1_27qwu"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="2_782ak"]
 [ext_resource type="Script" uid="uid://d4dsitxe5jlu5" path="res://characters/bodies/movement_components/flight_movement_component.gd" id="3_l2bm4"]
+[ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="4_a2jxi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeud"]
 radius = 16.0
 height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k08n"]
+radius = 12.0
+height = 40.0
 
 [node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components")]
 collision_layer = 128
@@ -28,3 +33,10 @@ max_speed = 250.0
 acceleration = 20.0
 deceleration = 30.0
 metadata/_custom_type_script = "uid://d4dsitxe5jlu5"
+
+[node name="Hitbox" parent="." unique_id=1511766063 node_paths=PackedStringArray("body") instance=ExtResource("4_a2jxi")]
+body = NodePath("..")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1245074]
+position = Vector2(0, -23)
+shape = SubResource("CapsuleShape2D_5k08n")
