@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="8_4n8h4"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="9_x5q24"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="10_4n8h4"]
+[ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="11_4n8h4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63a0b"]
 atlas = ExtResource("2_4eihk")
@@ -399,13 +400,11 @@ height = 40.0
 script = ExtResource("8_4n8h4")
 condition = "body.velocity.length() > 0.01"
 animation_name = "flying"
-metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
 [sub_resource type="Resource" id="Resource_ra1dk"]
 script = ExtResource("8_4n8h4")
 condition = "body.velocity.length() <=  0.01"
 animation_name = "idle"
-metadata/_custom_type_script = "uid://bawu1u45d1di1"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63a0b"]
 shader = ExtResource("9_x5q24")
@@ -465,14 +464,51 @@ scale_max = 4.0
 turbulence_noise_scale = 10.0
 turbulence_noise_speed = Vector3(5, 5, 0)
 
-[node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion")]
+[sub_resource type="Curve" id="Curve_4n8h4"]
+_limits = [0.0, 2.6966305, 0.0, 1.0]
+_data = [Vector2(0, 2.6966305), 0.0, 0.18684572, 0, 0, Vector2(1, 0), -7.847503, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_63a0b"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 61.528103, 0, 0, Vector2(1, 20), -2.7843387, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_iirjb"]
+_data = [Vector2(0.010204092, 1), 0.0, 0.17346409, 0, 0, Vector2(1, 0), -3.0892808, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_g51ap"]
+curve_x = SubResource("Curve_4n8h4")
+curve_y = SubResource("Curve_63a0b")
+curve_z = SubResource("Curve_iirjb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vu0wj"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 24, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 3.0
+scale_max = 4.0
+scale_curve = SubResource("CurveXYZTexture_g51ap")
+color = Color(0.482, 1.22, 0.415, 1)
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[node name="FlyingBody" type="CharacterBody2D" unique_id=1753823366 node_paths=PackedStringArray("movement_components", "sprite", "immediate_kill", "explosion", "dash_comp")]
 collision_layer = 128
 script = ExtResource("1_27qwu")
-movement_components = [NodePath("FlightMovementComponent")]
-type = "flight"
+movement_components = [NodePath("FlightMovementComponent"), NodePath("DashComponent")]
 sprite = NodePath("AnimatedSprite2D")
 immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), null]
 explosion = NodePath("hit")
+dash_comp = NodePath("DashComponent")
+type = "flight"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719674715]
 position = Vector2(0, -23.999998)
@@ -548,3 +584,19 @@ lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_alxqj")
+
+[node name="DashComponent" type="Node" parent="." unique_id=366326732 node_paths=PackedStringArray("vfx")]
+script = ExtResource("11_4n8h4")
+vfx = NodePath("../Dash")
+dir = "y"
+metadata/_custom_type_script = "uid://bild5byc75yh0"
+
+[node name="Dash" type="GPUParticles2D" parent="." unique_id=1425533880]
+z_index = -1
+position = Vector2(0, -23)
+emitting = false
+amount = 16
+lifetime = 0.15000000000000002
+one_shot = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_vu0wj")

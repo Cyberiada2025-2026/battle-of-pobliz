@@ -6,6 +6,7 @@ extends Node
 @export var dash_cooldown_duration: float = 1.0
 @export var vfx: GPUParticles2D
 @export var dash_grace_duration: float = 0.5
+@export var dir: String = "x"
 
 var body: BodyController
 
@@ -14,7 +15,9 @@ var is_dashing_invis: bool = false
 var can_dash: bool = true
 
 func apply(_delta: float) -> void:
-	if is_zero_approx(body.velocity.x):
+	if dir == "x" and is_zero_approx(body.velocity.x):
+		return
+	if dir == "y" and is_zero_approx(body.velocity.y):
 		return
 
 	if Input.is_action_just_pressed("dash") and can_dash:
@@ -27,9 +30,14 @@ func apply(_delta: float) -> void:
 		vfx.emitting = true
 
 	if is_dashing:
-		var dash_dir = sign(body.velocity.x)
-		body.velocity.x = dash_dir * dash_speed
-		body.velocity.y = 0.0
+		if dir == "x":
+			var dash_dir = sign(body.velocity.x)
+			body.velocity.x = dash_dir * dash_speed
+			body.velocity.y = 0.0
+		if dir == "y":
+			var dash_dir = sign(body.velocity.y)
+			body.velocity.y = dash_dir * dash_speed
+			body.velocity.x = 0.0
 
 func _on_dash_finished() -> void:
 	is_dashing = false

@@ -361,6 +361,11 @@ layout_mode = 2
 text = "Flight: WSAD"
 vertical_alignment = 2
 
+[node name="Label5" type="Label" parent="CanvasLayer/Steering/MarginContainer/FlightSteering" unique_id=534413357]
+layout_mode = 2
+text = "Dash: Move + Shift"
+vertical_alignment = 2
+
 [node name="Label2" type="Label" parent="CanvasLayer/Steering/MarginContainer/FlightSteering" unique_id=1185170216]
 layout_mode = 2
 text = "Shoot: Left Mouse"
