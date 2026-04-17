@@ -13,9 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
 [ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
-normal = Vector2(0, 1)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei0ig"]
 texture = ExtResource("8_aud8f")
 texture_region_size = Vector2i(64, 64)
@@ -117,13 +114,6 @@ sources/1 = SubResource("TileSetAtlasSource_3p7ir")
 
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
-
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
-collision_layer = 17
-
-[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
-position = Vector2(573, -56)
-shape = SubResource("WorldBoundaryShape2D_aud8f")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
 position = Vector2(216, 400)
