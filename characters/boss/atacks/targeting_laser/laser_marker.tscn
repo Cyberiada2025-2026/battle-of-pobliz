@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cgfbudrrt0q5e"]
 
+[ext_resource type="Material" uid="uid://b3mr0amu1jyxu" path="res://characters/boss/atacks/sky_lasers/marker.tres" id="1_xbwnl"]
 [ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="1_xrxsx"]
 [ext_resource type="AudioStream" uid="uid://ds44x8v0cgg4u" path="res://shared/sfx/laser-charge.wav" id="2_xbwnl"]
 
@@ -16,6 +17,7 @@ height = 666
 process_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733304933]
+material = ExtResource("1_xbwnl")
 texture = SubResource("GradientTexture2D_ufhy1")
 
 [node name="SfxPlayer" parent="." unique_id=473467861 instance=ExtResource("1_xrxsx")]
