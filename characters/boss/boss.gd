@@ -9,27 +9,32 @@ signal atack_signal
 @export var canon_left: Node2D
 @export var canon_right: Node2D
 @export var head: Node2D
+@export var is_invincible: bool = false
 
 @export_category("Phases")
 @export var phases: Array[BossPhase]
 
-var phase = 1
+var int_phase = 1
 
 var current_phase: BossPhase
 var health: float = 0
 
 func _ready() -> void:
+	int_phase = 1
 	start_phase(phases.pop_front())
 
 
 func take_damage(damage: float) -> void:
+	if is_invincible:
+		return
 	health -= damage
 	print(health)
 	if health <= 0:
 		if phases.is_empty():
 			win()
 		else:
-			phase += 1
+			int_phase += 1
+			SoundtrackController.current_boss_phase = int_phase
 			start_phase(phases.pop_front())
 
 func win() -> void:
@@ -55,7 +60,11 @@ func start_phase(phase: BossPhase) -> void:
 	if current_phase != null:
 		for timer in current_phase.atack_timers:
 			timer.stop()
+		if current_phase.invincibility_timer != null:
+			current_phase.invincibility_timer.start()
 	current_phase = phase
 	for timer in phase.atack_timers:
 		timer.start()
+	if phase.invincibility_timer != null:
+		phase.invincibility_timer.start()
 	health = phase.phase_health

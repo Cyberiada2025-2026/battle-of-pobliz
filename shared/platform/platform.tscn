@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://067ws6ottosm"]
+[gd_scene format=4 uid="uid://067ws6ottosm"]
 
-[ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="1_miohr"]
-[ext_resource type="Script" uid="uid://dmstit5uiihke" path="res://shared/platform/platform.gd" id="1_r0myr"]
+[ext_resource type="TileSet" uid="uid://8a1g282xi7ff" path="res://shared/tiles/tileset_base.tres" id="3_it8b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0myr"]
-size = Vector2(176, 32)
+size = Vector2(192, 64)
 
 [node name="Platform" type="StaticBody2D" unique_id=514722482]
 collision_layer = 33
-script = ExtResource("1_r0myr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358786536]
 shape = SubResource("RectangleShape2D_r0myr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=513039065]
-scale = Vector2(1.375, 0.25)
-texture = ExtResource("1_miohr")
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2116446449]
+self_modulate = Color(0.6099125, 0.9041138, 0.75278825, 1)
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAIAAAD//wAAAQABAAIAAAAAAAAAAQABAAIAAAABAAAAAQADAAMAAAD+////AQABAAMAAAABAP//AQAAAAAAAAD/////AQADAAAAAAAAAP//AQADAAAAAAA=")
+tile_set = ExtResource("3_it8b7")
+collision_enabled = false

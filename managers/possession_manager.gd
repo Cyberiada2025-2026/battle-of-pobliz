@@ -47,7 +47,7 @@ func handle_possession() -> void:
 	elif Input.is_action_just_released("possess"):
 		Engine.time_scale = 1.0
 		post.visible = false
-		
+
 		pointer.visible = false
 		ray_cast.target_position = player_camera.get_global_mouse_position() - ray_cast.global_position
 		ray_cast.target_position *= 100000;
@@ -56,7 +56,7 @@ func handle_possession() -> void:
 		var collider = ray_cast.get_collider() as BodyController
 		if collider == null:
 			return
-		
+
 		vfx_line.points[0] = ray_cast.global_position
 		vfx_line.points[1] = collider.global_position + Vector2.UP * offset;
 		animator.play("switch")

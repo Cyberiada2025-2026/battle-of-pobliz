@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
+[ext_resource type="PackedScene" uid="uid://c6xudprc7sx4d" path="res://characters/boss/invincibility/invincibility_statue.tscn" id="6_po04d"]
 [ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
 [ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="8_kjbyf"]
@@ -15,10 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="9_jxhnd"]
 [ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
 [ext_resource type="Shader" uid="uid://gyhxefx7r3m" path="res://shared/vfx/body_switching/switch_line.gdshader" id="10_jxhnd"]
+[ext_resource type="PackedScene" uid="uid://by5d0ytcmlxkf" path="res://shared/background/background.tscn" id="10_nj41v"]
+[ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
+[ext_resource type="PackedScene" uid="uid://qaqp5lib5fjf" path="res://shared/background/column.tscn" id="20_ctedh"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
-normal = Vector2(0, 1)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jxhnd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ke0cn"]
+normal = Vector2(-1, 0)
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke0cn"]
 shader = ExtResource("8_kjbyf")
@@ -176,21 +184,29 @@ shader_parameter/warp_y = 0.1130000053675
 [node name="BattleArenaGraybox" type="Node2D" unique_id=320536822]
 process_mode = 1
 
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1832092565]
-collision_layer = 17
+[node name="SafetyBorders" type="StaticBody2D" parent="." unique_id=52918965]
+collision_layer = 64
+collision_mask = 0
 
-[node name="BoundaryUp" type="CollisionShape2D" parent="Boundaries" unique_id=109713781]
-position = Vector2(573, -56)
-shape = SubResource("WorldBoundaryShape2D_aud8f")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafetyBorders" unique_id=1080501250]
+position = Vector2(-1016, 5)
+shape = SubResource("WorldBoundaryShape2D_jxhnd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafetyBorders" unique_id=1196155848]
+position = Vector2(2171, 22)
+shape = SubResource("WorldBoundaryShape2D_ke0cn")
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
-position = Vector2(216, 400)
+position = Vector2(-56, 640)
 
 [node name="Platform2" parent="." unique_id=820172900 instance=ExtResource("1_0b70h")]
-position = Vector2(936, 400)
+position = Vector2(1200, 640)
 
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
-position = Vector2(576, 504)
+position = Vector2(904, 416)
+
+[node name="Platform4" parent="." unique_id=1823482265 instance=ExtResource("1_0b70h")]
+position = Vector2(240, 416)
 
 [node name="JumpingBody" parent="." unique_id=1224676810 node_paths=PackedStringArray("immediate_kill") instance=ExtResource("3_o0ro2")]
 position = Vector2(592, 416)
@@ -207,7 +223,7 @@ immediate_kill = [NodePath("Hitbox"), NodePath("CollisionShape2D"), NodePath("Re
 position = Vector2(8, -17)
 
 [node name="Boss" parent="." unique_id=113115272 instance=ExtResource("2_neadt")]
-position = Vector2(0, -50)
+position = Vector2(0, -72)
 
 [node name="PossessionManager" type="Node" parent="." unique_id=1791998767 node_paths=PackedStringArray("current_body", "player_camera", "ray_cast", "post", "pointer", "vfx_line", "animator") groups=["possession_manager"]]
 script = ExtResource("4_o0ro2")
@@ -271,6 +287,18 @@ collision_enabled = false
 script = ExtResource("9_vsb30")
 base_tilemap = NodePath("../StaticTilesBase")
 
+[node name="StatueManager" type="Node2D" parent="." unique_id=1899721031 node_paths=PackedStringArray("boss") groups=["statue_manager"]]
+script = ExtResource("11_04x3g")
+boss = NodePath("../Boss")
+
+[node name="InvincibilityStatue" parent="StatueManager" unique_id=1092350013 instance=ExtResource("6_po04d")]
+visible = false
+position = Vector2(-232, 296)
+
+[node name="InvincibilityStatue2" parent="StatueManager" unique_id=1658153824 instance=ExtResource("6_po04d")]
+visible = false
+position = Vector2(1384, 296)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
 [node name="BossBar" parent="CanvasLayer" unique_id=859401329 node_paths=PackedStringArray("boss") instance=ExtResource("8_70jce")]
@@ -297,3 +325,88 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Decorations" type="Node2D" parent="." unique_id=1066877437]
+
+[node name="Parallax2D" type="Parallax2D" parent="Decorations" unique_id=679776456]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="Background" parent="Decorations/Parallax2D" unique_id=2000219965 instance=ExtResource("10_nj41v")]
+z_index = -3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2448.0
+offset_top = -1856.0
+offset_right = 27552.0
+offset_bottom = 28144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="Decorations" unique_id=1134516236]
+
+[node name="Column3" parent="Decorations/Parallax2D2" unique_id=1225512703 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = 1024.0
+offset_right = -44.0
+offset_bottom = 2770.13
+grow_vertical = 0
+
+[node name="Column4" parent="Decorations/Parallax2D2" unique_id=580009577 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1319.9999
+offset_top = 1024.0
+offset_right = 1499.9999
+offset_bottom = 2770.13
+grow_vertical = 0
+
+[node name="Column" parent="Decorations/Parallax2D2" unique_id=512156800 instance=ExtResource("20_ctedh")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 456.00003
+offset_top = 896.00006
+offset_right = 625.6968
+offset_bottom = 1671.7573
+grow_vertical = 0
+
+[node name="Column2" parent="Decorations/Parallax2D2" unique_id=587929953 instance=ExtResource("20_ctedh")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 896.0
+offset_right = 809.6968
+offset_bottom = 1671.7573
+grow_vertical = 0
+
+[node name="Column5" parent="Decorations/Parallax2D2" unique_id=137047480 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 63.99997
+offset_top = 832.0
+offset_right = 243.99997
+offset_bottom = 3547.1514
+grow_vertical = 0
+
+[node name="Column6" parent="Decorations/Parallax2D2" unique_id=1865267102 instance=ExtResource("20_ctedh")]
+z_index = -2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1023.9999
+offset_top = 832.0
+offset_right = 1203.9999
+offset_bottom = 3547.1514
+grow_vertical = 0

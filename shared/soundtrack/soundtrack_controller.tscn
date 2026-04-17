@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://xpswvm5vxw5g"]
+
+[ext_resource type="Script" uid="uid://bd2lojewp6emn" path="res://shared/soundtrack/soundtrack_controller.gd" id="1_wjve3"]
+[ext_resource type="PackedScene" uid="uid://ohtg8lsl8i3x" path="res://shared/soundtrack/soundtrack_player.tscn" id="2_a1rwl"]
+[ext_resource type="AudioStream" uid="uid://bp2o4wd17ga2j" path="res://shared/soundtrack/main_loop_interactive.tres" id="3_wcph2"]
+
+[node name="SoundtrackController" type="Node" unique_id=925587112]
+script = ExtResource("1_wjve3")
+
+[node name="MainLoopPlayer" parent="." unique_id=231477553 instance=ExtResource("2_a1rwl")]
+stream = ExtResource("3_wcph2")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"

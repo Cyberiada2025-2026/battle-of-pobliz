@@ -15,14 +15,20 @@ run/main_scene="uid://dfqkxqnn8e5q0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://ctvvd2d6mpixi"
+
 [autoload]
 
 MainMenu="*uid://giqw1gbknsfk"
+SoundtrackController="*uid://xpswvm5vxw5g"
 
 [global_group]
 
 possession_manager=""
 arena_area_markers=""
+statue_manager=""
 
 [input]
 
@@ -77,6 +83,7 @@ debug_die={
 
 2d_physics/layer_5="Bullet Destroyer"
 2d_physics/layer_6="platform"
+2d_physics/layer_7="bullet_wall_destroyer"
 2d_physics/layer_8="Bodies"
 2d_physics/layer_9="PlayerAtacks"
 2d_physics/layer_10="BossAtacks"

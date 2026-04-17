@@ -11,6 +11,8 @@ signal zero_health
 @export var immediate_kill: Array[Node2D]
 @export var explosion: GPUParticles2D
 
+@export var dash_comp: DashComponent
+
 func _ready() -> void:
 	zero_health.connect(_on_zero_health)
 	for movement_comp in movement_components:
@@ -26,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(damage: float) -> void:
+	if dash_comp != null and dash_comp.is_dashing:
+		return
 	health -= damage
 	if health <= 0:
 		zero_health.emit()
