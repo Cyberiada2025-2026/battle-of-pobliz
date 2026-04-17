@@ -178,13 +178,16 @@ shader_parameter/warp_y = 0.1130000053675
 process_mode = 1
 
 [node name="Platform" parent="." unique_id=514722482 instance=ExtResource("1_0b70h")]
-position = Vector2(216, 400)
+position = Vector2(-56, 640)
 
 [node name="Platform2" parent="." unique_id=820172900 instance=ExtResource("1_0b70h")]
-position = Vector2(936, 400)
+position = Vector2(1200, 640)
 
 [node name="Platform3" parent="." unique_id=1130676387 instance=ExtResource("1_0b70h")]
-position = Vector2(576, 504)
+position = Vector2(904, 416)
+
+[node name="Platform4" parent="." unique_id=1823482265 instance=ExtResource("1_0b70h")]
+position = Vector2(240, 416)
 
 [node name="JumpingBody" parent="." unique_id=1224676810 instance=ExtResource("3_o0ro2")]
 position = Vector2(592, 416)
