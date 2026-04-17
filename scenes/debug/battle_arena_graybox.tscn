@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bd04here2r0gh" path="res://characters/bodies/prefabs/jumping_body.tscn" id="3_o0ro2"]
 [ext_resource type="Script" uid="uid://d14puh7xlterc" path="res://managers/possession_manager.gd" id="4_o0ro2"]
 [ext_resource type="PackedScene" uid="uid://cxm6tq32sgj4c" path="res://characters/bodies/wepons/revolver.tscn" id="5_2nv5k"]
+[ext_resource type="PackedScene" uid="uid://c6xudprc7sx4d" path="res://characters/boss/invincibility/invincibility_statue.tscn" id="6_po04d"]
 [ext_resource type="PackedScene" uid="uid://cy7pko314flel" path="res://characters/boss/boss_bar/boss_bar.tscn" id="8_70jce"]
 [ext_resource type="Texture2D" uid="uid://gt7fdcsesuf1" path="res://shared/tiles/Tilemap_base-export.png" id="8_aud8f"]
 [ext_resource type="Script" uid="uid://bol4tk55w3fk3" path="res://shared/tiles/autotiler_base.gd" id="9_3p7ir"]
 [ext_resource type="PackedScene" uid="uid://chpqinb64dahi" path="res://characters/bodies/health_bar/player_bar.tscn" id="9_aud8f"]
 [ext_resource type="Script" uid="uid://cne81e8dk57u2" path="res://shared/tiles/autotiler.gd" id="9_vsb30"]
+[ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aud8f"]
 normal = Vector2(0, 1)
@@ -187,6 +189,24 @@ tile_set = SubResource("TileSet_po04d")
 collision_enabled = false
 script = ExtResource("9_vsb30")
 base_tilemap = NodePath("../StaticTilesBase")
+
+[node name="StatueManager" type="Node2D" parent="." unique_id=1899721031 node_paths=PackedStringArray("boss", "statue_timer")]
+script = ExtResource("11_04x3g")
+boss = NodePath("../Boss")
+statue_timer = NodePath("Timer")
+
+[node name="InvincibilityStatue" parent="StatueManager" unique_id=1092350013 instance=ExtResource("6_po04d")]
+visible = false
+position = Vector2(-232, 296)
+
+[node name="InvincibilityStatue2" parent="StatueManager" unique_id=1658153824 instance=ExtResource("6_po04d")]
+visible = false
+position = Vector2(1384, 296)
+
+[node name="Timer" type="Timer" parent="StatueManager" unique_id=236421767]
+wait_time = 5.0
+one_shot = true
+autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 
