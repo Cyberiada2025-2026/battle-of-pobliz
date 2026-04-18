@@ -5,38 +5,53 @@
 [ext_resource type="Script" uid="uid://moi8ubohtdkb" path="res://characters/boss/elements/boss_damage_point.gd" id="2_ia5xw"]
 [ext_resource type="PackedScene" uid="uid://dv5d7u0iw72eo" path="res://scenes/victory_screan/win_screen.tscn" id="2_rrty7"]
 [ext_resource type="PackedScene" uid="uid://iuxjc1ulcj0h" path="res://characters/boss/atacks/atack_timer.tscn" id="3_4n3m3"]
-[ext_resource type="PackedScene" uid="uid://b0flpd3gh7rj8" path="res://characters/boss/elements/boss_canon.tscn" id="3_qypww"]
 [ext_resource type="Material" uid="uid://cdd8yg8khkyb2" path="res://shared/vfx/gray.tres" id="3_t67sm"]
-[ext_resource type="PackedScene" uid="uid://dkjmkti50wt0h" path="res://characters/boss/sprites/boss_central.tscn" id="4_g3f0a"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="5_hk2k4"]
+[ext_resource type="Texture2D" uid="uid://bvv1ph1emvd6c" path="res://characters/boss/sprites/boss_glass.png" id="5_uj4p4"]
 [ext_resource type="PackedScene" uid="uid://bbml0r7geci1j" path="res://characters/boss/Phases/base_phase.tscn" id="6_0i2t5"]
+[ext_resource type="Shader" uid="uid://sxy84hsb2fjw" path="res://characters/dmg_flash.gdshader" id="6_5xc1n"]
+[ext_resource type="Texture2D" uid="uid://durxg3vjaq8q5" path="res://characters/boss/sprites/boss_glass_broken.png" id="6_i8d8y"]
 [ext_resource type="Script" uid="uid://bo3gr3j0io7y4" path="res://characters/boss/atacks/basic_cannon_shot/basic_cannon_attack.gd" id="7_ka7n5"]
 [ext_resource type="Script" uid="uid://csfnbpo03kcl6" path="res://characters/boss/atacks/sky_lasers/sky_laser.gd" id="7_m373w"]
 [ext_resource type="Script" uid="uid://cscygqfx3271u" path="res://characters/boss/atacks/bullet_wall/bullet_wall.gd" id="7_w2qq7"]
+[ext_resource type="Texture2D" uid="uid://be7f1hk5qnutq" path="res://characters/boss/sprites/boss_central.png" id="7_ybsf6"]
 [ext_resource type="PackedScene" uid="uid://61gf52swtd7i" path="res://shared/projectiles/boss/targeting_bullet.tscn" id="8_0ag5n"]
 [ext_resource type="PackedScene" uid="uid://qox4jpn7l32q" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
+[ext_resource type="PackedScene" uid="uid://8duinvbed4p3" path="res://shared/background/cable_cap.tscn" id="8_46g77"]
 [ext_resource type="PackedScene" uid="uid://dx83lfllm8t7m" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
+[ext_resource type="Script" uid="uid://crhr1qmrihchj" path="res://characters/boss/elements/boss_canon.gd" id="8_dx7gh"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
 [ext_resource type="PackedScene" uid="uid://cwtsc018qtc3l" path="res://shared/projectiles/boss/basic_bullet.tscn" id="8_o1mjy"]
 [ext_resource type="Script" uid="uid://ca1fh3l7as2uq" path="res://characters/boss/atacks/targeting_laser/targeting_laser.gd" id="9_2uq1t"]
+[ext_resource type="Texture2D" uid="uid://blbmj3ult7et0" path="res://characters/boss/sprites/boss_side_wheel.png" id="9_gjv1f"]
+[ext_resource type="Texture2D" uid="uid://6hjnugsypc08" path="res://characters/boss/sprites/turret-new-spritesheet.png" id="10_e3jjj"]
 [ext_resource type="PackedScene" uid="uid://e75tobvh40nv" path="res://shared/projectiles/boss/big_spreading_bullet.tscn" id="11_0rd18"]
+[ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="11_uj4p4"]
+[ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="12_i8d8y"]
+[ext_resource type="Script" uid="uid://b0cgujh37e1kg" path="res://characters/flash.gd" id="14_i8d8y"]
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
-[ext_resource type="Script" uid="uid://bdt2jftwfsde" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
+[ext_resource type="Script" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
 [ext_resource type="Texture2D" uid="uid://tl3kxjoamtuq" path="res://characters/boss/sprites/Boss.png" id="22_ccpgt"]
+[ext_resource type="Shader" uid="uid://b3crc0qtij2mv" path="res://characters/boss/invincibility/shield.gdshader" id="24_nkp53"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnubm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8d8y"]
+shader = ExtResource("6_5xc1n")
+shader_parameter/flash_col = Color(1, 1, 1, 1)
+shader_parameter/anim = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uj4p4"]
 resource_local_to_scene = true
 shader = ExtResource("5_hk2k4")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/inner_radius = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkp53"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s320"]
 resource_local_to_scene = true
 shader = ExtResource("5_hk2k4")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/inner_radius = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xc1n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5uqem"]
 resource_local_to_scene = true
 shader = ExtResource("5_hk2k4")
 shader_parameter/color = Color(0, 0, 0, 1)
@@ -45,14 +60,230 @@ shader_parameter/inner_radius = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbcuv"]
 radius = 98.02041
 
-[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "phases")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwubs"]
+radius = 64.49806
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybsf6"]
+shader = ExtResource("6_5xc1n")
+shader_parameter/flash_col = Color(1, 1, 1, 1)
+shader_parameter/anim = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1yh5"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjhe6"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeatf"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gvay"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73k6y"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3aua"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(3200, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m31l"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(3840, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7fxe"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(4480, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf6rt"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(5120, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s570"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(5760, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ytej"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(6400, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhqfo"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(7040, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0odl"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(7680, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t5s1"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(8320, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3oye"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(8960, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgu3b"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(9600, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4676"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(10240, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baw4l"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(10880, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ktmd"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(11520, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv0bs"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(12160, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oiud"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(12800, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhdm1"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(13440, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in6wi"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(14080, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekwv6"]
+atlas = ExtResource("10_e3jjj")
+region = Rect2(14720, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywc0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yh5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjhe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeatf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73k6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3aua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m31l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7fxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf6rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s570")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ytej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhqfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0odl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t5s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3oye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgu3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4676")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baw4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ktmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv0bs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oiud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhdm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in6wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekwv6")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 60.0
+}]
+
+[sub_resource type="Resource" id="Resource_6w10v"]
+script = ExtResource("12_i8d8y")
+condition = "node.is_shooting"
+animation_name = "shoot"
+
+[sub_resource type="Resource" id="Resource_p1yh5"]
+script = ExtResource("12_i8d8y")
+condition = "not node.is_shooting"
+animation_name = "idle"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46g77"]
+shader = ExtResource("6_5xc1n")
+shader_parameter/flash_col = Color(1, 1, 1, 1)
+shader_parameter/anim = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22r4a"]
+shader = ExtResource("24_nkp53")
+shader_parameter/main_color = Color(0, 0.38700002, 0.54, 0.3764706)
+shader_parameter/sec_color = Color(0, 0.7882353, 0.8, 0.60784316)
+shader_parameter/stripes = 1.15300005150762
+shader_parameter/width = 0.800000038
+shader_parameter/speed = -3.999999715
+shader_parameter/border = 0.10000000475
+
+[node name="Boss" type="Node2D" unique_id=113115272 node_paths=PackedStringArray("canon_left", "canon_right", "head", "phases", "shields")]
 script = ExtResource("1_kwubs")
 death_scene = ExtResource("2_rrty7")
 canon_left = NodePath("hitbox/canons/Boss Canon")
 canon_right = NodePath("hitbox/canons/Boss Canon2")
 head = NodePath("hitbox/head")
 phases = [NodePath("Phases/Phase1"), NodePath("Phases/Phase2"), NodePath("Phases/Phase3")]
-mat = ExtResource("3_t67sm")
+shields = NodePath("Shields")
 
 [node name="hitbox" type="Node2D" parent="." unique_id=1614724602]
 material = ExtResource("3_t67sm")
@@ -66,21 +297,92 @@ boss = NodePath("../..")
 damage_multiply = 2.0
 metadata/_custom_type_script = "uid://moi8ubohtdkb"
 
-[node name="BossCentral" parent="hitbox/head" unique_id=1364872992 instance=ExtResource("4_g3f0a")]
+[node name="BossCentral" type="Control" parent="hitbox/head" unique_id=1364872992]
 use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
 offset_left = -198.0
 offset_top = -314.0
 offset_right = -158.0
 offset_bottom = -274.0
 
-[node name="Sprite2D" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="0" unique_id=222776981]
-material = SubResource("ShaderMaterial_fnubm")
+[node name="Sprite2D" type="Sprite2D" parent="hitbox/head/BossCentral" unique_id=1031654624]
+z_index = 1
+material = SubResource("ShaderMaterial_i8d8y")
+position = Vector2(203, 321)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uj4p4")
+script = ExtResource("14_i8d8y")
 
-[node name="Sprite2D2" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="1" unique_id=1088702953]
-material = SubResource("ShaderMaterial_nkp53")
+[node name="TextureRect2" type="TextureRect" parent="hitbox/head/BossCentral" unique_id=2030898269]
+use_parent_material = true
+layout_mode = 0
+offset_left = 100.0
+offset_top = 220.0
+offset_right = 1124.0
+offset_bottom = 1244.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_i8d8y")
 
-[node name="Sprite2D3" parent="hitbox/head/BossCentral/Cables" parent_id_path=PackedInt32Array(1364872992, 680163112) index="2" unique_id=688363146]
-material = SubResource("ShaderMaterial_5xc1n")
+[node name="NinePatchRect" type="NinePatchRect" parent="hitbox/head/BossCentral" unique_id=208553236]
+z_index = 2
+use_parent_material = true
+layout_mode = 0
+offset_right = 4096.0
+offset_bottom = 2600.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ybsf6")
+region_rect = Rect2(0, 0, 4096, 1796)
+patch_margin_top = 800
+patch_margin_bottom = 600
+axis_stretch_vertical = 2
+
+[node name="Cables" type="Control" parent="hitbox/head/BossCentral" unique_id=680163112]
+use_parent_material = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" parent="hitbox/head/BossCentral/Cables" unique_id=222776981 instance=ExtResource("8_46g77")]
+material = SubResource("ShaderMaterial_uj4p4")
+position = Vector2(0, 78.99999)
+scale = Vector2(0.175, 0.175)
+
+[node name="Line2D" type="Line2D" parent="hitbox/head/BossCentral/Cables/Sprite2D" unique_id=495504197]
+scale = Vector2(5.714285, 5.714285)
+points = PackedVector2Array(0, 0, 0, 45.765, 71.36, 150, 150, 150)
+width = 12.0
+default_color = Color(0.19215687, 0.23137255, 0.31764707, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite2D2" parent="hitbox/head/BossCentral/Cables" unique_id=1088702953 instance=ExtResource("8_46g77")]
+material = SubResource("ShaderMaterial_8s320")
+position = Vector2(86.99999, 79)
+scale = Vector2(0.175, 0.175)
+
+[node name="Line2D" type="Line2D" parent="hitbox/head/BossCentral/Cables/Sprite2D2" unique_id=1945554980]
+scale = Vector2(5.714285, 5.714285)
+points = PackedVector2Array(0, 0, 30, 0, 30, 50, 100, 50)
+default_color = Color(0.19215687, 0.23137255, 0.31764707, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite2D3" parent="hitbox/head/BossCentral/Cables" unique_id=688363146 instance=ExtResource("8_46g77")]
+material = SubResource("ShaderMaterial_5uqem")
+position = Vector2(382.99997, 144.00002)
+scale = Vector2(0.175, 0.175)
+
+[node name="Line2D" type="Line2D" parent="hitbox/head/BossCentral/Cables/Sprite2D3" unique_id=774327551]
+scale = Vector2(5.714285, 5.714285)
+points = PackedVector2Array(0, 0, -30, 30, -60, 30, -60, 60, -150, 60)
+width = 8.0
+default_color = Color(0.19215687, 0.23137255, 0.31764707, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/head" unique_id=1743887075]
 use_parent_material = true
@@ -91,13 +393,99 @@ shape = SubResource("CircleShape2D_vbcuv")
 use_parent_material = true
 position = Vector2(0, 170)
 
-[node name="Boss Canon" parent="hitbox/canons" unique_id=836624194 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]
+[node name="Boss Canon" type="Area2D" parent="hitbox/canons" unique_id=836624194 node_paths=PackedStringArray("boss")]
+use_parent_material = true
 position = Vector2(200, 0)
+collision_mask = 256
+script = ExtResource("8_dx7gh")
 boss = NodePath("../../..")
 
-[node name="Boss Canon2" parent="hitbox/canons" unique_id=245464660 node_paths=PackedStringArray("boss") instance=ExtResource("3_qypww")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/canons/Boss Canon" unique_id=16431274]
+use_parent_material = true
+shape = SubResource("CircleShape2D_kwubs")
+
+[node name="BossSide" type="Control" parent="hitbox/canons/Boss Canon" unique_id=485972996]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -96.0
+offset_right = -24.0
+offset_bottom = -56.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="hitbox/canons/Boss Canon/BossSide" unique_id=753745530]
+use_parent_material = true
+layout_mode = 0
+offset_left = -18.0
+offset_top = 14.0
+offset_right = 4078.0
+offset_bottom = 4110.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("9_gjv1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hitbox/canons/Boss Canon" unique_id=131997359]
+material = SubResource("ShaderMaterial_ybsf6")
+position = Vector2(0, -21)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ywc0n")
+animation = &"shoot"
+script = ExtResource("14_i8d8y")
+
+[node name="AnimationController" type="Node" parent="hitbox/canons/Boss Canon" unique_id=1930558754 node_paths=PackedStringArray("animated_sprite", "node")]
+script = ExtResource("11_uj4p4")
+animated_sprite = NodePath("../AnimatedSprite2D")
+node = NodePath("..")
+animations = Array[ExtResource("12_i8d8y")]([SubResource("Resource_6w10v"), SubResource("Resource_p1yh5")])
+metadata/_custom_type_script = "uid://b0a8px7pp8pvt"
+
+[node name="Boss Canon2" type="Area2D" parent="hitbox/canons" unique_id=245464660 node_paths=PackedStringArray("boss")]
+use_parent_material = true
 position = Vector2(900, 0)
+collision_mask = 256
+script = ExtResource("8_dx7gh")
 boss = NodePath("../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/canons/Boss Canon2" unique_id=970085016]
+use_parent_material = true
+shape = SubResource("CircleShape2D_kwubs")
+
+[node name="BossSide" type="Control" parent="hitbox/canons/Boss Canon2" unique_id=725816310]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -96.0
+offset_right = -24.0
+offset_bottom = -56.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="hitbox/canons/Boss Canon2/BossSide" unique_id=670745841]
+use_parent_material = true
+layout_mode = 0
+offset_left = -18.0
+offset_top = 14.0
+offset_right = 4078.0
+offset_bottom = 4110.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("9_gjv1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hitbox/canons/Boss Canon2" unique_id=1997447132]
+material = SubResource("ShaderMaterial_46g77")
+position = Vector2(0, -21)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ywc0n")
+animation = &"shoot"
+script = ExtResource("14_i8d8y")
+
+[node name="AnimationController" type="Node" parent="hitbox/canons/Boss Canon2" unique_id=1673205842 node_paths=PackedStringArray("animated_sprite", "node")]
+script = ExtResource("11_uj4p4")
+animated_sprite = NodePath("../AnimatedSprite2D")
+node = NodePath("..")
+animations = Array[ExtResource("12_i8d8y")]([SubResource("Resource_6w10v"), SubResource("Resource_p1yh5")])
+metadata/_custom_type_script = "uid://b0a8px7pp8pvt"
 
 [node name="Phases" type="Node2D" parent="." unique_id=894717220]
 
@@ -291,6 +679,34 @@ position = Vector2(552, 568.00006)
 scale = Vector2(0.2375, 0.2375)
 texture = ExtResource("22_ccpgt")
 
-[connection signal="atack_signal" from="." to="." method="_on_atack_signal"]
+[node name="Shields" type="Node2D" parent="." unique_id=214201978]
 
-[editable path="hitbox/head/BossCentral"]
+[node name="Central" type="Sprite2D" parent="Shields" unique_id=807351570]
+z_index = 2
+material = SubResource("ShaderMaterial_22r4a")
+position = Vector2(555, 322)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_850g2")
+
+[node name="Side1" type="Sprite2D" parent="Shields" unique_id=1025170580]
+z_index = 2
+material = SubResource("ShaderMaterial_22r4a")
+position = Vector2(900, 169)
+texture = ExtResource("2_850g2")
+
+[node name="Side2" type="Sprite2D" parent="Shields" unique_id=1240151903]
+z_index = 2
+material = SubResource("ShaderMaterial_22r4a")
+position = Vector2(200, 169)
+texture = ExtResource("2_850g2")
+
+[connection signal="atack_signal" from="." to="." method="_on_atack_signal"]
+[connection signal="invincibility_off" from="." to="hitbox/head/BossCentral/Sprite2D" method="unlock"]
+[connection signal="invincibility_off" from="." to="hitbox/canons/Boss Canon/AnimatedSprite2D" method="unlock"]
+[connection signal="invincibility_off" from="." to="hitbox/canons/Boss Canon2/AnimatedSprite2D" method="unlock"]
+[connection signal="invincibility_on" from="." to="hitbox/head/BossCentral/Sprite2D" method="lock"]
+[connection signal="invincibility_on" from="." to="hitbox/canons/Boss Canon/AnimatedSprite2D" method="lock"]
+[connection signal="invincibility_on" from="." to="hitbox/canons/Boss Canon2/AnimatedSprite2D" method="lock"]
+[connection signal="on_dmg" from="hitbox/head" to="hitbox/head/BossCentral/Sprite2D" method="flash"]
+[connection signal="on_dmg" from="hitbox/canons/Boss Canon" to="hitbox/canons/Boss Canon/AnimatedSprite2D" method="flash"]
+[connection signal="on_dmg" from="hitbox/canons/Boss Canon2" to="hitbox/canons/Boss Canon2/AnimatedSprite2D" method="flash"]

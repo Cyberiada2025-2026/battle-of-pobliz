@@ -1,6 +1,8 @@
 extends Area2D
 class_name BossDamagePoint
 
+signal on_dmg;
+
 @export var boss: Boss
 @export var damage_multiply: float = 1.0
 
@@ -10,5 +12,6 @@ func _ready() -> void:
 
 func _damage_detection(node: Node) -> void:
 	boss.take_damage(node.damageComponent.get_damage() * damage_multiply)
+	on_dmg.emit()
 	if node is RigidBody2D:
 		node.destroy()

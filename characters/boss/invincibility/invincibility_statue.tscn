@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p7ir"]
 size = Vector2(128, 128)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b8ckm"]
+light_mode = 1
+
 [node name="InvincibilityStatue" type="Area2D" unique_id=1092350013]
 collision_layer = 0
 collision_mask = 128
@@ -18,6 +21,8 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_3p7ir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1489658701]
+modulate = Color(0, 0.79607844, 0.9411765, 1)
+material = SubResource("CanvasItemMaterial_b8ckm")
 position = Vector2(0, 3)
 scale = Vector2(0.29375, 0.29375)
 texture = ExtResource("2_b8ckm")

@@ -2,6 +2,8 @@ extends Node2D
 class_name Boss
 
 signal atack_signal
+signal invincibility_on
+signal invincibility_off
 
 @export var death_scene: PackedScene
 @onready var sprite_changer: Node2D = $SpriteChanger
@@ -15,7 +17,7 @@ signal atack_signal
 @export_category("Phases")
 @export var phases: Array[BossPhase]
 
-@export var mat: ShaderMaterial
+@export var shields: Node2D
 
 var int_phase = 1
 
@@ -29,9 +31,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_invincible:
-		mat.set_shader_parameter("on", 1.0)
+		shields.visible = true
+		invincibility_on.emit()
 	else:
-		mat.set_shader_parameter("on", 0.0)
+		shields.visible = false
+		invincibility_off.emit()
 
 func take_damage(damage: float) -> void:
 	if is_invincible:
