@@ -60,7 +60,7 @@ func spawn_wall_segment(hole_position: int):
 		bullet.linear_velocity = (move_direction * bullet_speed)
 
 		bullet.global_position = Vector2(
-			floor_dimensions[int((direction + 1) / 2.0)],
+			floor_dimensions[int((direction + 1) / 2.0)] - bullet_speed * direction,
 			wall_bounds.x + arena_height / height_bullet_count * i + bullet.get_node("CollisionShape2D").shape.radius * 2
 		)
 

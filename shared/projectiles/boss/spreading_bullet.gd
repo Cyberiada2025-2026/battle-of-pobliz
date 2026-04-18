@@ -15,7 +15,8 @@ func _ready() -> void:
 	bullet_graphic.bullet_shot.emitting = true
 
 func _on_body_entered(body: Node) -> void:
-	if body is Platform:
+	if body is Platform and can_destroy_platforms:
+		print("F")
 		body.destroy()
 	spread()
 	bullet_graphic.bullet_hit.emitting = true

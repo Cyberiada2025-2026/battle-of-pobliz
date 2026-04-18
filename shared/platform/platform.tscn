@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://067ws6ottosm"]
 
+[ext_resource type="Script" uid="uid://dmstit5uiihke" path="res://shared/platform/platform.gd" id="1_r0myr"]
 [ext_resource type="TileSet" uid="uid://8a1g282xi7ff" path="res://shared/tiles/tileset_base.tres" id="3_it8b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0myr"]
@@ -7,6 +8,8 @@ size = Vector2(192, 64)
 
 [node name="Platform" type="StaticBody2D" unique_id=514722482]
 collision_layer = 33
+script = ExtResource("1_r0myr")
+destruction_timeout = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358786536]
 shape = SubResource("RectangleShape2D_r0myr")

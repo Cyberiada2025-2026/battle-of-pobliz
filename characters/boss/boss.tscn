@@ -241,6 +241,15 @@ cannons = [NodePath("../../../../hitbox/canons/Boss Canon"), NodePath("../../../
 ammo_prefab = ExtResource("8_0ag5n")
 metadata/_custom_type_script = "uid://bo3gr3j0io7y4"
 
+[node name="BulletWall" type="Node" parent="Phases/Phase3/Attacks" unique_id=1929446890]
+script = ExtResource("7_w2qq7")
+wall_thickness = 4
+shot_cooldown = 0.125
+height_bullet_count = 30
+hole_size = 6
+ammo_prefab = ExtResource("8_dgtul")
+metadata/_custom_type_script = "uid://cscygqfx3271u"
+
 [node name="BulletWall2" type="Node" parent="Phases/Phase3/Attacks" unique_id=533192620]
 script = ExtResource("7_w2qq7")
 wall_thickness = 1
@@ -248,15 +257,6 @@ shot_cooldown = 0.15
 height_bullet_count = 40
 hole_size = 7
 bullet_speed = 250
-ammo_prefab = ExtResource("8_dgtul")
-metadata/_custom_type_script = "uid://cscygqfx3271u"
-
-[node name="BulletWall" type="Node" parent="Phases/Phase3/Attacks" unique_id=1929446890]
-script = ExtResource("7_w2qq7")
-wall_thickness = 4
-shot_cooldown = 0.125
-height_bullet_count = 30
-hole_size = 6
 ammo_prefab = ExtResource("8_dgtul")
 metadata/_custom_type_script = "uid://cscygqfx3271u"
 

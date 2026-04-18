@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 
 func destroy():
+	print("XD")
 	timeout = destruction_timeout
 	get_node("CollisionShape2D").set_deferred("disabled", true)
 	hide()
