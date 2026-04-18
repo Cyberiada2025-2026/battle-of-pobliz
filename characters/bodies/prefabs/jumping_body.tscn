@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bd04here2r0gh"]
 
 [ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller/body_controller.gd" id="1_hgofc"]
+[ext_resource type="Shader" uid="uid://sxy84hsb2fjw" path="res://characters/dmg_flash.gdshader" id="2_05mpl"]
 [ext_resource type="Texture2D" uid="uid://s0ion4qqglsc" path="res://characters/bodies/spritesheets/jumping_body/Idle-spirtesheet.png" id="2_7vlab"]
 [ext_resource type="Texture2D" uid="uid://1tbri1xsykma" path="res://characters/bodies/spritesheets/jumping_body/Jump-spritesheet.png" id="2_ccsll"]
 [ext_resource type="Script" uid="uid://bmjqr5j3dytcc" path="res://characters/bodies/movement_components/gravity_component.gd" id="3_eey7s"]
 [ext_resource type="Script" uid="uid://cai4lr5qdgs4l" path="res://characters/bodies/movement_components/grounded_movement_component.gd" id="4_7vlab"]
 [ext_resource type="Texture2D" uid="uid://cnfsuo4o5l2lb" path="res://characters/bodies/spritesheets/jumping_body/Walk-spritesheet.png" id="4_ac3ir"]
+[ext_resource type="Script" uid="uid://b0cgujh37e1kg" path="res://characters/flash.gd" id="5_1f6tn"]
 [ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/movement_components/jump_component.gd" id="5_qtlex"]
 [ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="6_7vlab"]
 [ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="9_ac3ir"]
@@ -13,6 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="11_rdsjl"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="12_4maix"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="13_1f6tn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkorp"]
+shader = ExtResource("2_05mpl")
+shader_parameter/flash_col = Color(1, 1, 1, 1)
+shader_parameter/anim = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijxkh"]
 atlas = ExtResource("2_ccsll")
@@ -535,11 +542,13 @@ dash_comp = NodePath("DashComponent")
 type = "jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052828906]
+material = SubResource("ShaderMaterial_nkorp")
 position = Vector2(-1.1920929e-06, -27)
 scale = Vector2(0.2, 0.20000002)
 sprite_frames = SubResource("SpriteFrames_ijxkh")
 animation = &"fall"
 frame_progress = 0.6947117
+script = ExtResource("5_1f6tn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632693015]
 position = Vector2(0, -24)
@@ -649,3 +658,5 @@ lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_g51ap")
+
+[connection signal="take_dmg" from="." to="AnimatedSprite2D" method="flash"]

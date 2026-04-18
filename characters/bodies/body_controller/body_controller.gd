@@ -2,6 +2,7 @@ class_name BodyController
 extends CharacterBody2D
 
 signal zero_health
+signal take_dmg
 
 ## put controllers here in order of evaluation
 @export var movement_components: Array[Node] = []
@@ -32,6 +33,7 @@ func take_damage(damage: float) -> void:
 	if dash_comp != null and dash_comp.is_dashing_invis:
 		return
 	health -= damage
+	take_dmg.emit()
 	if health <= 0:
 		zero_health.emit()
 

@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://by5d0ytcmlxkf" path="res://shared/background/background.tscn" id="10_nj41v"]
 [ext_resource type="Script" uid="uid://be8ocylt7vjxy" path="res://characters/boss/invincibility/statue_manager.gd" id="11_04x3g"]
 [ext_resource type="Shader" uid="uid://b6sexrkmrq17l" path="res://shared/vfx/body_switching/body_switch_post.gdshader" id="13_po04d"]
+[ext_resource type="Shader" uid="uid://ce84gyqoddsv6" path="res://characters/boss/invincibility/charger.gdshader" id="16_0qyeu"]
 [ext_resource type="Script" uid="uid://d012tq4dgjyba" path="res://shared/steering_hud/steering.gd" id="19_eyq3p"]
 [ext_resource type="PackedScene" uid="uid://qaqp5lib5fjf" path="res://shared/background/column.tscn" id="20_ctedh"]
 
@@ -175,6 +176,14 @@ terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.2637906, 0.41156307, 0.46176362, 1)
 sources/1 = SubResource("TileSetAtlasSource_3p7ir")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xv7g"]
+shader = ExtResource("16_0qyeu")
+shader_parameter/main_color = Color(0.27999997, 0.98800015, 1, 0.84313726)
+shader_parameter/sec_color = Color(0, 0.5231667, 0.73, 0.7294118)
+shader_parameter/stripes = 2.26900010451762
+shader_parameter/width = 0.2000000095
+shader_parameter/speed = -4.9999997625
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_04x3g"]
 shader = ExtResource("13_po04d")
 shader_parameter/tint = Color(0.7, 0.6825, 0.63, 1)
@@ -309,8 +318,22 @@ boss = NodePath("../Boss")
 [node name="InvincibilityStatue" parent="StatueManager" unique_id=1092350013 instance=ExtResource("6_po04d")]
 position = Vector2(-232, 325.35)
 
+[node name="Line2D" type="Line2D" parent="StatueManager/InvincibilityStatue" unique_id=426355344]
+z_index = -1
+material = SubResource("ShaderMaterial_3xv7g")
+points = PackedVector2Array(0, 0, 800, -50)
+width = 20.0
+texture_mode = 2
+
 [node name="InvincibilityStatue2" parent="StatueManager" unique_id=1658153824 instance=ExtResource("6_po04d")]
 position = Vector2(1384, 325.35)
+
+[node name="Line2D" type="Line2D" parent="StatueManager/InvincibilityStatue2" unique_id=535190536]
+z_index = -1
+material = SubResource("ShaderMaterial_3xv7g")
+points = PackedVector2Array(0, 0, -800, -50)
+width = 20.0
+texture_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=487798607]
 

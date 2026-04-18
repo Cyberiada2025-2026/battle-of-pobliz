@@ -2,15 +2,22 @@
 
 [ext_resource type="Script" uid="uid://bhjdolxvwyq8j" path="res://characters/bodies/body_controller/body_controller.gd" id="1_27qwu"]
 [ext_resource type="Texture2D" uid="uid://5ms6178v8iam" path="res://characters/bodies/spritesheets/flying_body/Fly-fly.png" id="2_4eihk"]
+[ext_resource type="Shader" uid="uid://sxy84hsb2fjw" path="res://characters/dmg_flash.gdshader" id="2_as12g"]
 [ext_resource type="Script" uid="uid://d4dsitxe5jlu5" path="res://characters/bodies/movement_components/flight_movement_component.gd" id="3_l2bm4"]
 [ext_resource type="Texture2D" uid="uid://bollbdxh4uy0p" path="res://characters/bodies/spritesheets/flying_body/Fly-idle.png" id="3_vxi8v"]
 [ext_resource type="Script" uid="uid://cijxtrewmfaq0" path="res://characters/bodies/vfx/character_particle.gd" id="4_4eihk"]
+[ext_resource type="Script" uid="uid://b0cgujh37e1kg" path="res://characters/flash.gd" id="4_63a0b"]
 [ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="4_a2jxi"]
 [ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="7_x5q24"]
 [ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="8_4n8h4"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="9_x5q24"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="10_4n8h4"]
 [ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="11_4n8h4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iirjb"]
+shader = ExtResource("2_as12g")
+shader_parameter/flash_col = Color(1, 1, 1, 1)
+shader_parameter/anim = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63a0b"]
 atlas = ExtResource("2_4eihk")
@@ -511,10 +518,12 @@ dash_comp = NodePath("DashComponent")
 type = "flight"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719674715]
+material = SubResource("ShaderMaterial_iirjb")
 position = Vector2(0, -23.999998)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_iacjs")
 animation = &"flying"
+script = ExtResource("4_63a0b")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=661952637 node_paths=PackedStringArray("sprite")]
 z_index = -1
@@ -600,3 +609,5 @@ lifetime = 0.15000000000000002
 one_shot = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_vu0wj")
+
+[connection signal="take_dmg" from="." to="AnimatedSprite2D" method="flash"]
