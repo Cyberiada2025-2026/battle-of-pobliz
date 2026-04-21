@@ -2,7 +2,7 @@
 extends Node2D
 class_name  BulletGraphic
 
- 
+
 @export var bullet_basic: Node
 @export var bullet_shot: GPUParticles2D
 @export var bullet_hit: GPUParticles2D

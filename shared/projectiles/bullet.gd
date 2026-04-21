@@ -29,6 +29,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func destroy_with_animation():
+	$CollisionShape2D.set_deferred("disabled", true)
 	bullet_graphic.bullet_hit.emitting = true
 	call_deferred("set_contact_monitor", false)
 	bullet_graphic.bullet_basic.queue_free()

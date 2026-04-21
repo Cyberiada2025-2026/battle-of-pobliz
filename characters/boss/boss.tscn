@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://be7f1hk5qnutq" path="res://characters/boss/sprites/boss_central.png" id="7_ybsf6"]
 [ext_resource type="PackedScene" uid="uid://61gf52swtd7i" path="res://shared/projectiles/boss/targeting_bullet.tscn" id="8_0ag5n"]
 [ext_resource type="PackedScene" uid="uid://qox4jpn7l32q" path="res://shared/projectiles/boss/bouncing_bullet.tscn" id="8_3fvqf"]
-[ext_resource type="PackedScene" uid="uid://8duinvbed4p3" path="res://shared/background/cable_cap.tscn" id="8_46g77"]
+[ext_resource type="PackedScene" path="res://shared/background/cable_cap.tscn" id="8_46g77"]
 [ext_resource type="PackedScene" uid="uid://dx83lfllm8t7m" path="res://shared/projectiles/boss/wall_bullet.tscn" id="8_dgtul"]
 [ext_resource type="Script" uid="uid://crhr1qmrihchj" path="res://characters/boss/elements/boss_canon.gd" id="8_dx7gh"]
 [ext_resource type="PackedScene" uid="uid://bl0iq7okwyc5m" path="res://characters/boss/atacks/combined_atack/combined_atack.tscn" id="8_m373w"]
@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="12_i8d8y"]
 [ext_resource type="Script" uid="uid://b0cgujh37e1kg" path="res://characters/flash.gd" id="14_i8d8y"]
 [ext_resource type="PackedScene" uid="uid://plnqa8e52x8" path="res://shared/projectiles/boss/spreading_bullet_destructing_platforms.tscn" id="14_wd5nw"]
-[ext_resource type="Script" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
+[ext_resource type="Script" uid="uid://bdt2jftwfsde" path="res://characters/boss/Phases/sprite_changer.gd" id="21_ccpgt"]
 [ext_resource type="Texture2D" uid="uid://tl3kxjoamtuq" path="res://characters/boss/sprites/Boss.png" id="22_ccpgt"]
 [ext_resource type="Shader" uid="uid://b3crc0qtij2mv" path="res://characters/boss/invincibility/shield.gdshader" id="24_nkp53"]
 
@@ -39,12 +39,6 @@ shader = ExtResource("6_5xc1n")
 shader_parameter/flash_col = Color(1, 1, 1, 1)
 shader_parameter/anim = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uj4p4"]
-resource_local_to_scene = true
-shader = ExtResource("5_hk2k4")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/inner_radius = 0.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s320"]
 resource_local_to_scene = true
 shader = ExtResource("5_hk2k4")
@@ -52,6 +46,12 @@ shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/inner_radius = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5uqem"]
+resource_local_to_scene = true
+shader = ExtResource("5_hk2k4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdgki"]
 resource_local_to_scene = true
 shader = ExtResource("5_hk2k4")
 shader_parameter/color = Color(0, 0, 0, 1)
@@ -344,7 +344,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D" parent="hitbox/head/BossCentral/Cables" unique_id=222776981 instance=ExtResource("8_46g77")]
-material = SubResource("ShaderMaterial_uj4p4")
+material = SubResource("ShaderMaterial_8s320")
 position = Vector2(0, 78.99999)
 scale = Vector2(0.175, 0.175)
 
@@ -358,7 +358,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D2" parent="hitbox/head/BossCentral/Cables" unique_id=1088702953 instance=ExtResource("8_46g77")]
-material = SubResource("ShaderMaterial_8s320")
+material = SubResource("ShaderMaterial_5uqem")
 position = Vector2(86.99999, 79)
 scale = Vector2(0.175, 0.175)
 
@@ -371,7 +371,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D3" parent="hitbox/head/BossCentral/Cables" unique_id=688363146 instance=ExtResource("8_46g77")]
-material = SubResource("ShaderMaterial_5uqem")
+material = SubResource("ShaderMaterial_qdgki")
 position = Vector2(382.99997, 144.00002)
 scale = Vector2(0.175, 0.175)
 
