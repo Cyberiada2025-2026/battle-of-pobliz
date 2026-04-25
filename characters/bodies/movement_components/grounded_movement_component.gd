@@ -13,6 +13,8 @@ func apply(_delta: float) -> void:
 	var vel_change: float = 0.0
 	if is_zero_approx(movement_direction):
 		vel_change = -min(sign(body.velocity.x) * deceleration, body.velocity.x)
+	elif sign(movement_direction) != sign(body.velocity.x):
+		vel_change = movement_direction * deceleration
 	else:
 		vel_change = movement_direction * acceleration 
 
