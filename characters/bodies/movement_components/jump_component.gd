@@ -39,3 +39,6 @@ func apply(_delta: float) -> void:
 			body.velocity.y = -jump_velocity
 			jump_vfx.restart()
 			jump_vfx.emitting = true
+
+	if Input.is_action_just_released("jump") and body.velocity.y < 0:
+		body.velocity.y /= 2
