@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bv0a0uif4y5pk" path="res://characters/bodies/movement_components/jump_component.gd" id="5_qtlex"]
 [ext_resource type="Script" uid="uid://bild5byc75yh0" path="res://characters/bodies/movement_components/dash_component.gd" id="6_7vlab"]
 [ext_resource type="Script" uid="uid://b0a8px7pp8pvt" path="res://characters/bodies/body_controller/animation_controller.gd" id="9_ac3ir"]
-[ext_resource type="Script" path="res://characters/bodies/body_controller/conditional_animation.gd" id="10_uebjb"]
+[ext_resource type="Script" uid="uid://bawu1u45d1di1" path="res://characters/bodies/body_controller/conditional_animation.gd" id="10_uebjb"]
 [ext_resource type="PackedScene" uid="uid://b3sftymc3yyei" path="res://characters/bodies/hitbox/hitbox.tscn" id="11_rdsjl"]
 [ext_resource type="Shader" uid="uid://dh4cx35c1gxji" path="res://shared/vfx/bullet/hit/ring.gdshader" id="12_4maix"]
 [ext_resource type="Texture2D" uid="uid://c3k005nrcyle2" path="res://icon.svg" id="13_1f6tn"]
@@ -565,11 +565,13 @@ acceleration = 50.0
 deceleration = 200.0
 metadata/_custom_type_script = "uid://cai4lr5qdgs4l"
 
-[node name="JumpComponent" type="Node" parent="." unique_id=2080854299 node_paths=PackedStringArray("jump_vfx", "land_vfx")]
+[node name="JumpComponent" type="Node" parent="." unique_id=2080854299 node_paths=PackedStringArray("jump_vfx", "land_vfx", "jump_buffer_ray")]
 script = ExtResource("5_qtlex")
 jump_velocity = 650.0
 jump_vfx = NodePath("../VFX/Jump")
 land_vfx = NodePath("../VFX/Landing")
+jump_buffer_time = 0.2
+jump_buffer_ray = NodePath("../RayCastFloor")
 metadata/_custom_type_script = "uid://bv0a0uif4y5pk"
 
 [node name="DashComponent" type="Node" parent="." unique_id=802304448 node_paths=PackedStringArray("vfx")]
@@ -658,5 +660,8 @@ lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_g51ap")
+
+[node name="RayCastFloor" type="RayCast2D" parent="." unique_id=1641377819]
+target_position = Vector2(0, 32)
 
 [connection signal="take_dmg" from="." to="AnimatedSprite2D" method="flash"]
