@@ -20,7 +20,7 @@ func use():
 	var offset = randi_range(0, cannons.size())
 	for i in shot_series:
 		shot_serie(cannons[(i + offset) % cannons.size()])
-		await get_tree().create_timer(shot_series_cooldown).timeout
+		await get_tree().create_timer(shot_series_cooldown, false).timeout
 
 
 func shot_serie(cannon: BossCanon):
@@ -40,5 +40,5 @@ func shot_serie(cannon: BossCanon):
 		bullet.linear_velocity = (move_direction * bullet_speed)
 		bullet.global_position = cannon.global_position
 
-		await get_tree().create_timer(shot_cooldown).timeout
+		await get_tree().create_timer(shot_cooldown, false).timeout
 	cannon.is_shooting = false

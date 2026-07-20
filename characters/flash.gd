@@ -11,7 +11,7 @@ func flash() -> void:
 		return
 	var tween = get_tree().create_tween()
 	tween.tween_method(
-  func(value): material.set_shader_parameter("anim", value),  
+  func(value): material.set_shader_parameter("anim", value),
   0.0,  # Start value
   1.0,  # End value
   time     # Duration

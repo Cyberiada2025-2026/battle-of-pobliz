@@ -10,4 +10,3 @@ func _process(delta: float) -> void:
 		print("!!!!")
 		check = !check
 		mat.direction.x *= -1.0
-		

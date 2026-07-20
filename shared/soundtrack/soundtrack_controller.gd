@@ -5,7 +5,7 @@ var current_scene = 0
 var current_boss_phase = 0
 # 0 is main menu
 # 1 is pause menu
-# 2 is bossfight  
+# 2 is bossfight
 
 var main_loop_player : AudioStreamPlayer
 # var menu_loop_player : AudioStreamPlayer = get_child(1)
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			main_loop_player.volume_db = -6
 		else:
 			main_loop_player.volume_db = 0
-			
+
 		# Advance music through phases
 		if current_boss_phase < 2 && main_loop_playback.get_current_clip_index() != 0:
 			main_loop_playback.switch_to_clip(0)
