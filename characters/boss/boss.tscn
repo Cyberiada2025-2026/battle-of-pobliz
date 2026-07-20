@@ -675,7 +675,7 @@ script = ExtResource("21_ccpgt")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpriteChanger" unique_id=714827781]
 visible = false
-position = Vector2(552, 568.00006)
+position = Vector2(552, 574.5)
 scale = Vector2(0.2375, 0.2375)
 texture = ExtResource("22_ccpgt")
 
