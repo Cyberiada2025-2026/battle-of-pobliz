@@ -51,7 +51,7 @@ func take_damage(damage: float) -> void:
 			start_phase(phases.pop_front())
 
 func win() -> void:
-	get_tree().change_scene_to_packed(death_scene)
+	get_tree().call_deferred("change_scene_to_packed", death_scene)
 
 func _on_atack_signal() -> void:
 	random_atack()

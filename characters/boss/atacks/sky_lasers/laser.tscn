@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://di06efe461iqf"]
 
 [ext_resource type="Script" uid="uid://lvdktrosqc6q" path="res://shared/damage_component/damage_component.gd" id="1_tnqba"]
-[ext_resource type="Script" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
+[ext_resource type="Script" uid="uid://brd2yakhtv8si" path="res://characters/boss/atacks/laser.gd" id="1_wd6lo"]
 [ext_resource type="Shader" uid="uid://cx1w4mpgeosli" path="res://characters/boss/atacks/sky_lasers/laser.gdshader" id="2_3rqgo"]
 [ext_resource type="PackedScene" uid="uid://cus5eoy65yytj" path="res://shared/sfx/sfx_player.tscn" id="3_nnway"]
 [ext_resource type="AudioStream" uid="uid://dm7jrc3frqylm" path="res://shared/sfx/laser-strzał.wav" id="4_nnway"]
